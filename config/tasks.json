@@ -1,9 +1,4 @@
 {
-  "settle_seconds": 8,
-  "send_text": false,
-  "text_template": "视频已发送：{filename}",
-  "python_bin": "/home/zhihao/miniconda3/bin/python",
-  "log_file": "~/Code/auto_notify/qq_bot/watch_and_send_qq.log",
   "tasks": [
     {
       "name": "genesis-videos",
@@ -48,6 +43,26 @@
     {
       "name": "DEXER-mzh-videos",
       "local_dir": "~/Code/save_fire/DEXER/src_mzh/runtime/videos",
+      "recursive": true,
+      "send_text": false,
+      "text_template": "视频已发送：{filename}",
+      "include_suffixes": [
+        ".mp4"
+      ],
+      "exclude_globs": [
+        "*.tmp",
+        "*.part",
+        "*.swp",
+        "*.swx",
+        "*.crdownload",
+        "__pycache__",
+        ".ipynb_checkpoints"
+      ],
+      "hash_small_files_only_mb": 16
+    },
+    {
+      "name": "DEXER0423-mzh-videos",
+      "local_dir": "~/Code/save_fire/DEXER0423/src_mzh/runtime/videos",
       "recursive": true,
       "send_text": false,
       "text_template": "视频已发送：{filename}",

@@ -65,7 +65,7 @@ def main():
         sys.exit(1)
 
     if len(sys.argv) < 2:
-        print("用法: python send_qq_text.py 你要发送的文本", file=sys.stderr)
+        print("用法: python src/qq_bot/send_qq_text.py 你要发送的文本", file=sys.stderr)
         sys.exit(1)
 
     content = " ".join(sys.argv[1:]).strip()

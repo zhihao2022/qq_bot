@@ -24,6 +24,8 @@ except ModuleNotFoundError as exc:
 
 
 STOP = False
+SCRIPT_DIR = Path(__file__).resolve().parent
+PROJECT_DIR = SCRIPT_DIR.parents[1]
 
 DEFAULT_EXCLUDE_GLOBS = [
     "*.tmp", "*.part", "*.swp", "*.swx", "*.crdownload",
@@ -48,7 +50,7 @@ def normalize_command_path(path_str: str, default: str) -> str:
     return raw
 
 
-def load_json(path: Path, default: Dict[str, Any]) -> Dict[str, Any]:
+def load_json(path: Path, default: Any) -> Any:
     if not path.exists():
         return default
     with path.open("r", encoding="utf-8") as f:
@@ -61,6 +63,24 @@ def save_json_atomic(path: Path, data: Dict[str, Any]) -> None:
     with tmp.open("w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2, sort_keys=True)
     tmp.replace(path)
+
+
+def expand_path_from(base_dir: Path, path_str: str, default: str) -> str:
+    raw = str(path_str or default).strip()
+    if not raw:
+        raw = default
+    expanded = Path(os.path.expandvars(os.path.expanduser(raw)))
+    if not expanded.is_absolute():
+        expanded = base_dir / expanded
+    return str(expanded.resolve())
+
+
+def file_version(path: Path) -> Optional[Tuple[int, int]]:
+    try:
+        st = path.stat()
+    except FileNotFoundError:
+        return None
+    return st.st_mtime_ns, st.st_size
 
 
 def matches_any_glob(rel_path: str, globs: List[str]) -> bool:
@@ -94,18 +114,40 @@ def normalize_task(raw_task: Dict[str, Any], default_send_text: bool, default_te
     return task
 
 
+def normalize_tasks(raw_tasks: Any, default_send_text: bool, default_text_template: str) -> List[Dict[str, Any]]:
+    if not isinstance(raw_tasks, list) or not raw_tasks:
+        raise ValueError("tasks 必须是非空列表")
+
+    tasks = []
+    seen_names = set()
+    for raw_task in raw_tasks:
+        if not isinstance(raw_task, dict):
+            raise ValueError("每个 task 必须是 JSON 对象")
+        if not raw_task.get("name") or not raw_task.get("local_dir"):
+            raise ValueError("每个 task 都必须包含 name 和 local_dir")
+
+        task = normalize_task(raw_task, default_send_text, default_text_template)
+        if task["name"] in seen_names:
+            raise ValueError(f"task name 重复: {task['name']}")
+        seen_names.add(task["name"])
+        tasks.append(task)
+
+    return tasks
+
+
 class QQVideoWatcher:
     def __init__(self, config_path: str, state_path: str):
         self.config_path = Path(expand_path(config_path))
         self.state_path = Path(expand_path(state_path))
-        self.script_dir = Path(__file__).resolve().parent
+        self.script_dir = SCRIPT_DIR
 
         raw_config = load_json(self.config_path, {})
-        if "tasks" not in raw_config or not raw_config["tasks"]:
-            raise ValueError("config.json 里必须至少有一个 task")
+        if not isinstance(raw_config, dict):
+            raise ValueError("config.json 必须是 JSON 对象")
 
         self.config = dict(raw_config)
         self.config["settle_seconds"] = int(self.config.get("settle_seconds", 8))
+        self.config["tasks_reload_seconds"] = float(self.config.get("tasks_reload_seconds", 2))
         self.config["send_text"] = bool(self.config.get("send_text", False))
         self.config["text_template"] = str(
             self.config.get("text_template", "视频已发送：{filename}")
@@ -114,17 +156,22 @@ class QQVideoWatcher:
             str(self.config.get("python_bin", sys.executable)),
             sys.executable,
         )
-        self.config["log_file"] = expand_path(
-            str(self.config.get("log_file", self.script_dir / "watch_and_send_qq.log"))
+        self.config["log_file"] = expand_path_from(
+            self.config_path.parent,
+            str(self.config.get("log_file", PROJECT_DIR / "logs" / "watch_and_send_qq.log")),
+            str(PROJECT_DIR / "logs" / "watch_and_send_qq.log"),
         )
-        self.config["tasks"] = [
-            normalize_task(task, self.config["send_text"], self.config["text_template"])
-            for task in self.config["tasks"]
-        ]
+
+        tasks_file = self.config.get("tasks_file")
+        self.tasks_source_is_config = not bool(tasks_file)
+        self.tasks_source_path = (
+            Path(expand_path_from(self.config_path.parent, str(tasks_file), "tasks.json"))
+            if tasks_file
+            else self.config_path
+        )
 
         self.send_video_script = self.script_dir / "send_qq_video.py"
         self.send_text_script = self.script_dir / "send_qq_text.py"
-        self.tasks_by_name = {task["name"]: task for task in self.config["tasks"]}
 
         self.state = load_json(self.state_path, {"tasks": {}})
         self.state.setdefault("tasks", {})
@@ -145,9 +192,122 @@ class QQVideoWatcher:
         self.lock = threading.Lock()
         self.pending: Dict[str, Dict[str, Any]] = {}
         self.timers: Dict[str, threading.Timer] = {}
+        self.tasks_by_name: Dict[str, Dict[str, Any]] = {}
+        self.config["tasks"] = []
+        self.watches: Dict[Tuple[str, bool], Any] = {}
+        self.missing_watch_keys = set()
+        self.tasks_source_version = file_version(self.tasks_source_path)
+        self.tasks_source_error_version: Any = None
+        self.set_tasks(self.load_tasks(), "初始化")
 
     def save_state(self) -> None:
         save_json_atomic(self.state_path, self.state)
+
+    def load_tasks(self) -> List[Dict[str, Any]]:
+        if self.tasks_source_is_config:
+            raw_config = load_json(self.config_path, {})
+            if not isinstance(raw_config, dict):
+                raise ValueError("config.json 必须是 JSON 对象")
+            raw_tasks = raw_config.get("tasks", [])
+        else:
+            raw_doc = load_json(self.tasks_source_path, {})
+            raw_tasks = raw_doc.get("tasks", []) if isinstance(raw_doc, dict) else raw_doc
+
+        return normalize_tasks(
+            raw_tasks,
+            self.config["send_text"],
+            self.config["text_template"],
+        )
+
+    def set_tasks(self, tasks: List[Dict[str, Any]], reason: str) -> None:
+        new_by_name = {task["name"]: task for task in tasks}
+
+        with self.lock:
+            old_by_name = self.tasks_by_name
+            changed_or_removed = {
+                name
+                for name, old_task in old_by_name.items()
+                if name not in new_by_name or new_by_name[name] != old_task
+            }
+            self.config["tasks"] = tasks
+            self.tasks_by_name = new_by_name
+            self.cancel_pending_for_tasks_locked(changed_or_removed)
+
+        logging.info(
+            "任务列表已%s: %s",
+            reason,
+            ", ".join(new_by_name) if new_by_name else "(empty)",
+        )
+
+    def cancel_pending_for_tasks_locked(self, task_names) -> None:
+        if not task_names:
+            return
+        for key, item in list(self.pending.items()):
+            if item.get("task_name") not in task_names:
+                continue
+            self.pending.pop(key, None)
+            timer = self.timers.pop(key, None)
+            if timer:
+                timer.cancel()
+
+    def tasks_snapshot(self) -> List[Dict[str, Any]]:
+        with self.lock:
+            return list(self.config["tasks"])
+
+    def reload_tasks_if_changed(self, observer: Any, handler: "ChangeHandler") -> None:
+        version = file_version(self.tasks_source_path)
+        if version == self.tasks_source_version:
+            return
+
+        try:
+            tasks = self.load_tasks()
+        except Exception as exc:
+            error_version = version if version is not None else ("missing", str(self.tasks_source_path))
+            if error_version != self.tasks_source_error_version:
+                logging.error("任务配置热加载失败，继续使用旧任务: %s", exc)
+                self.tasks_source_error_version = error_version
+            return
+
+        self.tasks_source_version = version
+        self.tasks_source_error_version = None
+        self.set_tasks(tasks, "热更新")
+        self.sync_watches(observer, handler)
+
+    def sync_watches(self, observer: Any, handler: "ChangeHandler") -> None:
+        tasks = self.tasks_snapshot()
+        desired = {
+            (str(Path(task["local_dir"]).resolve()), bool(task.get("recursive", True)))
+            for task in tasks
+        }
+
+        for key, watch in list(self.watches.items()):
+            if key in desired:
+                continue
+            observer.unschedule(watch)
+            self.watches.pop(key, None)
+            self.missing_watch_keys.discard(key)
+            logging.info("停止监听: %s recursive=%s", key[0], key[1])
+
+        for key in sorted(desired):
+            if key in self.watches:
+                continue
+            watch_dir = Path(key[0])
+            if not watch_dir.exists():
+                if key not in self.missing_watch_keys:
+                    logging.warning("监听目录不存在，暂不监听: %s", watch_dir)
+                    self.missing_watch_keys.add(key)
+                continue
+
+            watch = observer.schedule(handler, str(watch_dir), recursive=key[1])
+            self.watches[key] = watch
+            self.missing_watch_keys.discard(key)
+            task_names = [
+                task["name"]
+                for task in tasks
+                if str(Path(task["local_dir"]).resolve()) == key[0]
+                and bool(task.get("recursive", True)) == key[1]
+            ]
+            logging.info("开始监听: %s -> tasks=%s", watch_dir, ",".join(task_names))
 
     def file_sig(self, task: Dict[str, Any], path: Path) -> Dict[str, Any]:
         st = path.stat()
@@ -200,7 +360,7 @@ class QQVideoWatcher:
 
     def matching_items(self, path: Path) -> List[Tuple[Dict[str, Any], str]]:
         matched: List[Tuple[Dict[str, Any], str]] = []
-        for task in self.config["tasks"]:
+        for task in self.tasks_snapshot():
             rel_path = self.match_task_for_path(task, path)
             if rel_path is not None:
                 matched.append((task, rel_path))
@@ -262,9 +422,15 @@ class QQVideoWatcher:
                 return
 
         task_name = item["task_name"]
-        task = self.tasks_by_name[task_name]
         path = Path(item["path"])
         rel_path = item["rel_path"]
+        with self.lock:
+            task = self.tasks_by_name.get(task_name)
+        if not task:
+            logging.info("[%s] 任务已移除，跳过待发送文件: %s", task_name, rel_path)
+            self.mark_checked(task_name)
+            self.clear_pending(key)
+            return
 
         if not path.exists() or path.is_dir():
             logging.info("[%s] 文件不存在或不是普通文件，跳过: %s", task_name, rel_path)
@@ -376,25 +542,18 @@ class QQVideoWatcher:
         observer = Observer()
         handler = ChangeHandler(self)
 
-        for task in self.config["tasks"]:
-            watch_dir = Path(task["local_dir"])
-            if not watch_dir.exists():
-                raise SystemExit(f"监听目录不存在: {watch_dir}")
-            observer.schedule(handler, str(watch_dir), recursive=task.get("recursive", True))
-            logging.info(
-                "开始监听: %s -> task=%s, send_text=%s",
-                watch_dir,
-                task["name"],
-                task.get("send_text", False),
-            )
+        self.sync_watches(observer, handler)
 
         observer.start()
         logging.info("文件稳定等待秒数: %s", self.config["settle_seconds"])
         logging.info("状态文件: %s", self.state_path)
+        logging.info("任务配置来源: %s", self.tasks_source_path)
 
         try:
             while not STOP:
-                time.sleep(1)
+                self.reload_tasks_if_changed(observer, handler)
+                self.sync_watches(observer, handler)
+                time.sleep(self.config["tasks_reload_seconds"])
         finally:
             observer.stop()
             observer.join()
@@ -439,10 +598,9 @@ def handle_stop(signum, frame) -> None:
 
 
 def main() -> int:
-    base_dir = Path(__file__).resolve().parent
     parser = argparse.ArgumentParser(description="监听配置里的目录，并通过 QQ 发送匹配文件")
-    parser.add_argument("--config", default=str(base_dir / "config.json"))
-    parser.add_argument("--state", default=str(base_dir / "state.json"))
+    parser.add_argument("--config", default=str(PROJECT_DIR / "config" / "config.json"))
+    parser.add_argument("--state", default=str(PROJECT_DIR / "var" / "state.json"))
     args = parser.parse_args()
 
     signal.signal(signal.SIGINT, handle_stop)

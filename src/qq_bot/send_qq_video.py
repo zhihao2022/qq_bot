@@ -102,7 +102,7 @@ def main():
         sys.exit(1)
 
     if len(sys.argv) < 2:
-        print("用法: python send_qq_video.py /path/to/video.mp4 [可选说明文字]", file=sys.stderr)
+        print("用法: python src/qq_bot/send_qq_video.py /path/to/video.mp4 [可选说明文字]", file=sys.stderr)
         sys.exit(1)
 
     file_path = Path(sys.argv[1]).expanduser().resolve()

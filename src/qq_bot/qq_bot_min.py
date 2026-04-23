@@ -21,8 +21,10 @@ if not APP_ID or not APP_SECRET:
 
 API_BASE = "https://api.sgroup.qq.com"
 TOKEN_URL = "https://bots.qq.com/app/getAppAccessToken"
-MSG_FILE = Path("./messages.jsonl")
-USER_FILE = Path("./users.jsonl")
+SCRIPT_DIR = Path(__file__).resolve().parent
+PROJECT_DIR = SCRIPT_DIR.parents[1]
+MSG_FILE = PROJECT_DIR / "data" / "messages.jsonl"
+USER_FILE = PROJECT_DIR / "data" / "users.jsonl"
 
 STOP = False
 
@@ -32,6 +34,7 @@ def now_ts() -> int:
 
 
 def append_jsonl(path: Path, obj: dict) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("a", encoding="utf-8") as f:
         f.write(json.dumps(obj, ensure_ascii=False) + "\n")
 

@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Environments and local secrets
+.env
+.env.*
+.venv/
+venv/
+
+# Local editor / Codex state
+.vscode/
+.codex
+
+# Runtime data
+logs/*
+!logs/.gitkeep
+var/*
+!var/.gitkeep
+data/*
+!data/.gitkeep
+!data/received_files/
+data/received_files/*
+!data/received_files/.gitkeep
+
+# Legacy root-level runtime outputs
+/messages.jsonl
+/users.jsonl
+/received_messages.jsonl
+/received_files/
+/watch_and_send_qq.log
+/state.json
