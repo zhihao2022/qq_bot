@@ -11,7 +11,7 @@ import sys
 import threading
 import time
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Tuple
+from typing import Any, Dict, Iterator, List, Optional, Tuple
 
 try:
     from watchdog.events import FileSystemEventHandler
@@ -198,7 +198,7 @@ class QQVideoWatcher:
         self.missing_watch_keys = set()
         self.tasks_source_version = file_version(self.tasks_source_path)
         self.tasks_source_error_version: Any = None
-        self.set_tasks(self.load_tasks(), "初始化")
+        self.initial_scan_task_names = self.set_tasks(self.load_tasks(), "初始化")
 
     def save_state(self) -> None:
         save_json_atomic(self.state_path, self.state)
@@ -219,25 +219,31 @@ class QQVideoWatcher:
             self.config["text_template"],
         )
 
-    def set_tasks(self, tasks: List[Dict[str, Any]], reason: str) -> None:
+    def set_tasks(self, tasks: List[Dict[str, Any]], reason: str) -> List[str]:
         new_by_name = {task["name"]: task for task in tasks}
 
         with self.lock:
             old_by_name = self.tasks_by_name
-            changed_or_removed = {
+            removed_names = {
                 name
-                for name, old_task in old_by_name.items()
-                if name not in new_by_name or new_by_name[name] != old_task
+                for name in old_by_name
+                if name not in new_by_name
+            }
+            changed_or_added = {
+                name
+                for name, new_task in new_by_name.items()
+                if name not in old_by_name or old_by_name[name] != new_task
             }
             self.config["tasks"] = tasks
             self.tasks_by_name = new_by_name
-            self.cancel_pending_for_tasks_locked(changed_or_removed)
+            self.cancel_pending_for_tasks_locked(removed_names | changed_or_added)
 
         logging.info(
             "任务列表已%s: %s",
             reason,
             ", ".join(new_by_name) if new_by_name else "(empty)",
         )
+        return sorted(changed_or_added)
 
     def cancel_pending_for_tasks_locked(self, task_names) -> None:
         if not task_names:
@@ -270,8 +276,9 @@ class QQVideoWatcher:
 
         self.tasks_source_version = version
         self.tasks_source_error_version = None
-        self.set_tasks(tasks, "热更新")
+        changed_or_added = self.set_tasks(tasks, "热更新")
         self.sync_watches(observer, handler)
+        self.scan_existing_files(changed_or_added, "任务热更新后初始检查")
 
     def sync_watches(self, observer: Any, handler: "ChangeHandler") -> None:
         tasks = self.tasks_snapshot()
@@ -366,6 +373,89 @@ class QQVideoWatcher:
                 matched.append((task, rel_path))
         return matched
 
+    def iter_task_files(self, task: Dict[str, Any]) -> Iterator[Path]:
+        local_dir = Path(task["local_dir"])
+        if not local_dir.exists():
+            logging.warning("[%s] 初始检查跳过，目录不存在: %s", task["name"], local_dir)
+            return
+        if not local_dir.is_dir():
+            logging.warning("[%s] 初始检查跳过，不是目录: %s", task["name"], local_dir)
+            return
+
+        try:
+            iterator = local_dir.rglob("*") if task.get("recursive", True) else local_dir.iterdir()
+            for path in iterator:
+                if STOP:
+                    return
+                try:
+                    if path.is_file():
+                        yield path
+                except OSError as exc:
+                    logging.warning("[%s] 初始检查无法读取文件: %s (%s)", task["name"], path, exc)
+        except OSError as exc:
+            logging.warning("[%s] 初始检查无法扫描目录: %s (%s)", task["name"], local_dir, exc)
+
+    def schedule_for_task(self, task: Dict[str, Any], path: Path, rel_path: str, source: str) -> bool:
+        try:
+            sig = self.file_sig(task, path)
+        except FileNotFoundError:
+            return False
+
+        key = f"{task['name']}::{rel_path}"
+        with self.lock:
+            self.pending[key] = {
+                "task_name": task["name"],
+                "path": str(path),
+                "rel_path": rel_path,
+                "last_seen_sig": sig,
+                "last_event_time": time.time(),
+            }
+
+            old_timer = self.timers.get(key)
+            if old_timer:
+                old_timer.cancel()
+
+            timer = threading.Timer(self.config["settle_seconds"], self.try_send, args=(key,))
+            timer.daemon = True
+            self.timers[key] = timer
+            timer.start()
+
+        logging.info("[%s] %s，已安排发送检查: %s", task["name"], source, rel_path)
+        return True
+
+    def scan_existing_files(self, task_names: List[str], reason: str) -> None:
+        if not task_names:
+            return
+
+        with self.lock:
+            tasks = [
+                self.tasks_by_name[name]
+                for name in task_names
+                if name in self.tasks_by_name
+            ]
+
+        for task in tasks:
+            if STOP:
+                return
+            scheduled_count = 0
+            checked_count = 0
+            logging.info("[%s] 开始%s: %s", task["name"], reason, task["local_dir"])
+            for path in self.iter_task_files(task):
+                rel_path = self.match_task_for_path(task, path)
+                if rel_path is None:
+                    continue
+                checked_count += 1
+                if self.schedule_for_task(task, path.resolve(), rel_path, reason):
+                    scheduled_count += 1
+            self.mark_checked(task["name"])
+            logging.info(
+                "[%s] %s完成，匹配文件=%s，安排检查=%s",
+                task["name"],
+                reason,
+                checked_count,
+                scheduled_count,
+            )
+
     def schedule(self, path_str: str) -> None:
         if not path_str:
             return
@@ -379,31 +469,7 @@ class QQVideoWatcher:
             return
 
         for task, rel_path in self.matching_items(path):
-            try:
-                sig = self.file_sig(task, path)
-            except FileNotFoundError:
-                continue
-
-            key = f"{task['name']}::{rel_path}"
-            with self.lock:
-                self.pending[key] = {
-                    "task_name": task["name"],
-                    "path": str(path),
-                    "rel_path": rel_path,
-                    "last_seen_sig": sig,
-                    "last_event_time": time.time(),
-                }
-
-                old_timer = self.timers.get(key)
-                if old_timer:
-                    old_timer.cancel()
-
-                timer = threading.Timer(self.config["settle_seconds"], self.try_send, args=(key,))
-                timer.daemon = True
-                self.timers[key] = timer
-                timer.start()
-
-            logging.info("[%s] 检测到变化，已安排发送检查: %s", task["name"], rel_path)
+            self.schedule_for_task(task, path, rel_path, "检测到变化")
 
     def clear_pending(self, key: str) -> None:
         with self.lock:
@@ -548,6 +614,7 @@ class QQVideoWatcher:
         logging.info("文件稳定等待秒数: %s", self.config["settle_seconds"])
         logging.info("状态文件: %s", self.state_path)
         logging.info("任务配置来源: %s", self.tasks_source_path)
+        self.scan_existing_files(self.initial_scan_task_names, "启动后初始检查")
 
         try:
             while not STOP:

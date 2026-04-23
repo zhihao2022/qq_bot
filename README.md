@@ -57,6 +57,8 @@ python src/qq_bot/watch_and_send_qq.py
 - 运行状态：`var/state.json`
 - 日志文件：`logs/watch_and_send_qq.log`
 
+启动后会先对当前任务做一次初始检查，扫描已有的匹配文件；如果该文件版本还没有记录在 `var/state.json` 中，就会按 `settle_seconds` 等待稳定后自动发送。
+
 也可以显式指定：
 
 ```bash
@@ -67,7 +69,7 @@ python src/qq_bot/watch_and_send_qq.py \
 
 ## 动态修改监听任务
 
-监听任务放在 `config/tasks.json`。运行中可以直接增删或修改 `tasks` 列表，监听进程会按 `config/config.json` 中的 `tasks_reload_seconds` 自动热更新。
+监听任务放在 `config/tasks.json`。运行中可以直接增删或修改 `tasks` 列表，监听进程会按 `config/config.json` 中的 `tasks_reload_seconds` 自动热更新。新增或修改任务后，也会立刻对这些任务执行一次初始检查；因此先生成 `.mp4`、再把目录加入 `tasks.json`，也能自动补发未发送过的文件。
 
 一个任务示例：
 

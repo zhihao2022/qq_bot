@@ -12,6 +12,6 @@
 - 单发文字：`python src/qq_bot/send_qq_text.py "消息内容"`
 
 ## 维护注意
-- `config/config.json` 放稳定配置；`config/tasks.json` 放任务列表，运行中可动态增删任务，监听进程会按 `tasks_reload_seconds` 热更新。
+- `config/config.json` 放稳定配置；`config/tasks.json` 放任务列表，运行中可动态增删任务，监听进程会按 `tasks_reload_seconds` 热更新；启动后和新增/修改任务后会先扫描一次已有匹配文件，并依赖 `var/state.json` 避免重复发送同一版本文件。
 - `receive_qq_files.py` 会保存可下载文件；没有可下载 URL 时保存原始 `message.json`，然后回复保存路径。
 - `var/`、`logs/`、`data/` 是运行产物目录，默认不要提交；新增用法请同步更新 `README.md`。

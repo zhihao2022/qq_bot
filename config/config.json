@@ -3,7 +3,7 @@
   "tasks_reload_seconds": 2,
   "send_text": false,
   "text_template": "视频已发送：{filename}",
-  "python_bin": "/home/zhihao/miniconda3/auto_notify/bin/python",
+  "python_bin": "/home/zhihao/miniconda3/envs/auto_notify/bin/python",
   "log_file": "../logs/watch_and_send_qq.log",
   "tasks_file": "tasks.json"
 }
