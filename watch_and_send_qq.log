@@ -1,0 +1,1252 @@
+2026-04-13 21:54:10,336 | INFO | 开始监听: /home/zhihao/Code/save_fire/Genesis/videos -> task=genesis-videos, send_text=False
+2026-04-13 21:54:10,338 | INFO | 文件稳定等待秒数: 8
+2026-04-13 21:54:10,338 | INFO | 状态文件: /home/zhihao/Code/auto_notify/qq_bot/state.json
+2026-04-13 21:56:36,624 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260413_215547.mp4
+2026-04-13 21:56:36,644 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260413_215547.mp4
+2026-04-13 21:56:38,496 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260413_215547.mp4
+2026-04-13 21:56:38,498 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260413_215547.mp4
+2026-04-13 21:56:46,500 | INFO | [genesis-videos] 开始发送视频: /home/zhihao/Code/save_fire/Genesis/videos/test18_20260413_215547.mp4
+2026-04-13 21:56:46,500 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/Genesis/videos/test18_20260413_215547.mp4
+2026-04-13 21:56:48,194 | INFO | 视频发送输出:
+视频发送成功
+{
+  "upload_result": {
+    "file_uuid": "EhTjrfhz6Cb2xVbJ0zGR2c2__k-vLhiZ_AYghQsohdWe1P3qkwMyBHByb2RQgPUkWhCVBQLqhUKsLpJ5QbB7zek6egJR6oIBAmd6",
+    "file_info": "AdAM4Q0uNBUuaUyYsMwfsUpfeyx1XIkUUZRvOB6av1vufidtXL2EgaADad3p6HzqrEl0oHYF0Ua3Z56r1B5g1XsVeNkzCglhSDAUi6nNo/5tP94ct94OrQEN1jExt0i9ym8i7kYvPJsjA6avDRy/9Xl/Rkfalz9qsUW28or2NFDFwY0K/FR4pX7VcBbQlszitS/hDFwOUvK4VghMigtmQYoXi5ZlAVbBQ35DjPqzShETATS4KlvfZ3kpbIGHTt2mX7RgmQlpuSWwvCKfADgVJqn/ILg4QhMQXu0fs3vRvUUkZ1v3JAeF0HwoxAb0GZ68IeZXoYucWls3A8ovI1UL17KmZgtudT+bw3LLVqyEhl4Ya6qckRXtu43kMiFBrVWgJ0w3ux+cLmhOcnD38jk3ZYNiCJxvyr5Y//32bkHN9Za8klSmXzH9CPycdVkA6Yq5A6KOVaQX1ebPmZ0v9fb+YbhfOBUKfbjvv+K//336L0aTk8aJDjfbK4sOBrcZbEEXWjO22yklXUenRE/KEyKMkPPAY4m00iWoYjDpn7nkNHRNcV6uGnu4e70nUE6GKBH7nN4X+K5YKLybSaoZFdg0/CkjzQZjdvFrwgdyojKNn6oI3cZyR8xWbUsGPvLnN62GCquWRrIuYYcsUMrty7bz5noJ0zJtrzQslfdUWs3UTqGy8OQzRJHVLHItiWzHumvI2JN9iCkPdlg5Q7PU2t9u4WP9iRrsYsEugYfF3oyZhYzf9NO39kU7tpkkmJOErS+Bsd9xboVklQzb6D8C1Sz50i3Une+I/s7yH8Z8nrVeBszEy9wtfp6ToKtF7MPTbkHXbtnuIIosElOf1YRM9RI0Z7JfpZeBM/f0eMagUgmxO43PsvzbOgDWH0UJKJm6u6AU2Sx3+SiHwy5UYsDNr/nIMlFf4tFTd/onjNQkZunAc2hrr/X0hQcexTi5azBxRcNRPjd9HToVksXudfa+JBsYaFhx/69NloHkDYGHz7lWxQEZN8xtFVH/Yc9Q3RKSYe4xM4wsLDdxmcJEl+rBx4yiPw8Bc6UPaQGbMawcQiiVXYcldXINYT75GX2kkx/HMozurBt0fwcfURapoNxXHxv+sbxn7vbMKULu0yydMbe/gr1Wzmm6dZrJY34TiR6GNNQ76jHqng6mkqx2NDUiI3UzS8oJR21pgEhETffy/NTAIJlpZJuJfqr5V3pRFyxd8R/i53/CkBuadqCLmxUvU2GzSFoa02NdRqfZqioVeVdVusUWxykRKcV1N8qPRlmzfVwapatE1VFFvsFZF6DEQfJeclIMz/iP99KYIjrq3OpWZRCFa/7YpEL3Oh/MaFy1yH/n",
+    "ttl": 86400,
+    "id": ""
+  },
+  "send_result": {
+    "id": "ROBOT1.0_39Ebk17YzYnB6-Jp0EPggAp7lb5pJmfwQKX6.WKDv5JHy16iHPGHWhIjtRpeQ7qizptWpJlD84EdKNmpnvGw3g!!",
+    "timestamp": "2026-04-13T21:56:48+08:00",
+    "ext_info": {
+      "ref_idx": "REFIDX_WQkY402RyQy8YlsxZyg71ctG81ovPjw88HwjHppK6Gc="
+    }
+  }
+}
+2026-04-13 21:56:48,194 | INFO | [genesis-videos] 视频发送成功: test18_20260413_215547.mp4
+2026-04-13 22:00:17,390 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260413_215949.mp4
+2026-04-13 22:00:17,411 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260413_215949.mp4
+2026-04-13 22:00:19,154 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260413_215949.mp4
+2026-04-13 22:00:19,157 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260413_215949.mp4
+2026-04-13 22:00:27,158 | INFO | [genesis-videos] 开始发送视频: /home/zhihao/Code/save_fire/Genesis/videos/test18_20260413_215949.mp4
+2026-04-13 22:00:27,158 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/Genesis/videos/test18_20260413_215949.mp4
+2026-04-13 22:00:29,002 | INFO | 视频发送输出:
+视频发送成功
+{
+  "upload_result": {
+    "file_uuid": "EhT_ytcGAxvYY3gr3tNbfJAedNvCBBjx9QQghQso4Im6vf7qkwMyBHByb2RQgPUkWhA5jVj5pmzPJ5TMZ6ujVL11egLBwYIBAmd6",
+    "file_info": "cdjq0fROwdnOBj9F/Ni2nB01hJBl0MkmgIjhmzKhrCvcGOvA4vwJXbYPjLJM6ViSXsXVuzGjE82ZEuyTd8DaG5bJRyNexZYbh8+0GxS1tfoaPy2M3PR3ZtE1dGdW7ae5ym8i7kYvPJsjA6avDRy/9ZLtI/kdoD11W0zA2s+HuAyceoJT6Gce4bsUG9cTI56opIwZzETRNbDtQj8nzgADoZWH6f48SOMPuOzjVxS33PzAaRPHBXWwqVU2vGvnuEw0mMjRobNdNx4yhn88Cj2BOZIVAYhOipjN9AQSiREJSleqDwr815a8QxFWX+JdWT8dmZdCWkGhyvr1t+oHKeFAMz4xTT920O0LHUpnqOR07yMZYoKG0jbX0q8FqTTgakiZT5eiTrnZo+aaKbDK2erk4dr2wmUqNAa5Bzk411tSEMwM04B9QRkqZia0wyUlgGvLSbT1MWD70CYbHzRaGUfdIniC3islSh81bvOLkvjquFv1zo1Vxq1U1XWvWvG200QnifPwA5zSea4EfE4ZqmkSqoeCPWLjFA/p94e+0fYr8svLVl9ZAi3tx31+qii9ToXsMncad0HLv+LigmMBVJEuojubpQ/m/lHQINfSHqtGs3bNTtqhw1YNzh+9KB0BHxuBNKqsGL5ZC7ERZc3CvfbroHoJ0zJtrzQslfdUWs3UTqGy8OQzRJHVLHItiWzHumvI8ptrOZ99RM26I1kDTUII0oGqC9gWxop0qCsjesAz40rcne4fqWZxaljAbPyCzdN06xgoURaFuKjWV6AXlsEG7tUnbLlezOM79SzIoI3j+8KvT2foMLMGJbIMDHx7xjJOhVqohoqugQCDeVSJdcNpwwFmKOsUzvsIPssH6UX923nPsvzbOgDWH0UJKJm6u6AUwXe6412SlrZ4XSCEtkOy1YHHtjXYe2WmtLnD28WtYCujLuMoFmviq7Qc+MRXOkUwj/jWB4f/F9Vbpv+IgYsXgtJEHtlHG81m4E+nf2c79wUi9tw9Qy7RyImhuSC5DUE+Bnip/awSObZBfgdgOXfHQaiJyDg2W6eLExiCKOwJRIMu6vR5Af4UwgK9J4/pzSzIqq+9PX57GGdZ9yF8rKxDzdcBD3C0DBgB+smBkxRylk6YF8scmPSFEpjQ+GHKw6p/Loxk14VOGAzG5a9YZyfOnMoJR21pgEhETffy/NTAIJlW8mjmTQt+QmtQZbb9W/SVF16jNfc/zWY+QpP9DPyryg35iuL/ZpSuKDrsK2Ih7bdFgzcZPcjDKy69BAvHjm2WABmrlyisx+ALS7kA8WfoNnA8k3WiKwhXzotnpkUIcL7iFm8VJijfFNG5guKSxujh",
+    "ttl": 86400,
+    "id": ""
+  },
+  "send_result": {
+    "id": "ROBOT1.0_39Ebk17YzYnB6-Jp0EPggDH77l7DhDdEumb2eQ2N2QN2mFuRFHGR10jtScWVg1NZzptWpJlD84EdKNmpnvGw3g!!",
+    "timestamp": "2026-04-13T22:00:28+08:00",
+    "ext_info": {
+      "ref_idx": "REFIDX_YgPE4Iz3V4g4D2D30vaRbstG81ovPjw88HwjHppK6Gc="
+    }
+  }
+}
+2026-04-13 22:00:29,003 | INFO | [genesis-videos] 视频发送成功: test18_20260413_215949.mp4
+2026-04-14 10:53:22,942 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260414_104424.mp4
+2026-04-14 10:53:22,959 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260414_104424.mp4
+2026-04-14 10:53:30,960 | INFO | [genesis-videos] 开始发送视频: /home/zhihao/Code/save_fire/Genesis/videos/test18_20260414_104424.mp4
+2026-04-14 10:53:30,961 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/Genesis/videos/test18_20260414_104424.mp4
+2026-04-14 10:53:31,490 | INFO | 视频发送输出:
+HTTPError: 400
+{"message":"富媒体文件格式不支持","code":850019,"err_code":40034002,"trace_id":"9eb0d7221c2ee943232bd152e06ae3d2"}
+2026-04-14 10:53:31,491 | ERROR | [genesis-videos] 视频发送失败，退出码=10
+2026-04-14 10:53:32,062 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260414_104424.mp4
+2026-04-14 10:53:40,063 | INFO | [genesis-videos] 开始发送视频: /home/zhihao/Code/save_fire/Genesis/videos/test18_20260414_104424.mp4
+2026-04-14 10:53:40,063 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/Genesis/videos/test18_20260414_104424.mp4
+2026-04-14 10:53:40,958 | INFO | 视频发送输出:
+HTTPError: 400
+{"message":"富媒体文件格式不支持","code":850019,"err_code":40034002,"trace_id":"7ea0012850d4c5238d847ff05e3b7358"}
+2026-04-14 10:53:40,958 | ERROR | [genesis-videos] 视频发送失败，退出码=10
+2026-04-14 10:53:44,416 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260414_104424.mp4
+2026-04-14 10:53:50,742 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260414_104424.mp4
+2026-04-14 10:53:58,746 | INFO | [genesis-videos] 开始发送视频: /home/zhihao/Code/save_fire/Genesis/videos/test18_20260414_104424.mp4
+2026-04-14 10:53:58,746 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/Genesis/videos/test18_20260414_104424.mp4
+2026-04-14 10:54:00,058 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260414_104424.mp4
+2026-04-14 10:54:00,344 | INFO | 视频发送输出:
+HTTPError: 400
+{"message":"富媒体文件格式不支持","code":850019,"err_code":40034002,"trace_id":"55c488ce41d608c0512bbd21008fcdc9"}
+2026-04-14 10:54:00,345 | ERROR | [genesis-videos] 视频发送失败，退出码=10
+2026-04-14 10:54:13,535 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260414_104424.mp4
+2026-04-14 10:54:21,538 | INFO | [genesis-videos] 开始发送视频: /home/zhihao/Code/save_fire/Genesis/videos/test18_20260414_104424.mp4
+2026-04-14 10:54:21,538 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/Genesis/videos/test18_20260414_104424.mp4
+2026-04-14 10:54:22,776 | INFO | 视频发送输出:
+HTTPError: 400
+{"message":"富媒体文件格式不支持","code":850019,"err_code":40034002,"trace_id":"2dbb50a7dc5687f50ba59cceaa0dff65"}
+2026-04-14 10:54:22,776 | ERROR | [genesis-videos] 视频发送失败，退出码=10
+2026-04-14 10:54:29,621 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260414_104424.mp4
+2026-04-14 10:54:31,782 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260414_104424.mp4
+2026-04-14 10:54:31,786 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260414_104424.mp4
+2026-04-14 10:54:31,790 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260414_104424.mp4
+2026-04-14 10:54:39,793 | INFO | [genesis-videos] 开始发送视频: /home/zhihao/Code/save_fire/Genesis/videos/test18_20260414_104424.mp4
+2026-04-14 10:54:39,793 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/Genesis/videos/test18_20260414_104424.mp4
+2026-04-14 10:54:42,811 | INFO | 视频发送输出:
+视频发送成功
+{
+  "upload_result": {
+    "file_uuid": "EhQOcdQQ7IrRlNbmKmjNUP2ynTiwshiG52IghQsojOegxKvskwMyBHByb2RQgPUkWhAvUQnlBGMhv5DyeTX6EWDcegK6s4IBAm5q",
+    "file_info": "heQBSlXCcgpSohc7qfIylJpqxRcWJFIR4aJ615d6tSMIwsIUyHAHFX0AECi81IgnLr2Bhq4mchTADSV6gvWt6UF7WyDm1eLGV+w8lqk3kvuTr6BmmxYPke5Y7zBTS57tym8i7kYvPJsjA6avDRy/9R2ynVyxPAyz8YPbIYFPC9lLElbUMZUCOFV6ncp4D4GtOsFxNjpkvTaC0NbsgDer+SqRxeQr26DTFl9Y0o736TgtMvw1te2DO9qvVjf00euSivbkA7Br98Nbz+biHChwd9h7kpJkomXr6ecup0IIyaeWPfEj7uFg/BOoHtx+uml1uhMm6dsMb0sVGuYjS+1kSAzVea9M9Xb1e6V1uwY1X5D9pZQNHvGKuI6+BDg8s/wyIisgu+yXfCa5ZSNOq8gvhLOlxxvPbE/5N0+LLkRvXqlq4tbhVzLIZmpm07r9vCZ6IRliodqEbc0DY27Ol6oubbAr9j5PeA3wDkUO/0QIu7Eo3Tnj/78C91Z3mvPyBCmpMp+WGM4IzJE12OMgG16s4TyaJvtc71DIt02+HT5Y2VzvAvO3xGR7706V9JKx3Zcm5u5LG9tSfkFACYJ72iIBYrKYwSrifZwxSlWYs1HBqB66LCQgDbZxCFWh2GKZWKfXErcBJETZkpJWcwmdvnyuVXoJ0zJtrzQslfdUWs3UTqGy8OQzRJHVLHItiWzHumvI+qpUfJMOC686Nyl8eQSrreqVdIYXzLQ2WvOdMndkNlsVmgJLU47XzPZHisI2OztnD3welc7UlUMfVY2BgZMRbgcQYAImHH87oynUp5RPkFmEjLNcxbaDDPf1yYp0n1x5ctVbXR0LU/y/4HXZckkr9JKpvZqxNhMQyqBgrlxx5WafcaifiEBDvaihS9J0SK9gXe/uI7IJGDFicpwIBZW3urkwn6klywDl5FYo0SiFxOg0qTLATBhQCPvJa1EKhkRj9yK+rjUMncqx2il78tsX2Q91gOulyVroAFgkQgnShppL2Lc7YE46hf5BPix8/uWu96tj//OFRphvLJ6ET9YjzJyZZOirTF2OGCyHD1HZwCE1UDk6in6fem40wImKx39qEfWbFtmmzgiP3x6YssyHAeCs0+gK81qcC6kYIfZ3lkbRf6mlpoB74hTwc0u7M2qWPUzp9og5XVp4vtOxhi+73soJR21pgEhETffy/NTAIJlWPZkmEZUB4t7GlkGK6GuvRSBRbGMPPtC73v78g0PpwqkF3sWzE/Brddu9GoQy+5QUqU5lMGgTTqKkjCpVsAFaUGRoCxOittMNmVYYs/CtTmzSOrMKEtyfs4BhBilsQNXrpdgW9wPTbS2fZ79yrT2H",
+    "ttl": 86400,
+    "id": ""
+  },
+  "send_result": {
+    "id": "ROBOT1.0_39Ebk17YzYnB6-Jp0EPggHyb3RDu.N5UKnItThiqye6rNNCouK2AyKaWhou-kvknzptWpJlD84EdKNmpnvGw3g!!",
+    "timestamp": "2026-04-14T10:54:42+08:00",
+    "ext_info": {
+      "ref_idx": "REFIDX_E7qLTqLRXwU9FbTk2jKLJctG81ovPjw88HwjHppK6Gc="
+    }
+  }
+}
+2026-04-14 10:54:42,811 | INFO | [genesis-videos] 视频发送成功: test18_20260414_104424.mp4
+2026-04-14 12:11:04,223 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260414_120140.mp4
+2026-04-14 12:11:04,240 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260414_120140.mp4
+2026-04-14 12:11:12,241 | INFO | [genesis-videos] 开始发送视频: /home/zhihao/Code/save_fire/Genesis/videos/test18_20260414_120140.mp4
+2026-04-14 12:11:12,241 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/Genesis/videos/test18_20260414_120140.mp4
+2026-04-14 12:11:12,914 | INFO | 视频发送输出:
+HTTPError: 400
+{"message":"富媒体文件格式不支持","code":850019,"err_code":40034002,"trace_id":"6bd0db9683b47badc9b8be0cb0f1550e"}
+2026-04-14 12:11:12,914 | ERROR | [genesis-videos] 视频发送失败，退出码=10
+2026-04-14 12:11:12,964 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260414_120140.mp4
+2026-04-14 12:11:20,965 | INFO | [genesis-videos] 开始发送视频: /home/zhihao/Code/save_fire/Genesis/videos/test18_20260414_120140.mp4
+2026-04-14 12:11:20,965 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/Genesis/videos/test18_20260414_120140.mp4
+2026-04-14 12:11:21,933 | INFO | 视频发送输出:
+HTTPError: 400
+{"message":"富媒体文件格式不支持","code":850019,"err_code":40034002,"trace_id":"ca273b39021fb0ff27acf5169ef65099"}
+2026-04-14 12:11:21,933 | ERROR | [genesis-videos] 视频发送失败，退出码=10
+2026-04-14 12:11:25,931 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260414_120140.mp4
+2026-04-14 12:11:31,916 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260414_120140.mp4
+2026-04-14 12:11:39,919 | INFO | [genesis-videos] 开始发送视频: /home/zhihao/Code/save_fire/Genesis/videos/test18_20260414_120140.mp4
+2026-04-14 12:11:39,919 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/Genesis/videos/test18_20260414_120140.mp4
+2026-04-14 12:11:41,398 | INFO | 视频发送输出:
+HTTPError: 400
+{"message":"富媒体文件格式不支持","code":850019,"err_code":40034002,"trace_id":"b201f2b382729b52b937edc992721672"}
+2026-04-14 12:11:41,398 | ERROR | [genesis-videos] 视频发送失败，退出码=10
+2026-04-14 12:11:42,090 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260414_120140.mp4
+2026-04-14 12:11:50,092 | INFO | [genesis-videos] 开始发送视频: /home/zhihao/Code/save_fire/Genesis/videos/test18_20260414_120140.mp4
+2026-04-14 12:11:50,092 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/Genesis/videos/test18_20260414_120140.mp4
+2026-04-14 12:11:51,489 | INFO | 视频发送输出:
+HTTPError: 400
+{"message":"富媒体文件格式不支持","code":850019,"err_code":40034002,"trace_id":"8444d15cb09e364d50e6cbaedd06ee92"}
+2026-04-14 12:11:51,490 | ERROR | [genesis-videos] 视频发送失败，退出码=10
+2026-04-14 12:11:55,324 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260414_120140.mp4
+2026-04-14 12:12:03,327 | INFO | [genesis-videos] 开始发送视频: /home/zhihao/Code/save_fire/Genesis/videos/test18_20260414_120140.mp4
+2026-04-14 12:12:03,327 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/Genesis/videos/test18_20260414_120140.mp4
+2026-04-14 12:12:04,720 | INFO | 视频发送输出:
+HTTPError: 400
+{"message":"富媒体文件格式不支持","code":850019,"err_code":40034002,"trace_id":"b5767ce81ee6a37afa639d90ea00022b"}
+2026-04-14 12:12:04,720 | ERROR | [genesis-videos] 视频发送失败，退出码=10
+2026-04-14 12:12:13,031 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260414_120140.mp4
+2026-04-14 12:12:13,039 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260414_120140.mp4
+2026-04-14 12:12:13,046 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260414_120140.mp4
+2026-04-14 12:12:21,050 | INFO | [genesis-videos] 开始发送视频: /home/zhihao/Code/save_fire/Genesis/videos/test18_20260414_120140.mp4
+2026-04-14 12:12:21,050 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/Genesis/videos/test18_20260414_120140.mp4
+2026-04-14 12:12:23,866 | INFO | 视频发送输出:
+视频发送成功
+{
+  "upload_result": {
+    "file_uuid": "EhQiFMc779VlAVIw6gKNvB8KQeSIdhiOkGEghQso9LDr8rzskwMyBHByb2RQgPUkWhBiSY0AniPBIzieI_yHK2w8egJyaIIBAmd6",
+    "file_info": "mZIGwzIB9dP9+5ur0e7G7RvxINVJN3yZM5OzZk7BSyTDVr26mlUcOru+8BbAPmGb1y5Pw7LmLIKn5VLdyqHw/xb9kSvmdplCrsCS1rvlse6A9/Q68MxBfGl6IXpeJ6rUym8i7kYvPJsjA6avDRy/9ddqL7Hlru5zxsTdEY1zDXllfGM115jVsB7q6YYXfdp6TnDLhWA1F6ARE5orOsVeyhpApYUNS5lHm/qCCB0k1MmvvHEOBRNFK/dIUk1ftajjbXF+nPfyuXG+liTu9Zk4XErUJDFTsi69WXwYSrLj5Tc0xdhOswxjbnr+dXHN4NrAL0veOl2pKWmcv/3iZMdejGTnAcuih65X9gRSSqWwv30gnIU9VqDw77KdnABvxHGkKniBzNzX6UOAPOpodE0eziCKyZfopkEyuX0WqagAKOyk0575kkai0LqZy5RD826mRxkBNp16p0YvB0Qw6PCw6olre9QxobEhtsiLo6+7nnSqJwwijCp7TXdByHyUuQqJGO2iUE0H3GWIhMmUu/9P7SAaOPzy7TP6XzEWg4VLrvRFpGwuJG8vRRUvypqj3nwEgAdyVcHJ56k9XcBEvqaoN/iR8nBEfsrJ27KgGqSUByKD1CHjh0gJUUSPTp9LNpo3SoKcLZ8LnFX8uqy8VtwC/3oJ0zJtrzQslfdUWs3UTqGy8OQzRJHVLHItiWzHumvIk0TKadpBqbi52JbvnTWDeqWKMkyQXlhFAuPPMdUabFL9mX6bclVnBQW/OdYbl3rbO3Dvc0Ko6lPW9OdlwEKhi3mdXMns91v3VKP3cLdGe3NdavHvAyHWIP2SebrZPqRd/aubBmbcMzx4Zp09pV5LHr7a/DvVn6A+wtu7x+DtFHPPsvzbOgDWH0UJKJm6u6AUxkLLRl5uB7kI1Hf9o1dfRmnNA5NWrDxuLk2YC5ZFI6wzpdZ1W0QA8bDdac/gDtVBK1NBLfbBS3vfgY5q/MtGD3QuUyVz3KG5jHDSPAqiU8GhygfjZzZR6C3+4cchGNRj3nQC9D8g70HABQnBNRiDwXDBAzPMm1DyMBXauutzdJbLbOylI63GyrZoFnFUaS7f3BRRfFSs6cj/pbT+y46ZrpC0qUeAzSiEIEYwNnxy44BzG6/7KUlwlnvBhHKnUm6ArsXQyG+H5ldIpqA5WX6v1coJR21pgEhETffy/NTAIJmLqKefKAFlAYlFxhXIESH6wxzxV7HZK2XKIXCON2mc5A7WaLUR8RAHNN6E9UQGLnTipq4s6K3FWSmKv2/YR41FaeDhWrxdGkULeuOLioZm4+BLYhHyb6tAPqIdMq2gJx0YOb/Ri3zxmq4xwN6bdBKm",
+    "ttl": 86400,
+    "id": ""
+  },
+  "send_result": {
+    "id": "ROBOT1.0_39Ebk17YzYnB6-Jp0EPggCuTrEk7uaERQF4aNsLRhX.aMrTZU3xXuQAEd4X0ZPqAzptWpJlD84EdKNmpnvGw3g!!",
+    "timestamp": "2026-04-14T12:12:23+08:00",
+    "ext_info": {
+      "ref_idx": "REFIDX_HDTI2YP1rh9an63HwsXi+MtG81ovPjw88HwjHppK6Gc="
+    }
+  }
+}
+2026-04-14 12:12:23,867 | INFO | [genesis-videos] 视频发送成功: test18_20260414_120140.mp4
+2026-04-15 14:10:11,791 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260415_140133.mp4
+2026-04-15 14:10:11,809 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260415_140133.mp4
+2026-04-15 14:10:19,809 | INFO | [genesis-videos] 开始发送视频: /home/zhihao/Code/save_fire/Genesis/videos/test18_20260415_140133.mp4
+2026-04-15 14:10:19,809 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/Genesis/videos/test18_20260415_140133.mp4
+2026-04-15 14:10:20,811 | INFO | 视频发送输出:
+HTTPError: 400
+{"message":"富媒体文件格式不支持","code":850019,"err_code":40034002,"trace_id":"0e9566893600c61a6ea000f51fad94e7"}
+2026-04-15 14:10:20,811 | ERROR | [genesis-videos] 视频发送失败，退出码=10
+2026-04-15 14:10:22,670 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260415_140133.mp4
+2026-04-15 14:10:30,671 | INFO | [genesis-videos] 开始发送视频: /home/zhihao/Code/save_fire/Genesis/videos/test18_20260415_140133.mp4
+2026-04-15 14:10:30,671 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/Genesis/videos/test18_20260415_140133.mp4
+2026-04-15 14:10:32,019 | INFO | 视频发送输出:
+HTTPError: 400
+{"message":"富媒体文件格式不支持","code":850019,"err_code":40034002,"trace_id":"f4166a2f85432daadbe67d511ed48ebd"}
+2026-04-15 14:10:32,019 | ERROR | [genesis-videos] 视频发送失败，退出码=10
+2026-04-15 14:10:36,329 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260415_140133.mp4
+2026-04-15 14:10:44,331 | INFO | [genesis-videos] 开始发送视频: /home/zhihao/Code/save_fire/Genesis/videos/test18_20260415_140133.mp4
+2026-04-15 14:10:44,331 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/Genesis/videos/test18_20260415_140133.mp4
+2026-04-15 14:10:45,466 | INFO | 视频发送输出:
+HTTPError: 400
+{"message":"富媒体文件格式不支持","code":850019,"err_code":40034002,"trace_id":"50ab49349b3ddc3a1e37f86e578e4932"}
+2026-04-15 14:10:45,467 | ERROR | [genesis-videos] 视频发送失败，退出码=10
+2026-04-15 14:10:45,661 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260415_140133.mp4
+2026-04-15 14:10:53,662 | INFO | [genesis-videos] 开始发送视频: /home/zhihao/Code/save_fire/Genesis/videos/test18_20260415_140133.mp4
+2026-04-15 14:10:53,663 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/Genesis/videos/test18_20260415_140133.mp4
+2026-04-15 14:10:55,564 | INFO | 视频发送输出:
+HTTPError: 400
+{"message":"富媒体文件格式不支持","code":850019,"err_code":40034002,"trace_id":"e15ab800ea9e6f94a4f53104e910efc8"}
+2026-04-15 14:10:55,564 | ERROR | [genesis-videos] 视频发送失败，退出码=10
+2026-04-15 14:10:58,937 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260415_140133.mp4
+2026-04-15 14:11:06,941 | INFO | [genesis-videos] 开始发送视频: /home/zhihao/Code/save_fire/Genesis/videos/test18_20260415_140133.mp4
+2026-04-15 14:11:06,941 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/Genesis/videos/test18_20260415_140133.mp4
+2026-04-15 14:11:08,330 | INFO | 视频发送输出:
+HTTPError: 400
+{"message":"富媒体文件格式不支持","code":850019,"err_code":40034002,"trace_id":"7092ff8f6537774a0ba60cdcc283de58"}
+2026-04-15 14:11:08,330 | ERROR | [genesis-videos] 视频发送失败，退出码=10
+2026-04-15 14:11:18,384 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260415_140133.mp4
+2026-04-15 14:11:26,392 | INFO | [genesis-videos] 开始发送视频: /home/zhihao/Code/save_fire/Genesis/videos/test18_20260415_140133.mp4
+2026-04-15 14:11:26,392 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/Genesis/videos/test18_20260415_140133.mp4
+2026-04-15 14:11:28,067 | INFO | 视频发送输出:
+HTTPError: 400
+{"message":"富媒体文件格式不支持","code":850019,"err_code":40034002,"trace_id":"44b453c226c902c264bcf966d7d4d484"}
+2026-04-15 14:11:28,067 | ERROR | [genesis-videos] 视频发送失败，退出码=10
+2026-04-15 14:11:39,566 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260415_140133.mp4
+2026-04-15 14:11:39,573 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260415_140133.mp4
+2026-04-15 14:11:47,572 | INFO | [genesis-videos] 开始发送视频: /home/zhihao/Code/save_fire/Genesis/videos/test18_20260415_140133.mp4
+2026-04-15 14:11:47,572 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/Genesis/videos/test18_20260415_140133.mp4
+2026-04-15 14:11:51,131 | INFO | 视频发送输出:
+视频发送成功
+{
+  "upload_result": {
+    "file_uuid": "EhRsNR4CYiwWZIfJW6FZ473ZYIiWixiWy2AghQsot8juupnvkwMyBHByb2RQgPUkWhD5N23GFPaIYb9lkoDGA1h3egIZR4IBAmd6",
+    "file_info": "mhOwCj0gMoZB1eXT+Y3r3pbksJY3hbRkXCSPpPFmz/W3gR6QswFCG5SLStXdS00wupdU6PmsBjjEo1BPQKHUuIzpQQC+eS/EtY1e3jouB1jdPZpzD8JI0/m1zgACCINbym8i7kYvPJsjA6avDRy/9bD9qR3prr+BsjfcKONSnDcyzBH3bJIspuLBacWJyEesf4JemZE7Pld5tm3kY+GgxRoaqnicYbQifpT1SPn/t//N/16D7tOZnS7OltjA4Ne7jHu88vQSyC4NJdEfAXaXYlZ4mbj67soC0m4hl1UVcxilzY/CK7HjR3EHLtHel7yP8CmVVl4spSMlTJKCoce1hMKRI7ZpNkUgJQdBccjJCq6hkViuIhshrK7U/4ygTGJLw6u7hszEVhsO3gg9QcinZGg2Ot3vYWasnEk/xEwVRBi1XcK5wKTGEcVGCF8R0UBs4G7jiiBu8vi0DgDKwOXZwBWT01iBXMZI1UgBSQcDbc5j7D3NM1y7Xg/rbpHnMoryiLnvG32NJ7CSwTlY3SZ13V0Tsgdm8qwcQHWl3stUOCxCkpyw/DMK1VbsKKrIZya1gjFjO+Qm0R3UEbOz9upXBT88JEBCJqJaqE9U9GgKbQVNgK0t6nSaqi/TzjlhA3CYWrcZIUDgfyGTg1N21zXjznoJ0zJtrzQslfdUWs3UTqGy8OQzRJHVLHItiWzHumvI12i7GnBuX4V6fPiKDpZRmFmPlsg8EicgnrWDwHg3uY58XNoIuNlGkId/dojXem2lO4wosHSWGqVa/CEBGmjnjtcNDxUxehRyNJbKxAz4BGZ4XgGIq3wk0nzDX6PIm4PL61z6oucY23faon99tgeKPZRhaBqY+nCJipcrQQj2x7nPsvzbOgDWH0UJKJm6u6AUVDEHznpqWcUozHvlmO7lcR2UcBgHBRHpBNpFQ0R16slF9PAThFtgxEIVpWuPT2/2U1hDqInAbzcalXjTCKB3NKcWAqzLCo4dva/rurKaVnYHHr4eYEahKhVd0UWIoOAMVx1qBfPtAugxxOM9lTyeF7/1M+A32EMmZ2vfZQT9UvCrisHCb7+xXuU6HCAssaU1Timwd1AoZHbGNq/jUvWo3XYnpCDLn1KsRdMR4+4nkcYdaha4+ZaLo+YCKUVESaf8lGlrBVT2dQnVx90S8Pl+FcoJR21pgEhETffy/NTAIJlMKXhD+yiftIA6zhUea/yA9Ub+EXSUd0+lrFX/W62GOIzJrUs1Ndp7ysDoK1UmAVMC35bNPFexcpUbx44bKZFa1jzMQMW5mphxVanXOAxnH5tbC8hUBxjTDGBgGnFF+vOzmnaffBqw4+bhJF8mCM3j",
+    "ttl": 86400,
+    "id": ""
+  },
+  "send_result": {
+    "id": "ROBOT1.0_39Ebk17YzYnB6-Jp0EPggBPiOFr2h46r3NjxLyl-rE2EuowLxTtWs3ASQROnttrbzptWpJlD84EdKNmpnvGw3g!!",
+    "timestamp": "2026-04-15T14:11:50+08:00",
+    "ext_info": {
+      "ref_idx": "REFIDX_JyQi5h8hrVvorGvj7xsVhstG81ovPjw88HwjHppK6Gc="
+    }
+  }
+}
+2026-04-15 14:11:51,131 | INFO | [genesis-videos] 视频发送成功: test18_20260415_140133.mp4
+2026-04-16 18:28:44,153 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260416_181837.mp4
+2026-04-16 18:28:44,174 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260416_181837.mp4
+2026-04-16 18:28:52,175 | INFO | [genesis-videos] 开始发送视频: /home/zhihao/Code/save_fire/Genesis/videos/test18_20260416_181837.mp4
+2026-04-16 18:28:52,175 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/Genesis/videos/test18_20260416_181837.mp4
+2026-04-16 18:28:52,842 | INFO | 视频发送输出:
+HTTPError: 400
+{"message":"富媒体文件格式不支持","code":850019,"err_code":40034002,"trace_id":"2005ea983d1ab0dc719dcef43d1de04c"}
+2026-04-16 18:28:52,842 | ERROR | [genesis-videos] 视频发送失败，退出码=10
+2026-04-16 18:28:55,272 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260416_181837.mp4
+2026-04-16 18:29:03,273 | INFO | [genesis-videos] 开始发送视频: /home/zhihao/Code/save_fire/Genesis/videos/test18_20260416_181837.mp4
+2026-04-16 18:29:03,273 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/Genesis/videos/test18_20260416_181837.mp4
+2026-04-16 18:29:04,148 | INFO | 视频发送输出:
+HTTPError: 400
+{"message":"富媒体文件格式不支持","code":850019,"err_code":40034002,"trace_id":"7d117e48bc0d3c5b2e2ce0b4851e05b8"}
+2026-04-16 18:29:04,148 | ERROR | [genesis-videos] 视频发送失败，退出码=10
+2026-04-16 18:29:09,639 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260416_181837.mp4
+2026-04-16 18:29:17,640 | INFO | [genesis-videos] 开始发送视频: /home/zhihao/Code/save_fire/Genesis/videos/test18_20260416_181837.mp4
+2026-04-16 18:29:17,640 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/Genesis/videos/test18_20260416_181837.mp4
+2026-04-16 18:29:18,701 | INFO | 视频发送输出:
+HTTPError: 400
+{"message":"富媒体文件格式不支持","code":850019,"err_code":40034002,"trace_id":"e753f44a94c0ae0b6d83b9e1c75a2cc2"}
+2026-04-16 18:29:18,702 | ERROR | [genesis-videos] 视频发送失败，退出码=10
+2026-04-16 18:29:22,987 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260416_181837.mp4
+2026-04-16 18:29:30,989 | INFO | [genesis-videos] 开始发送视频: /home/zhihao/Code/save_fire/Genesis/videos/test18_20260416_181837.mp4
+2026-04-16 18:29:30,990 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/Genesis/videos/test18_20260416_181837.mp4
+2026-04-16 18:29:32,394 | INFO | 视频发送输出:
+HTTPError: 400
+{"message":"富媒体文件格式不支持","code":850019,"err_code":40034002,"trace_id":"884b4bd5727d311faead74d1273f157c"}
+2026-04-16 18:29:32,395 | ERROR | [genesis-videos] 视频发送失败，退出码=10
+2026-04-16 18:29:35,349 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260416_181837.mp4
+2026-04-16 18:29:43,351 | INFO | [genesis-videos] 开始发送视频: /home/zhihao/Code/save_fire/Genesis/videos/test18_20260416_181837.mp4
+2026-04-16 18:29:43,352 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/Genesis/videos/test18_20260416_181837.mp4
+2026-04-16 18:29:44,579 | INFO | 视频发送输出:
+HTTPError: 400
+{"message":"富媒体文件格式不支持","code":850019,"err_code":40034002,"trace_id":"c069185c617faf42922ae14eb0696492"}
+2026-04-16 18:29:44,579 | ERROR | [genesis-videos] 视频发送失败，退出码=10
+2026-04-16 18:29:48,244 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260416_181837.mp4
+2026-04-16 18:29:56,247 | INFO | [genesis-videos] 开始发送视频: /home/zhihao/Code/save_fire/Genesis/videos/test18_20260416_181837.mp4
+2026-04-16 18:29:56,247 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/Genesis/videos/test18_20260416_181837.mp4
+2026-04-16 18:29:57,675 | INFO | 视频发送输出:
+HTTPError: 400
+{"message":"富媒体文件格式不支持","code":850019,"err_code":40034002,"trace_id":"12fbf760ed2e48e250443a2de397cb5d"}
+2026-04-16 18:29:57,675 | ERROR | [genesis-videos] 视频发送失败，退出码=10
+2026-04-16 18:30:02,539 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260416_181837.mp4
+2026-04-16 18:30:02,545 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260416_181837.mp4
+2026-04-16 18:30:02,551 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260416_181837.mp4
+2026-04-16 18:30:10,554 | INFO | [genesis-videos] 开始发送视频: /home/zhihao/Code/save_fire/Genesis/videos/test18_20260416_181837.mp4
+2026-04-16 18:30:10,554 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/Genesis/videos/test18_20260416_181837.mp4
+2026-04-16 18:30:13,327 | INFO | 视频发送输出:
+视频发送成功
+{
+  "upload_result": {
+    "file_uuid": "EhTJqmgwuTmTfN_hJiaoPcY5bCc_wRib11wghQsoot38iZXykwMyBHByb2RQgPUkWhAlBIvN150PI0XZeB6En8lxegKWQoIBAmd6",
+    "file_info": "cDtUjvcg8cFt/dj9dzGMbNbtb2TPI+ufXjoIIBy1hM8a/5zikUytVKKTWq6gqpDEMh4eakQF/AcmS0AJbpN8Pi99bLhTg8ShGnnM3G/VKv61tH2Njqf6KY3TjQKHJ8rXym8i7kYvPJsjA6avDRy/9a2PsuCsPpTXQpTHRsoONdI/5TWq+xfF/RJrsTt7ZnDBHgolLc7DzMxIEFsV06KNtyo/87La4V6p7H3b0Gqg6TbWV/D5arCv1EOiRWzf81MD21/nBMI/rIkUlGMPZwCOHS3XpXg95psRBqZnKI+aPEWS5hemexSaNghWMc4FM7Wc+igoUY9t1vyeggN5waisf5VZhLHKkvPzH/vhhAXjdolBltTE9vQQ5W60P6Sj856z+x8ZJxJgbcCFnp8nB81WxWAYKIXJjCX2elfInk/aFvJ8lp+K6aPRqGA/kY22l8bdVinfnP/KN/lqW2JUxyiuDf++svpBeiQ0lPgxXFtjeg/jzXMnl9AP8tL8CH9c9DRi8ZI4RWqMc/GxAYmCzbq27tjZIUMgxePT2c+S+lAcEW+U2z9jlyrDD33lL5RqpvdxWMf4NAaB2rONq3UaU3aJBEeU6k/W7lE0sTZBH9fMQaYH3g5kBD+53XG/tPIhtWOSVnqQWggNiUuVa5ZBiFDp0HoJ0zJtrzQslfdUWs3UTqGy8OQzRJHVLHItiWzHumvIzzLqDDfpKZidAn3lEqDr7cAamNC1Ku1a4ggWuQN9og/0vM8d+gSFCIUp0Mi7joiWZlNk7YQzevU37F59mZMaE5t56bDjgHvhc6cZvsIeSuEguzeSI6068EwOfkaqhChvRgiItrX8Y33rYtV/tq9gF67ys7pfrLYebYbbzodBFKzPsvzbOgDWH0UJKJm6u6AU+XttGCtPe3y56s6Xca5Ju7WVTOscfD2bQPdTiNLly8Se19yVQ/I8IWN7alQY8r6rTxMEeY8q22YJd+Ez2bizu8wXM38Pb06GkxeOo1pVTwY3vU9R3scJbkJryf55BwHlQGgalyepFJ/YZguRzXqdQ+5BSIkiW480LTsZjD4my7gkHh53HKw4R4yGP/kBQFoTCnOc3PmkM1Ic50+rrW4HwmR1FfakQjgq1inSgCpFcikGfp278jtDnbu4auvWRLDbLHHtMYCLCR9bLF0ME3JTGsoJR21pgEhETffy/NTAIJnTTko4NGIko1+Qaw262VPMdvE+nyUUODzEyeuCGWCT3R/djP8IOLHLGaHtWQzYQPMdxWtRvXcSk+N8Dl4e5QefiCZ1pWynRWrAkUsD9wu7eq0BKGXfgxa1ED/Nx3CdkbfiNwMcdSa1aAombglmZbKk",
+    "ttl": 86400,
+    "id": ""
+  },
+  "send_result": {
+    "id": "ROBOT1.0_39Ebk17YzYnB6-Jp0EPggBs7h4hS3btio2sYtZJq3DTU91a5FP5QBuui7y7PMLX3O.yEngtg7nVAzt-SOCEzWQ!!",
+    "timestamp": "2026-04-16T18:30:13+08:00",
+    "ext_info": {
+      "ref_idx": "REFIDX_HBHfO8SlOJA3owfBp3tBsMtG81ovPjw88HwjHppK6Gc="
+    }
+  }
+}
+2026-04-16 18:30:13,327 | INFO | [genesis-videos] 视频发送成功: test18_20260416_181837.mp4
+2026-04-16 19:13:22,718 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260416_190304.mp4
+2026-04-16 19:13:22,735 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260416_190304.mp4
+2026-04-16 19:13:30,736 | INFO | [genesis-videos] 开始发送视频: /home/zhihao/Code/save_fire/Genesis/videos/test18_20260416_190304.mp4
+2026-04-16 19:13:30,736 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/Genesis/videos/test18_20260416_190304.mp4
+2026-04-16 19:13:31,396 | INFO | 视频发送输出:
+HTTPError: 400
+{"message":"富媒体文件格式不支持","code":850019,"err_code":40034002,"trace_id":"8a9eb5e1e2cad8356ae4c5a549d89f80"}
+2026-04-16 19:13:31,397 | ERROR | [genesis-videos] 视频发送失败，退出码=10
+2026-04-16 19:13:32,540 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260416_190304.mp4
+2026-04-16 19:13:40,542 | INFO | [genesis-videos] 开始发送视频: /home/zhihao/Code/save_fire/Genesis/videos/test18_20260416_190304.mp4
+2026-04-16 19:13:40,542 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/Genesis/videos/test18_20260416_190304.mp4
+2026-04-16 19:13:41,495 | INFO | 视频发送输出:
+HTTPError: 400
+{"message":"富媒体文件格式不支持","code":850019,"err_code":40034002,"trace_id":"5faa769e967985c24cd61d6f426aa04f"}
+2026-04-16 19:13:41,496 | ERROR | [genesis-videos] 视频发送失败，退出码=10
+2026-04-16 19:13:42,964 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260416_190304.mp4
+2026-04-16 19:13:50,966 | INFO | [genesis-videos] 开始发送视频: /home/zhihao/Code/save_fire/Genesis/videos/test18_20260416_190304.mp4
+2026-04-16 19:13:50,966 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/Genesis/videos/test18_20260416_190304.mp4
+2026-04-16 19:13:51,165 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260416_190304.mp4
+2026-04-16 19:13:52,086 | INFO | 视频发送输出:
+HTTPError: 400
+{"message":"富媒体文件格式不支持","code":850019,"err_code":40034002,"trace_id":"260ef85b7ca016739d74fbc6dd87bd2f"}
+2026-04-16 19:13:52,086 | ERROR | [genesis-videos] 视频发送失败，退出码=10
+2026-04-16 19:14:01,776 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260416_190304.mp4
+2026-04-16 19:14:09,778 | INFO | [genesis-videos] 开始发送视频: /home/zhihao/Code/save_fire/Genesis/videos/test18_20260416_190304.mp4
+2026-04-16 19:14:09,778 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/Genesis/videos/test18_20260416_190304.mp4
+2026-04-16 19:14:11,117 | INFO | 视频发送输出:
+HTTPError: 400
+{"message":"富媒体文件格式不支持","code":850019,"err_code":40034002,"trace_id":"ee5c860cac180be23662cc0409b30f11"}
+2026-04-16 19:14:11,117 | ERROR | [genesis-videos] 视频发送失败，退出码=10
+2026-04-16 19:14:11,860 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260416_190304.mp4
+2026-04-16 19:14:19,438 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260416_190304.mp4
+2026-04-16 19:14:27,441 | INFO | [genesis-videos] 开始发送视频: /home/zhihao/Code/save_fire/Genesis/videos/test18_20260416_190304.mp4
+2026-04-16 19:14:27,441 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/Genesis/videos/test18_20260416_190304.mp4
+2026-04-16 19:14:28,874 | INFO | 视频发送输出:
+HTTPError: 400
+{"message":"富媒体文件格式不支持","code":850019,"err_code":40034002,"trace_id":"be734b9d39500e143c5be8a9e653d099"}
+2026-04-16 19:14:28,875 | ERROR | [genesis-videos] 视频发送失败，退出码=10
+2026-04-16 19:14:32,720 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260416_190304.mp4
+2026-04-16 19:14:35,362 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260416_190304.mp4
+2026-04-16 19:14:35,374 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260416_190304.mp4
+2026-04-16 19:14:35,386 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260416_190304.mp4
+2026-04-16 19:14:43,390 | INFO | [genesis-videos] 开始发送视频: /home/zhihao/Code/save_fire/Genesis/videos/test18_20260416_190304.mp4
+2026-04-16 19:14:43,391 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/Genesis/videos/test18_20260416_190304.mp4
+2026-04-16 19:14:46,228 | INFO | 视频发送输出:
+视频发送成功
+{
+  "upload_result": {
+    "file_uuid": "EhT9UWSrhX3hyu2LpY4VkM01I5uHSBiD_XIghQso_6e7hJ_ykwMyBHByb2RQgPUkWhDRkP13UwyRD1c0qX5HXOOdegLOVYIBAmd6",
+    "file_info": "XrtlPeABQmWr+/HEyk6rTLODFXUfPWzRzro7nZBbULxxFpgqXNj0mL0WhbgN9sXRHK17G5KgjXiFNlwqwnsjfoXBO/TCAFscVNUyOp+RWLLu1S/tGpze5T5F3PUBO1/3ym8i7kYvPJsjA6avDRy/9QVUaF1YGYgdSqATx7E1TFIFFvg8EgXKwk8HnMZM1i9l3l/0dEceHjiPT0kS0Hezo7KMfZzyv6P7bNZwBm0D8pH1lC6lIV1t/umMJVVYIo4l0vnWy1lQY4uWuRNHxZXyaHaQo+td187wfISplhp2hbllkAJTBOy7eYklXqP++HF9Yy6QIYhHP/Mme+LNd5Kxw1nZIvh50nKoFKjtGaP0YNS/NjSrhbb72iTt+rM++S0UcadxsoMCafHU9kYFxrZuxC3k9AgMWQUEr5MmW1i9rzYY6Pa2WUkUZKCCJbSe5niXV3J4yIM2yWNhChgdndL1cwByMBN30SMPNNcv+11XwGlih8byUCUQe+pNd1/hpOoBllivr6gFuqlFKkHZkUR6cqa2Pg12rBZW8doTxMVvifdlyS6iqmvHO7/s07sI+37r1qIrC2qV2J6BX3TwFYW8/5+LD094tPZ+QHIIIFUxkh3FmgeRWRGz68x56hlq3PQVveR/O8yVkHWx8HByzfhb63oJ0zJtrzQslfdUWs3UTqGy8OQzRJHVLHItiWzHumvIhc084stODP8rPoPjednVPLs7Mb2XFcLJoV2jJlmK5FzTIMmkXJoASVcFYxtU5WWGhZVca34FLP0T8lDlnPpLnl5fu5Kul9F78HUPS5guehhO7SfMzuwSmtz58kLHx3GqgJzxjhvvre/WNorgIPTMbfbhOr6CIrr5yPPX201pFF7PsvzbOgDWH0UJKJm6u6AUK5CZCNAR8YskeuozU1IxYfoVycbHina0N03VuMPJSRv7mNDc9acEyxm2tfloWSdjKLt81V9im7UTh6rBf48AAtsMNbU4s8pzUr8bV+U5i6hZVc8RwomyUEUdOMVBEnbLuO5dP6V/ehDj5hABx56EHlPjWGHq/9H13RBMsHao3lxdU6rTZls5pVV27Xe6ffxjlAig4q38uocKg3MKZeN7FMA2WIXUwgV0Gq8Eax8Hb8LHzVZSXEQoqpva68WDkD4yqDOFP+8cF0H0gFTxKin3UMoJR21pgEhETffy/NTAIJnbFMX3DnqZyGPZN2dKFEa+TWVnRvYTUUs/BLeaFPH4r7gH77K9eNSiPV4E+bq7dAn5DkNhpZ+5C2WMEAu1RTBAVMkZKF19nSdXOuhjr6gDX0XZDo9AtMHBpG5/xtdnB+EFzN+4xdKk0SMettvKAn8z",
+    "ttl": 86400,
+    "id": ""
+  },
+  "send_result": {
+    "id": "ROBOT1.0_39Ebk17YzYnB6-Jp0EPggFLK7jjV6AnSUdidyDA7WFE7dSHlJJADF3rsFpb5i3YuO.yEngtg7nVAzt-SOCEzWQ!!",
+    "timestamp": "2026-04-16T19:14:46+08:00",
+    "ext_info": {
+      "ref_idx": "REFIDX_GKpbzuBPosO54ATHpBvu38tG81ovPjw88HwjHppK6Gc="
+    }
+  }
+}
+2026-04-16 19:14:46,229 | INFO | [genesis-videos] 视频发送成功: test18_20260416_190304.mp4
+2026-04-16 19:32:48,011 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260416_192014.mp4
+2026-04-16 19:32:48,028 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260416_192014.mp4
+2026-04-16 19:32:56,029 | INFO | [genesis-videos] 开始发送视频: /home/zhihao/Code/save_fire/Genesis/videos/test18_20260416_192014.mp4
+2026-04-16 19:32:56,030 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/Genesis/videos/test18_20260416_192014.mp4
+2026-04-16 19:32:56,573 | INFO | 视频发送输出:
+HTTPError: 400
+{"message":"富媒体文件格式不支持","code":850019,"err_code":40034002,"trace_id":"6e1c354c1f70f825ca8e5da4d6bb2b2b"}
+2026-04-16 19:32:56,574 | ERROR | [genesis-videos] 视频发送失败，退出码=10
+2026-04-16 19:32:58,072 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260416_192014.mp4
+2026-04-16 19:33:06,073 | INFO | [genesis-videos] 开始发送视频: /home/zhihao/Code/save_fire/Genesis/videos/test18_20260416_192014.mp4
+2026-04-16 19:33:06,073 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/Genesis/videos/test18_20260416_192014.mp4
+2026-04-16 19:33:07,078 | INFO | 视频发送输出:
+HTTPError: 400
+{"message":"富媒体文件格式不支持","code":850019,"err_code":40034002,"trace_id":"ad43e77918bf6ec391d2c7f90dddbf22"}
+2026-04-16 19:33:07,079 | ERROR | [genesis-videos] 视频发送失败，退出码=10
+2026-04-16 19:33:08,583 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260416_192014.mp4
+2026-04-16 19:33:16,585 | INFO | [genesis-videos] 开始发送视频: /home/zhihao/Code/save_fire/Genesis/videos/test18_20260416_192014.mp4
+2026-04-16 19:33:16,586 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/Genesis/videos/test18_20260416_192014.mp4
+2026-04-16 19:33:17,812 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260416_192014.mp4
+2026-04-16 19:33:18,022 | INFO | 视频发送输出:
+HTTPError: 400
+{"message":"富媒体文件格式不支持","code":850019,"err_code":40034002,"trace_id":"686a458a7d757c669bf9eff3cad78b14"}
+2026-04-16 19:33:18,022 | ERROR | [genesis-videos] 视频发送失败，退出码=10
+2026-04-16 19:33:23,604 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260416_192014.mp4
+2026-04-16 19:33:31,606 | INFO | [genesis-videos] 开始发送视频: /home/zhihao/Code/save_fire/Genesis/videos/test18_20260416_192014.mp4
+2026-04-16 19:33:31,606 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/Genesis/videos/test18_20260416_192014.mp4
+2026-04-16 19:33:33,058 | INFO | 视频发送输出:
+HTTPError: 400
+{"message":"富媒体文件格式不支持","code":850019,"err_code":40034002,"trace_id":"65243f272324186512d121ad8a1af1cd"}
+2026-04-16 19:33:33,059 | ERROR | [genesis-videos] 视频发送失败，退出码=10
+2026-04-16 19:33:34,741 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260416_192014.mp4
+2026-04-16 19:33:42,745 | INFO | [genesis-videos] 开始发送视频: /home/zhihao/Code/save_fire/Genesis/videos/test18_20260416_192014.mp4
+2026-04-16 19:33:42,746 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/Genesis/videos/test18_20260416_192014.mp4
+2026-04-16 19:33:44,225 | INFO | 视频发送输出:
+HTTPError: 400
+{"message":"富媒体文件格式不支持","code":850019,"err_code":40034002,"trace_id":"e3036cd67179f02baff4168d5ce5a21a"}
+2026-04-16 19:33:44,225 | ERROR | [genesis-videos] 视频发送失败，退出码=10
+2026-04-16 19:33:51,066 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260416_192014.mp4
+2026-04-16 19:33:59,069 | INFO | [genesis-videos] 开始发送视频: /home/zhihao/Code/save_fire/Genesis/videos/test18_20260416_192014.mp4
+2026-04-16 19:33:59,070 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/Genesis/videos/test18_20260416_192014.mp4
+2026-04-16 19:34:00,468 | INFO | 视频发送输出:
+HTTPError: 400
+{"message":"富媒体文件格式不支持","code":850019,"err_code":40034002,"trace_id":"06d28a36f0ac2f65c7a98d663d45ec7e"}
+2026-04-16 19:34:00,469 | ERROR | [genesis-videos] 视频发送失败，退出码=10
+2026-04-16 19:34:04,345 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260416_192014.mp4
+2026-04-16 19:34:04,349 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260416_192014.mp4
+2026-04-16 19:34:04,352 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260416_192014.mp4
+2026-04-16 19:34:12,356 | INFO | [genesis-videos] 开始发送视频: /home/zhihao/Code/save_fire/Genesis/videos/test18_20260416_192014.mp4
+2026-04-16 19:34:12,356 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/Genesis/videos/test18_20260416_192014.mp4
+2026-04-16 19:34:15,685 | INFO | 视频发送输出:
+视频发送成功
+{
+  "upload_result": {
+    "file_uuid": "EhTuA00N5F7zMnVl9mnOvxXgxjBuBRif02oghQso5Y3rsaPykwMyBHByb2RQgPUkWhCNnK-DAzAB2MliZTDx6LU9egJP3oIBAmd6",
+    "file_info": "YpG1RMr+cDDzVQAVsUM8kCRFLBZXHviN+QiI6pWyEAwhdepsug8ohOdyLrhJ5Msmgk1wRteJTcFmtDQkBm7YecwnZBavyHe1/FQq10AGr7NB3Q30am4QqDRShuS7jLGDym8i7kYvPJsjA6avDRy/9fj1c9JNrKcITzeRk7gBRwMfbcC0K/XoQMHVq7Kln5rkiWLfwQRiPXapijgTpl0mU6bFReVDDmgyTkaf7Al6ipYzvCdE93GRVPlKIFCKgX4lPx7eU35yEC6XO3M3HTmxwClv4c4Obk0n32IF5C6O9uiBMcE262higSBE31GUiDONj/93MX8yAcsYi5aTPKxkJphnDuIXZ9v+PHuLm1ybLjDvaTbuW1mUw7w8TxTxjtq6b1FbKTPXFwS5vXU1WzDaM2FuHKcl5XcxKjLYe7rS38KX+/Ylu2F1IUf6P8Hb725Nb/p3nC5N6JDgtUt7aEn8bdNNjRbd8QoCPgBY1XHXkmMZ8f5xmB9EE2u+7ksJp2q4t5mbReqDk2wflukOHtlMVGL88gNzo9CAlBjiJutZpK2xbdFVHu+WOrFOceRtMdoXQVqf7bfN9suaN7JUGZikCTyfOZWDfDI+VDjnSxMTKfBMSExhkGse3Wy0AxtySjOrTadHD0IpMVOPC2nmsoi3snoJ0zJtrzQslfdUWs3UTqGy8OQzRJHVLHItiWzHumvIhFJLLFSH324B6XdRm8QVlFsTJ9WnN9A+r5jZv3vVD3zdZ7XRFWiGP0mbHGzvfUtrDEAxxH2vmAiUb+rYXBGMvtsCYLHRuSG/mBonbpsg+83KJU6ZjPicRT+rHGQx5UHC6PX2GrCB0TztMXM+ylhYMutqngz1cmZrd5/5xV32iM3PsvzbOgDWH0UJKJm6u6AUJgyzig7xrM8hsx2ydDowDb+TaTV5n8RLtISpD6PNA68ruNiyaWqUHuCdwVB0f6yWvHB1654hSRQ/0BcK0bADuWpPs6d+UUZGHJ/pt/2R3q1q04X+F5Y3GamtKKU3oAF+ms39A42JaCZ874Uc1p1Hyf4VO93sX+NnRaWG5aGxSBFtZ63O3ISNk/qv6faaOv5sYNFHJa44+ngI2Gvd78wVRh0N2yOpy4Sxk1yfuYk8lAQnhb2jx9WJ+csfypZH0Appmv5uzJy9+E3S634Y9CENfcoJR21pgEhETffy/NTAIJmSMlMqGORbRGv5ZhYSRof3pGzxvW2tztLHusB5kENqB24N/E6fX2nvOEeu8PsviyBCZSQeT4XLWesyJohYwt88dlz9JfARW/WAMZekmoXzBoXWTMHGbwpc2kGFMZmq5PnAOyWOA4wwbEMMPFN1c3XF",
+    "ttl": 86400,
+    "id": ""
+  },
+  "send_result": {
+    "id": "ROBOT1.0_39Ebk17YzYnB6-Jp0EPggAcAJrfGO4URxzw-EexGnXf8uMsZpdizvo2RQW2e9JQHi6tDpTOoRm4aq5zST7h8Aw!!",
+    "timestamp": "2026-04-16T19:34:15+08:00",
+    "ext_info": {
+      "ref_idx": "REFIDX_zcPUBVDFawaSfvf9Th5Khg=="
+    }
+  }
+}
+2026-04-16 19:34:15,685 | INFO | [genesis-videos] 视频发送成功: test18_20260416_192014.mp4
+2026-04-20 12:30:13,557 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260420_121111.mp4
+2026-04-20 12:30:13,578 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260420_121111.mp4
+2026-04-20 12:30:21,579 | INFO | [genesis-videos] 开始发送视频: /home/zhihao/Code/save_fire/Genesis/videos/test18_20260420_121111.mp4
+2026-04-20 12:30:21,580 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/Genesis/videos/test18_20260420_121111.mp4
+2026-04-20 12:30:21,784 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260420_121111.mp4
+2026-04-20 12:30:22,446 | INFO | 视频发送输出:
+HTTPError: 400
+{"message":"富媒体文件格式不支持","code":850019,"err_code":40034002,"trace_id":"9d80a097ddbf8418f7ad6b6a75c61e44"}
+2026-04-20 12:30:22,446 | ERROR | [genesis-videos] 视频发送失败，退出码=10
+2026-04-20 12:30:30,291 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260420_121111.mp4
+2026-04-20 12:30:38,292 | INFO | [genesis-videos] 开始发送视频: /home/zhihao/Code/save_fire/Genesis/videos/test18_20260420_121111.mp4
+2026-04-20 12:30:38,293 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/Genesis/videos/test18_20260420_121111.mp4
+2026-04-20 12:30:39,393 | INFO | 视频发送输出:
+HTTPError: 400
+{"message":"富媒体文件格式不支持","code":850019,"err_code":40034002,"trace_id":"f858883dbafdc13c1dde1e414adaf6ad"}
+2026-04-20 12:30:39,394 | ERROR | [genesis-videos] 视频发送失败，退出码=10
+2026-04-20 12:30:40,195 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260420_121111.mp4
+2026-04-20 12:30:48,197 | INFO | [genesis-videos] 开始发送视频: /home/zhihao/Code/save_fire/Genesis/videos/test18_20260420_121111.mp4
+2026-04-20 12:30:48,197 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/Genesis/videos/test18_20260420_121111.mp4
+2026-04-20 12:30:49,471 | INFO | 视频发送输出:
+HTTPError: 400
+{"message":"富媒体文件格式不支持","code":850019,"err_code":40034002,"trace_id":"fc170038d6237772a0d7a9720af01312"}
+2026-04-20 12:30:49,472 | ERROR | [genesis-videos] 视频发送失败，退出码=10
+2026-04-20 12:30:55,556 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260420_121111.mp4
+2026-04-20 12:31:03,559 | INFO | [genesis-videos] 开始发送视频: /home/zhihao/Code/save_fire/Genesis/videos/test18_20260420_121111.mp4
+2026-04-20 12:31:03,559 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/Genesis/videos/test18_20260420_121111.mp4
+2026-04-20 12:31:04,814 | INFO | 视频发送输出:
+HTTPError: 400
+{"message":"富媒体文件格式不支持","code":850019,"err_code":40034002,"trace_id":"cd515c2e9efc779b98e0f5f3a93c6bab"}
+2026-04-20 12:31:04,815 | ERROR | [genesis-videos] 视频发送失败，退出码=10
+2026-04-20 12:31:11,143 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260420_121111.mp4
+2026-04-20 12:31:19,146 | INFO | [genesis-videos] 开始发送视频: /home/zhihao/Code/save_fire/Genesis/videos/test18_20260420_121111.mp4
+2026-04-20 12:31:19,147 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/Genesis/videos/test18_20260420_121111.mp4
+2026-04-20 12:31:20,442 | INFO | 视频发送输出:
+HTTPError: 400
+{"message":"富媒体文件格式不支持","code":850019,"err_code":40034002,"trace_id":"efc72b6e084065c76d0087b05dfbd282"}
+2026-04-20 12:31:20,442 | ERROR | [genesis-videos] 视频发送失败，退出码=10
+2026-04-20 12:31:31,922 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260420_121111.mp4
+2026-04-20 12:31:36,578 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260420_121111.mp4
+2026-04-20 12:31:36,582 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260420_121111.mp4
+2026-04-20 12:31:44,586 | INFO | [genesis-videos] 开始发送视频: /home/zhihao/Code/save_fire/Genesis/videos/test18_20260420_121111.mp4
+2026-04-20 12:31:44,586 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/Genesis/videos/test18_20260420_121111.mp4
+2026-04-20 12:31:47,445 | INFO | 视频发送输出:
+视频发送成功
+{
+  "upload_result": {
+    "file_uuid": "EhSqRdks3mWlrqhfqq1A_BZHX7ySwRjTyWQghQsorLb8tcz7kwMyBHByb2RQgPUkWhDpOuaI6KnSaUFfLohPuCUNegKoR4IBAmd6",
+    "file_info": "FRnvsJTh3oEf2CoNoJZonffy9BN4tSmXkvm1Rs3e3rDXDPZL704Ejel5xHtKFCIW2j4LafZQGYwdW2tAMbCpKrv/Of5VYAeZ3u01AUwvEJvQqjCqzExrlDRc+tdMdftFym8i7kYvPJsjA6avDRy/9Tw49h0BnkWL6Uh2aPWsPglSNyH9NmELJhl/GstgIAUNgFSIR76t6mofhFtAo5eoBV/UAPr65hIQbDPtRzRRaNLIR3GZcev8eO151BkP0UV2QGc0GLXxON3BxVPi/4F8OxOwk1jzar4PvC8b1kG3PgIhDlse6Empxmcr1gpexj+FQ/ltptKy24XQpQrx/wW26fl1y91/pa8khQxNhcW4ke8wyKq6DY3lTvj7cQXtkuT8buuHkawshP9Btb/C5pm7sXHoif2ABBxIkfp1ywQAfBDJAYfshRSkesMv98ZhysJ6nfcjSaACNSK3Ft2kTqQnqiSvt94T0PiLp/Jm3apMp70QciBdVQssNM0v6kmnZBEZ4KV7Sto859ChWv0FVjo2wRQ4h3UKmkOxZosI9v2S9vv5ruIlrIgILSAUsgY8enBC4ITZSvq8YpMIS4BllSve5Z6+lI4RpIe2tP4Iw6H9LOkpneJq9diVYf00fYHyGh0UARrtP/FMe0lLMxS2qpnpAHoJ0zJtrzQslfdUWs3UTqGy8OQzRJHVLHItiWzHumvICRuzyhOtkGsCC0wkclHWJKm2SUhrXeSrjFFTjlSc7quBm3i2HOW29xuI14vSNa5vwGj9VkWb2sC8K4lwbfOMgaN3yx6eBwJyIL4BpCmse8OFwdhm4UoYxncb2m3FwunMKoAp7FzS43EcmFvsqXyyx18jkw7PUqdpo0OMGncQZjHPsvzbOgDWH0UJKJm6u6AUPQM8LQpNew4ZnerGbRyr7hC6QC78N+yP3QIJ8/hAaCwA3IcD7bF3kJA80H5OtdRP1YUnSU2Yx3nXO8E+uYSxPcoz25cyZ7BC9CRtkRI88I5uPc59Du3QAy1hoCE+lEdCOZvb5rYX15h1fGImyKQ9G3tV5qZaUfWo3Xx0uwcdxB8ChC73zaQOhZdJG+2cKwFMHjxBlRuvOz7TtOVEnj4ATZyfeRILSvmtTzx+QJhWQxGTMWCxFs8WufjDNWfIN/rqFbKvY1u4mSgbkR2m5fwbnsoJR21pgEhETffy/NTAIJksuZtNGQJjWRFiMpHih+W4489T2KhNsTvsdCquEdANQgUSFwCxidEHQzCTCRutX7ljlqRkEdlo+lmiEBMj9TR7PwpCNFT1FECbHoNXtXzFWAElpy9WuI09b7jHmRh+RccaHxqr2VJl4w6xEMt3NS+Z",
+    "ttl": 86400,
+    "id": ""
+  },
+  "send_result": {
+    "id": "ROBOT1.0_39Ebk17YzYnB6-Jp0EPggM7A5pOzbNxY6iDwvDSXhF9ZP9ZHMObxmOWKpI5jNQl3O.yEngtg7nVAzt-SOCEzWQ!!",
+    "timestamp": "2026-04-20T12:31:47+08:00",
+    "ext_info": {
+      "ref_idx": "REFIDX_BOhCJw14n+HXzryNm71XastG81ovPjw88HwjHppK6Gc="
+    }
+  }
+}
+2026-04-20 12:31:47,446 | INFO | [genesis-videos] 视频发送成功: test18_20260420_121111.mp4
+2026-04-20 12:57:11,814 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260420_124240.mp4
+2026-04-20 12:57:11,832 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260420_124240.mp4
+2026-04-20 12:57:19,832 | INFO | [genesis-videos] 开始发送视频: /home/zhihao/Code/save_fire/Genesis/videos/test18_20260420_124240.mp4
+2026-04-20 12:57:19,832 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/Genesis/videos/test18_20260420_124240.mp4
+2026-04-20 12:57:20,389 | INFO | 视频发送输出:
+HTTPError: 400
+{"message":"富媒体文件格式不支持","code":850019,"err_code":40034002,"trace_id":"a8e6a7c22c69a99e7de5be1dce80603e"}
+2026-04-20 12:57:20,390 | ERROR | [genesis-videos] 视频发送失败，退出码=10
+2026-04-20 12:57:23,258 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260420_124240.mp4
+2026-04-20 12:57:31,259 | INFO | [genesis-videos] 开始发送视频: /home/zhihao/Code/save_fire/Genesis/videos/test18_20260420_124240.mp4
+2026-04-20 12:57:31,259 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/Genesis/videos/test18_20260420_124240.mp4
+2026-04-20 12:57:32,049 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260420_124240.mp4
+2026-04-20 12:57:32,190 | INFO | 视频发送输出:
+HTTPError: 400
+{"message":"富媒体文件格式不支持","code":850019,"err_code":40034002,"trace_id":"045d647cc1b8e4231ffa8991b1b94d4d"}
+2026-04-20 12:57:32,190 | ERROR | [genesis-videos] 视频发送失败，退出码=10
+2026-04-20 12:57:40,081 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260420_124240.mp4
+2026-04-20 12:57:48,084 | INFO | [genesis-videos] 开始发送视频: /home/zhihao/Code/save_fire/Genesis/videos/test18_20260420_124240.mp4
+2026-04-20 12:57:48,086 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/Genesis/videos/test18_20260420_124240.mp4
+2026-04-20 12:57:49,771 | INFO | 视频发送输出:
+HTTPError: 400
+{"message":"富媒体文件格式不支持","code":850019,"err_code":40034002,"trace_id":"4172d99c143123b14769824c45e260de"}
+2026-04-20 12:57:49,772 | ERROR | [genesis-videos] 视频发送失败，退出码=10
+2026-04-20 12:57:54,765 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260420_124240.mp4
+2026-04-20 12:58:02,769 | INFO | [genesis-videos] 开始发送视频: /home/zhihao/Code/save_fire/Genesis/videos/test18_20260420_124240.mp4
+2026-04-20 12:58:02,769 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/Genesis/videos/test18_20260420_124240.mp4
+2026-04-20 12:58:04,085 | INFO | 视频发送输出:
+HTTPError: 400
+{"message":"富媒体文件格式不支持","code":850019,"err_code":40034002,"trace_id":"90d98f4afbe12924a00d3fdf06cbbdca"}
+2026-04-20 12:58:04,085 | ERROR | [genesis-videos] 视频发送失败，退出码=10
+2026-04-20 12:58:11,493 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260420_124240.mp4
+2026-04-20 12:58:12,361 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260420_124240.mp4
+2026-04-20 12:58:12,364 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260420_124240.mp4
+2026-04-20 12:58:12,367 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260420_124240.mp4
+2026-04-20 12:58:20,370 | INFO | [genesis-videos] 开始发送视频: /home/zhihao/Code/save_fire/Genesis/videos/test18_20260420_124240.mp4
+2026-04-20 12:58:20,371 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/Genesis/videos/test18_20260420_124240.mp4
+2026-04-20 12:58:23,513 | INFO | 视频发送输出:
+视频发送成功
+{
+  "upload_result": {
+    "file_uuid": "EhTSXObQkz3c3jfk3Fk3xNjyVZjEchi4iFIghQso37yLr9L7kwMyBHByb2RQgPUkWhBZ2G4gGEBoetfdHY4XpjupegLseIIBAm5q",
+    "file_info": "RdzXx7Kz/MntXDJlYLIK5O1VNoNs90wAMQ2Ai++cm3ctZVgW9hnD1KRw7e6aXCFOrZGO0sJMXdr26iTjotji0lXiN1aY/i5WtFXkU7DQWL/aRsI8nLC6nUAqQfA0N9tbym8i7kYvPJsjA6avDRy/9SuClRV4L7LYEqGi9C1l+MqeypuHFu8rsN/nx4r2wDZB/PiY6Q4o1/87x4KB3c3Yl1hPeJX2sSP0zNws3zaZ/yu0gz1kFLJb44ZeRFh1iRsaQGauXKKWq4lXxLa01+/aFgLMjIIbUsl+Uh3HwUqghc8WGJoOzsq84iltNFJjRGMqGhO6awXJm2GyDdDNG0KeXmyAQXTQ/PE4rB0gi9wdIqwz9WomdQTYt06eiML0t5y9iKGd2BVwkSxL5vDBPvwn0qUZzzJt5wXcZJohH75C5JeI/ojQ7pgSYU+F/3o79GhcIs8CCTY6042oA2XGkGSGqDGXfGei0Wznh3knToRGQfQr3t4F/poPJjOiSLaMipQLGG5wyLsCWjdEcFpTdHl4vSIBqPZmJzGOkfy93PNNL4vKLdKpl+UdL1pfQI4DY09mwRU9Jj1HIgr1dJ/tKM3F4jJuxxmcZc7VsVqA2Mwl4jYOOEOEFyKq4c/s/1jNBzVMNuMmrpd7emZbRRIAzjj4j3oJ0zJtrzQslfdUWs3UTqGy8OQzRJHVLHItiWzHumvIG6fOHoxOotnjkwkbrSZy8Rcc0wrPPMr/is1M7ABfczCnNEYDYNPoLNYMHuCKCm70O6NiPG4BehQdQUz1QI7ukVqtdytmTDeiau5/KnCLtbBlEUrFUrlJRLXPfp+GvKGg5ogCMv458weN4CnNIK36/F4ItxO/4UWr1ociZFIIt62fcaifiEBDvaihS9J0SK9gzvX7Fjwyv0qeRDTzlMYwoFjnIzIdZmHop3T4hibaIIUduZhaKr9EkOp5Xtpz8W5T1gWCAlVx20qzOYhdNq/CgDGSfzscn8oJu2/DHGpTiOIy5Z4Mc345vtCEFa2EebZ8KXhJeeTlKJ7gujrXlifq7uYqoLmmTPZfY7ehzZ/GK/VL23GZy9PXCnhhmcIJ4jy0ppBthr+lky+X5EL7nlo7Yf2IdQRH8psD+j2vSR4rujVG7x52c2QYPOa/w7MeuehQH2cswzQRxW2cdynfj1//gcoJR21pgEhETffy/NTAIJmdxNAYiXSKFq1/f1qn5t9kkJNPWeGWKtt1eg5ATyVL1sKq2Cb02rOwSOIoegcubN4fVLzA6dhEf8hvFG4bw5IkrC3rseM933N584POQdU+sq+ZVyAiJW+W9GUGoKQSGNCKdfvXx3XwSRz+sVFIvZoW",
+    "ttl": 86400,
+    "id": ""
+  },
+  "send_result": {
+    "id": "ROBOT1.0_39Ebk17YzYnB6-Jp0EPggKP0UKosZHXdxSI-pkULmZgfsgTvndLIFuDysxVpMmZlO.yEngtg7nVAzt-SOCEzWQ!!",
+    "timestamp": "2026-04-20T12:58:23+08:00",
+    "ext_info": {
+      "ref_idx": "REFIDX_s1o7zd+P70W6nDFWq3VWJ8tG81ovPjw88HwjHppK6Gc="
+    }
+  }
+}
+2026-04-20 12:58:23,513 | INFO | [genesis-videos] 视频发送成功: test18_20260420_124240.mp4
+2026-04-20 13:30:27,302 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260420_131622.mp4
+2026-04-20 13:30:27,324 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260420_131622.mp4
+2026-04-20 13:30:35,324 | INFO | [genesis-videos] 开始发送视频: /home/zhihao/Code/save_fire/Genesis/videos/test18_20260420_131622.mp4
+2026-04-20 13:30:35,325 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/Genesis/videos/test18_20260420_131622.mp4
+2026-04-20 13:30:35,395 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260420_131622.mp4
+2026-04-20 13:30:36,194 | INFO | 视频发送输出:
+HTTPError: 400
+{"message":"富媒体文件格式不支持","code":850019,"err_code":40034002,"trace_id":"ff606535bc056d6dc1d364981ac7bf47"}
+2026-04-20 13:30:36,195 | ERROR | [genesis-videos] 视频发送失败，退出码=10
+2026-04-20 13:30:44,758 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260420_131622.mp4
+2026-04-20 13:30:52,760 | INFO | [genesis-videos] 开始发送视频: /home/zhihao/Code/save_fire/Genesis/videos/test18_20260420_131622.mp4
+2026-04-20 13:30:52,761 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/Genesis/videos/test18_20260420_131622.mp4
+2026-04-20 13:30:53,408 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260420_131622.mp4
+2026-04-20 13:30:53,948 | INFO | 视频发送输出:
+HTTPError: 400
+{"message":"富媒体文件格式不支持","code":850019,"err_code":40034002,"trace_id":"4e25551ed83df15858299a36bbfcb870"}
+2026-04-20 13:30:53,948 | ERROR | [genesis-videos] 视频发送失败，退出码=10
+2026-04-20 13:31:08,249 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260420_131622.mp4
+2026-04-20 13:31:16,251 | INFO | [genesis-videos] 开始发送视频: /home/zhihao/Code/save_fire/Genesis/videos/test18_20260420_131622.mp4
+2026-04-20 13:31:16,252 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/Genesis/videos/test18_20260420_131622.mp4
+2026-04-20 13:31:17,544 | INFO | 视频发送输出:
+HTTPError: 400
+{"message":"富媒体文件格式不支持","code":850019,"err_code":40034002,"trace_id":"29b9b5e0bb9450dcca9d20408043b46d"}
+2026-04-20 13:31:17,544 | ERROR | [genesis-videos] 视频发送失败，退出码=10
+2026-04-20 13:31:23,894 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260420_131622.mp4
+2026-04-20 13:31:28,292 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260420_131622.mp4
+2026-04-20 13:31:28,297 | INFO | [genesis-videos] 检测到变化，已安排发送检查: test18_20260420_131622.mp4
+2026-04-20 13:31:36,301 | INFO | [genesis-videos] 开始发送视频: /home/zhihao/Code/save_fire/Genesis/videos/test18_20260420_131622.mp4
+2026-04-20 13:31:36,301 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/Genesis/videos/test18_20260420_131622.mp4
+2026-04-20 13:31:39,880 | INFO | 视频发送输出:
+视频发送成功
+{
+  "upload_result": {
+    "file_uuid": "EhTzGMX-fEpg_A9-yk9mJ93ZDxBlQhjZxlQghQsoheDQ5tn7kwMyBHByb2RQgPUkWhDqZG8Cqy3I8qakVODxZgKXegKxVIIBAmd6",
+    "file_info": "Cd7VPDl1TSmZsMNCBf6ZF5v8xMUHnoL485cWWUzJOqWazN2LUCbr2IwRFYhHM9gJEvIJqCnL4xHMijCzvu1W+spEC72467G3ST1fP3GRFQfO19GLZHLxrITboKbaGqi4ym8i7kYvPJsjA6avDRy/9dQyfZcIadOkbxekYq+PIhSu4hdqBEikqmQql7ukT2pPU0GfakZl8nKZfFsKn4wuWhJBcXddeg4r8NbnEwcMxA1bs3OJ1riYRgToV7dUTtBo9aZ6pHCScX/L0osnBrBVGP8dZtB0UHkDkbBbwYc6enHGeAVcvizcQO19YHCNN1g1/pPiSvz5egIbPSkDB8S2kqgNe5JzDgPSCgvMjTcF18BHpIij4lRrYySahS4fpr3qe9+DG5xW0tTfo64IEW48axfX4/iQU3UsKZoVj3uU1+0KqQBBkZ8HJpsgnFHScdDTKt9SGKjkgP5OKPSq7PVUMAMQzrDGw89wDNRZ14Mt/auQ9zw4nKEs7CweqNjeoE4TVDs7xBeZ/kz6hgUtyIuBei71vBgaiO+3tYBrPxWTf7Wvmxbsn3TUDbpR94fFfo8rSOX1qbTXfnsIVgBot6Ll/4NmPRjMjfpxKNs+JEnuSvLoAPCnfVH6dl61K2Sr0s5njvzXpMedLJPIFpfomu7RWHoJ0zJtrzQslfdUWs3UTqGy8OQzRJHVLHItiWzHumvI93HlM0nD+SvYS07tQKeusKUrvGZJEcMFGr/aAsEw9NUxXZZsTOQnCreBTxKkeya44z+dkcq+2jqf5Hd81FoQNTVvnfLrktiIm8YhHQX0Q/bMjUd1u/7cdG+X0hwRiEvsIWk1RXuU3U9hriw8oI/TcohLrovI7Cy/iHSVs13tNbzPsvzbOgDWH0UJKJm6u6AU8D3GULaDVnEcFp3pXcwhEYHOIP1XLoQw0H4MTPxgXPPi4aEbWjxBCecLYFxwmxelfuGexzc0Ch0pW59A8xFvOJHOA/9N1bOpDgXFzmHyzAO540rrzWjMJONpeplfPy2v6YTwd9BnXBdBMO4QNlFSwWY+9Xfy+taCJQHyABm1hofV87D5exS1DhQzWat9cFcXUhKIbhMl9mkeOmnaPJk83oa+DbGzlApzgsakwil57ziaYxKU31gyEVuogQLkP/WD3Kw8qOyEazJUf6N/XodJh8oJR21pgEhETffy/NTAIJl2a1JWdnTJoVXRHeDaHlhPxjODzw5rVmzWP1CDpgmgTJKQD2IyhuGFI8doDJrZ63gpVAqrBUKjnvfs2bsVZlRgSf6IP5WGHq7D/4eLW7A3T5y2Yb68JR5FnrB3HKhI4TpsYWm3/R+7ZrCTwEJFr/b8",
+    "ttl": 86400,
+    "id": ""
+  },
+  "send_result": {
+    "id": "ROBOT1.0_39Ebk17YzYnB6-Jp0EPggGg0artdhWTlxnzj0z9HZgTCrgWcE2X5I9XwOHMAvVqiO.yEngtg7nVAzt-SOCEzWQ!!",
+    "timestamp": "2026-04-20T13:31:39+08:00",
+    "ext_info": {
+      "ref_idx": "REFIDX_S6qp1exHhH7dVn9U+G3jf8tG81ovPjw88HwjHppK6Gc="
+    }
+  }
+}
+2026-04-20 13:31:39,880 | INFO | [genesis-videos] 视频发送成功: test18_20260420_131622.mp4
+2026-04-20 14:26:12,487 | INFO | 收到停止信号: 2
+2026-04-20 14:26:13,304 | INFO | 监听器已退出
+2026-04-20 14:26:16,145 | INFO | 开始监听: /home/zhihao/Code/save_fire/Genesis/videos -> task=genesis-videos, send_text=False
+2026-04-20 14:26:16,145 | INFO | 开始监听: /home/zhihao/Code/save_fire/DEXER/videos -> task=DEXER-videos, send_text=False
+2026-04-20 14:26:16,147 | INFO | 文件稳定等待秒数: 8
+2026-04-20 14:26:16,148 | INFO | 状态文件: /home/zhihao/Code/auto_notify/qq_bot/state.json
+2026-04-20 14:35:50,485 | INFO | [DEXER-videos] 检测到变化，已安排发送检查: test_mzh_20260420_142201.mp4
+2026-04-20 14:35:50,499 | INFO | [DEXER-videos] 检测到变化，已安排发送检查: test_mzh_20260420_142201.mp4
+2026-04-20 14:35:58,500 | INFO | [DEXER-videos] 开始发送视频: /home/zhihao/Code/save_fire/DEXER/videos/test_mzh_20260420_142201.mp4
+2026-04-20 14:35:58,501 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/DEXER/videos/test_mzh_20260420_142201.mp4
+2026-04-20 14:35:59,216 | INFO | 视频发送输出:
+HTTPError: 400
+{"message":"富媒体文件格式不支持","code":850019,"err_code":40034002,"trace_id":"59e0f47b6235c10a260201796e878070"}
+2026-04-20 14:35:59,217 | ERROR | [DEXER-videos] 视频发送失败，退出码=10
+2026-04-20 14:36:03,817 | INFO | [DEXER-videos] 检测到变化，已安排发送检查: test_mzh_20260420_142201.mp4
+2026-04-20 14:36:03,820 | INFO | [DEXER-videos] 检测到变化，已安排发送检查: test_mzh_20260420_142201.mp4
+2026-04-20 14:36:03,822 | INFO | [DEXER-videos] 检测到变化，已安排发送检查: test_mzh_20260420_142201.mp4
+2026-04-20 14:36:11,822 | INFO | [DEXER-videos] 开始发送视频: /home/zhihao/Code/save_fire/DEXER/videos/test_mzh_20260420_142201.mp4
+2026-04-20 14:36:11,823 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/DEXER/videos/test_mzh_20260420_142201.mp4
+2026-04-20 14:36:13,661 | INFO | 视频发送输出:
+视频发送成功
+{
+  "upload_result": {
+    "file_uuid": "EhTYhkUmbNSleDRnQaap4YErIg8n-BjsrAUghQso0aSpnuj7kwMyBHByb2RQgPUkWhA5FOUYYfh6-K1usfUFXFzTegIgHIIBAmd6",
+    "file_info": "zCOMgJVrBwIQIz6DIb7oxdXLedIpS/av3u6AqXTvLaoARhRKqQO8qyBekasC2YcaiNblxConsUazBa8bxXJLYaMSux7CLz35ctQpbwUgOXo+5do4xrbvvIScbACNP6dZHVsaOKpQX4PEdYaS6CBxOdHad86ua70XX0D1rn5t13MNXOrmSiFmeCbuTkcXDccxjobewxaBKqXWU+ymr3M9QDvZv4mNqDInu1iNYTLttRNn39zC681JTBSk3Qua9hkyMLM0SrvtjA+unoBUF0l90KTQPlCDpTUByfvqzdR/Xjf3CTTYIrtDado182YEBebkDiJbpZuuFUr15HLgPmoOjSku799zE8yEX0G44UnwahZky0Um1iAfLQfhihjz/NdWAWMJ6Ej7tXJmMsrOnoAqmMADkoARNuyQ5tQM4AVvsz4JK4psSDRcEFWEjxpq/XKqW4+gT6iZj9zvN5BgzJ9fQgx8IXK/xPgnjRkNhXoevr9pF+dwVggCNyKwfcjrk/39ztNBrsi9wrQSTKMC4z79rq7bxvjsYRyPHga/Eh1vNPPdIfvIJh4YUUpdazrQzAe8YMrOVEINtjFRJwGkHM9agRWisVY3iWKlACwpoGT3/wqlp8TI/3ErM4ez2usKIHoFOWYKyCQ5+maMwP/sqxKn6XoJ0zJtrzQslfdUWs3UTqGy8OQzRJHVLHItiWzHumvIFQX+xvV5MT4sHlYdswtffs0PmUaNC18Y09wDZE7K0aC8MgxCz4CkXVRamGgjvkwomEjZApghOlhu6oLePohPB6N3yx6eBwJyIL4BpCmse8OTrnJoWdjl29nQP/eynPOln0nr/wfNjpisoviOhMyWMiMHWQUp9db8jLsU4dypnoLPsvzbOgDWH0UJKJm6u6AUcUw5IQifeecFR60Zt6UjpL+r3dK3v0V8BjAUjIi+x4N7XkC34K1W0H9z5OADYltgl5xl2ANnkzWz/FIXfwY7GfN3GD8m5uT9iZ3tLpKHtaDqSEAxfhktfAQQ+u4hKRAS/z9VWLX5ff/k2gzSyWhUoiXxQlhDg0u1Hr9Ku/H5EggOnpWTeZbhLX+6R0g7kmtkCPnsktlgZS7an8Kg8K2h58WgpcjcIkuE3vAXs8FY28tzh0X4bw1pkqi+mcZh9yl8zDdyooVp0hxZuuRKdjCsbo6aXJYVQP4z05ac7KroMvh7yXx3GUvHBr/IAEMTB42RLFj0hx/HBmrNeAo+eaWSBqtKsBsOVoudpGRSejEGS+ciBDUGMVaiD/gx8r4cjYZ3C4bxxOfX3VYGjrhLapBLorC/lfmW9+q+AuVbwO3g20MBWj7x6MicbDivrYulaHMQ",
+    "ttl": 86400,
+    "id": ""
+  },
+  "send_result": {
+    "id": "ROBOT1.0_39Ebk17YzYnB6-Jp0EPggDG2jMaZJxVox.0JIH0sM0aq4jghyEs38yerhqWAmGi5O.yEngtg7nVAzt-SOCEzWQ!!",
+    "timestamp": "2026-04-20T14:36:13+08:00",
+    "ext_info": {
+      "ref_idx": "REFIDX_4SWM88f5lWUAZ34sbwcob8tG81ovPjw88HwjHppK6Gc="
+    }
+  }
+}
+2026-04-20 14:36:13,662 | INFO | [DEXER-videos] 视频发送成功: test_mzh_20260420_142201.mp4
+2026-04-20 14:48:29,253 | INFO | [DEXER-videos] 检测到变化，已安排发送检查: test_mzh_20260420_144206.mp4
+2026-04-20 14:48:29,275 | INFO | [DEXER-videos] 检测到变化，已安排发送检查: test_mzh_20260420_144206.mp4
+2026-04-20 14:48:30,614 | INFO | [DEXER-videos] 检测到变化，已安排发送检查: test_mzh_20260420_144206.mp4
+2026-04-20 14:48:30,616 | INFO | [DEXER-videos] 检测到变化，已安排发送检查: test_mzh_20260420_144206.mp4
+2026-04-20 14:48:38,617 | INFO | [DEXER-videos] 开始发送视频: /home/zhihao/Code/save_fire/DEXER/videos/test_mzh_20260420_144206.mp4
+2026-04-20 14:48:38,618 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/DEXER/videos/test_mzh_20260420_144206.mp4
+2026-04-20 14:48:39,943 | INFO | 视频发送输出:
+视频发送成功
+{
+  "upload_result": {
+    "file_uuid": "EhSMw_20CrNH5OmSK9NXQYOnxeM8IhjCPCCFCyjN2KeC6_uTAzIEcHJvZFCA9SRaELB7SRppcikV77amuQSk_KZ6Aut_ggECZ3o",
+    "file_info": "Ncpcv86Miy2Kug9yBpG5JAOryN550SB8Ke5YXDawd+zZfcNSMjkD9v5lvAKzY/msGkrsIPisqPZQ6ClLqJkDxdhOgez/cfwlXJsCe3vBLMP3a9MpjaPbQvIEPExR+hptAGpI+50CCObG1NKPjrp5n0iAFN0e5+c95u3TK9ZkF3RZXlqiITMkxauPhbMQJ+I0GKOU763kC7a3+4WLSMRi86k2Uy+ZI/C2/2tkkr9iBXTJYVZUGx9STH8u0OSGqsJo9uh/7s2MxRO4siBS77VgBAMcuA07z2UVLVhjZyi1buzwH6/5JVaseinMOzdAiFeBLXMzdkR4cQj161AHS9xBDcNX/zu2GSzWDzUkfri+kIgvrHAdD+nDhZ3qIAj/aDQ9W9x2do1+70xKUaO6vrY/syUdEVWNMIW2x7IPSFjK3HkuKV97OOXCEIVT9b5ynO6SzayRfMKMwR9pDv1DMA5wYdUABxbQfbT/mWnaJnBeehz08wVT14hE9c1oUv2llE3ULtcr2pZUgqV/s/bWm9OocPZ8L0x+EUSBQ/IOpTu2CDshCTvAGhyNg1Qr6f2TvkNZ/huZQiI4ztVhoND6Wc6zzi1WZSRPkTkCK+yDt6KwGWEQlsYlhMtMKvFSHuDF1fqZVbBZhFJTrcT1lnGI3G1mQ2f0JZYz3Czq3VQYzABYNU4Kqcj66iNrNvEYLnFsEYSctorfv2KaVHVN+5aZ4tvdEFyo1qfZI5Rn8lu2H2w12ztkQjSTu63uM0eQeYRfAJEvn+bM+BjfEe35FyWt+zczM7ApsJY6RUttz1Fg0GZ17W9uybxzjcTXaYVrb7vn3kIEAQ4TVGW8Psgj7HuobGvByQgsx8uq8yD8oNC/C3sbSO3KtF1GynN9UFcDr32VluB08agNxSlg/BsZh+lncljKkdttaY1G/ziWNR5rpF/szBjSmtw/MSjFNv9TK0th78WcG6YqrqrJeP3FSmEJS0WBNni7ZzxFeGs1fwVK62mrO3OIwCvYrgIeqCAlDQlqMKakbrw0Dt9a1uO76EZ5LrK/54E5lI+2QwpXQN4i4ZH7SJ9EO+fhq3R/e1B490y4vFVT8/8g/WT9aKvhlyiCxjBCjTPk4K2/F954EdgyrLmOaRo7cvF4dp0PSGWR66kstqtVFmFhdMcY/+kWuCNU3VZk/pkIli4hhLxMYeTVhuQL0BE/bfLr/0xDHhECD/6tV/SpQ41TqxRN1iR0lR8olzYo6LytYPwVsbpazUXeq0HX27ghidllZdSFPCYxPPJxFwNE5N1kBe8Al4SeNyY3vdLCLVUn3h5wJzzk5vyFCmaGp2oPQlZHXwGVes/I7A3Uy3xG",
+    "ttl": 86400,
+    "id": ""
+  },
+  "send_result": {
+    "id": "ROBOT1.0_39Ebk17YzYnB6-Jp0EPggPDOhkB8SMdCTxDNf4YEnxsKjo0Gy2ws6wwlTGdy-0I6O.yEngtg7nVAzt-SOCEzWQ!!",
+    "timestamp": "2026-04-20T14:48:39+08:00",
+    "ext_info": {
+      "ref_idx": "REFIDX_MIk9WOsD+bV5IbArzo8RTMtG81ovPjw88HwjHppK6Gc="
+    }
+  }
+}
+2026-04-20 14:48:39,943 | INFO | [DEXER-videos] 视频发送成功: test_mzh_20260420_144206.mp4
+2026-04-20 14:56:03,410 | INFO | [DEXER-videos] 检测到变化，已安排发送检查: test_mzh_20260420_145339.mp4
+2026-04-20 14:56:03,447 | INFO | [DEXER-videos] 检测到变化，已安排发送检查: test_mzh_20260420_145339.mp4
+2026-04-20 14:56:05,303 | INFO | [DEXER-videos] 检测到变化，已安排发送检查: test_mzh_20260420_145339.mp4
+2026-04-20 14:56:05,304 | INFO | [DEXER-videos] 检测到变化，已安排发送检查: test_mzh_20260420_145339.mp4
+2026-04-20 14:56:05,305 | INFO | [DEXER-videos] 检测到变化，已安排发送检查: test_mzh_20260420_145339.mp4
+2026-04-20 14:56:13,306 | INFO | [DEXER-videos] 开始发送视频: /home/zhihao/Code/save_fire/DEXER/videos/test_mzh_20260420_145339.mp4
+2026-04-20 14:56:13,306 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/DEXER/videos/test_mzh_20260420_145339.mp4
+2026-04-20 14:56:15,094 | INFO | 视频发送输出:
+视频发送成功
+{
+  "upload_result": {
+    "file_uuid": "EhT4qK93j3r3C_YKoCw3q-dq7e3igBiwkgQghQso2MGW2-z7kwMyBHByb2RQgPUkWhC1l1YNrhhnqWzCtFdD_5ggegIqSYIBAmd6",
+    "file_info": "RnlMsKeJlOc4aD2KJi/4hpyqL6/Uwvs4zdgYO5FSzbtB3I7rAXT9dWdyR/nSLyv17sMPs9JGt6nusKVQ+vW6Ku6Yp6/l6xcsm+c21WkcQQ6vwcIkw+hqC0Ek0pvj4dcaym8i7kYvPJsjA6avDRy/9bQQ8DiKL2N+MFci3e2Z6I+UR4xbc/WMnf/+Sfi7ONboHr5DMTGQ6s5sLNqlFUsHob3bHBTWyCpg0+8hXODm46Ynmo+EKu7S4lsMsjbOBDsMOau8/wu4++GUMU9dKiOSsp4St5g4MC8S62rulaA18mlQTeD4duL1o2hOnEOgwkkq2RdJvg9CA/oHXwvn0jb5jnY20Dr74wlbQoM9diB9ZGnv1meo2oRFgZxn7QCwMjVtb5oDvgnccHcVYoAtpagiVrOun7qtaguxlTRD1YEopXOvQSnNLvcnii57fu6v/GzxcrE2kQB4Z8uQwxoN9JcF5jzRaShqCNVfGysRBAt/lGhOlCTSR52lGCOAHmHYZE5toOCTcz/5uuW98zHcVzlPQyFeYnkmYH56czf6BInnomq0xYxP0pi15EA4TpI7WseJYZ9Aj2r3H3DNeuNiG4CDsGfwJLx2SEbiCRgg9QiqOCznflugRsx8fArQt5xwZFROW1jPF/ktlNatFivLBLYIg3oJ0zJtrzQslfdUWs3UTqGy8OQzRJHVLHItiWzHumvIXcEs98iW22J2h/vhtoaqoVT2jNh9xpipyPizREpgtN5cXEuAO6IQgo06rSN7R1V9LENAX9OsgILvCTgGHFLyDaN3yx6eBwJyIL4BpCmse8MNMT+ujxDCLXhF3tDmmi0E3niROiteRat4b+TAuAlDm6cdQTZ1FED6StmKv25kvTbPsvzbOgDWH0UJKJm6u6AUsQRCA2YxDDl2gTOuT/xeu0XqNOcp31aIgfdPIVLOG54m8O7bLDYnsCkayvYgTZRYVN9xTty/pwURS/yp/aIBXwjlXbLnWLw3DphDAtJY/snOhirnkWCUlq90bYm0JHc5vJ6kH5AMLwUCs1GoIy6dZ4RAsQa6gNu+V3kDlnRMYq0yS1YH2YFYInP1bAl+Nomx68bfQ39fIH2EHG7EpST0zGTFJVvZDF/sjAf18a+4sekYF3b6a5iWkMZDSbBXqwtG8QWqubBMs0BAZfEL+pzMG8oJR21pgEhETffy/NTAIJlHgaTD9aCM2Af+5bp+fOPCeuKMChMa4/g2utAFhxtN3WM12QmYhnETpMhfMl2gyjsn5xF22ABDxGAo7r73ZjKCZPWL+Uyu6TwEqgWuihS6DbKxCkXTSe2p4iuJ1YyjVirJqeXI3ytYg/A9Kz10g4N5",
+    "ttl": 86400,
+    "id": ""
+  },
+  "send_result": {
+    "id": "ROBOT1.0_39Ebk17YzYnB6-Jp0EPggKHd5F5ruHSfEweJO-g4y2UNqv4JV7EmFsF8SFeVgNTIO.yEngtg7nVAzt-SOCEzWQ!!",
+    "timestamp": "2026-04-20T14:56:14+08:00",
+    "ext_info": {
+      "ref_idx": "REFIDX_M++kuOJi8kiK2rEsiW+In8tG81ovPjw88HwjHppK6Gc="
+    }
+  }
+}
+2026-04-20 14:56:15,094 | INFO | [DEXER-videos] 视频发送成功: test_mzh_20260420_145339.mp4
+2026-04-20 15:05:16,805 | INFO | [DEXER-videos] 检测到变化，已安排发送检查: test_mzh_20260420_150237.mp4
+2026-04-20 15:05:16,829 | INFO | [DEXER-videos] 检测到变化，已安排发送检查: test_mzh_20260420_150237.mp4
+2026-04-20 15:05:18,828 | INFO | [DEXER-videos] 检测到变化，已安排发送检查: test_mzh_20260420_150237.mp4
+2026-04-20 15:05:18,829 | INFO | [DEXER-videos] 检测到变化，已安排发送检查: test_mzh_20260420_150237.mp4
+2026-04-20 15:05:26,830 | INFO | [DEXER-videos] 开始发送视频: /home/zhihao/Code/save_fire/DEXER/videos/test_mzh_20260420_150237.mp4
+2026-04-20 15:05:26,831 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/DEXER/videos/test_mzh_20260420_150237.mp4
+2026-04-20 15:05:28,559 | INFO | 视频发送输出:
+视频发送成功
+{
+  "upload_result": {
+    "file_uuid": "EhShiLp0zJgytBB4XKDuGogCYLW1yBjHjQQghQso-eGO4-77kwMyBHByb2RQgPUkWhBUIrNqH158xpO1js-0w9DVegI944IBAmd6",
+    "file_info": "YQEm/t7C4w4/H0UXBR58aYssMoUdfRIuy8wDFbkqjxiCVxQogJ00NXxoLDnPEZVkafZq7Y7UotMYcmM3wVdWVpkd3YjlH2eJixiE3vGjc6jnLbAhl0AN385R2yVOc3lIym8i7kYvPJsjA6avDRy/9TfgznhijDVHMsEfzGB4IKS1bXe1OLhZcwYcIHl7yws5UizL9qqnhffyli321udtveFwJSFilgiwmu1+hRIG9ok/ljYmxbIYZ55Y8XaKnG0YNT0v4NGipgNz/JDL8TiBftwGfGZqDwPT1WcJm8kP/sdk3vL6e/QkpInrDSnH9QeQi8KL9yeo5IF/doSggAAx1SgtOQK2+aIVGma2yY5xLx1SYruKLKeeKYIBwtz1kmZGPi6d/bMacOJgs1OcTmqgVT9f++5RUuCpVQNa6xcrtsCN6hW8AhzZspheEFWsHb7A06738f5/QNEsos0LvH3nvMD1HugEYx4g2fZBxYr9SuX6H1SvIIoMxe3Bmd5DcCO3uL0ZW7TqDcbWL85TUErE14AokVFnZ54okg+w8ar+swiq6z6sQ9/6lQk8TnkpbjCIRoKa5LEQOL5MR6XkxgRxZQxKOguC1eDo98XW7Y3QCa3mUYGo/4ZKEcngbtx1nciQcdTYIWXnwXjqr6hB03czFnoJ0zJtrzQslfdUWs3UTqGy8OQzRJHVLHItiWzHumvIPxl+e+QQ0/7kGw81w0PZTcM6Vyoi6MGyoFTQ8CNHBc+mmi4FEmBNtVFzBQ8FoLXb6P6u3iPZ5Xrst7XTc/Ceko77vhCT1j8QJOCBX5ld49hMuLLn3DZT8/eLjVfYu0R6YOS62VBpnm/ZzCZfqydxnP2kSOtqmmoxln1aczUMStTPsvzbOgDWH0UJKJm6u6AUbbBnB5NybNiWoGUFNUXx8kqr8l4SJEB5WR+hJpC+1TQkBopa3imApWfHZ+tElWC7/Wvy7/S03HB+NwpsGl9RNHylRSG9fGj77O0JYEeZCP2sHWWur0FNtSkpvLwbtSuHyTIAQLuMdvzip1Txd85uH6FjIGi2pxq4W5OoW0u110NUO97zirOi3faz2u0I1wBiOrnV5uxyd9qyAakhW2lTCVQqBUFUC8yymoVOqhp86S8dg0LW8TPWMLk/nKqxsymAiY3UCPm5ga8I92VnlSH2AsoJR21pgEhETffy/NTAIJn72b2r4hlHNAtSa6lmfoExveMAZdN4dD8BzwsufquoJ7Izfnzi2AEliZz0B2gocUssumnoQYobhDXUaB3tl4/v7du8bzDTl2IJE6xTL+99i22LIbIv7A4wi9AXfm2az53BHde+joiJukbbZjAfHwiI",
+    "ttl": 86400,
+    "id": ""
+  },
+  "send_result": {
+    "id": "ROBOT1.0_39Ebk17YzYnB6-Jp0EPggIJjOkVG2-HZ-eIriUcCGojf9GmcG.JwV4PzOYw4eEmzO.yEngtg7nVAzt-SOCEzWQ!!",
+    "timestamp": "2026-04-20T15:05:28+08:00",
+    "ext_info": {
+      "ref_idx": "REFIDX_SuI77L/UJwOoK3K00LbWJMtG81ovPjw88HwjHppK6Gc="
+    }
+  }
+}
+2026-04-20 15:05:28,559 | INFO | [DEXER-videos] 视频发送成功: test_mzh_20260420_150237.mp4
+2026-04-20 15:13:20,559 | INFO | [DEXER-videos] 检测到变化，已安排发送检查: test_mzh_20260420_150612.mp4
+2026-04-20 15:13:20,580 | INFO | [DEXER-videos] 检测到变化，已安排发送检查: test_mzh_20260420_150612.mp4
+2026-04-20 15:13:28,581 | INFO | [DEXER-videos] 开始发送视频: /home/zhihao/Code/save_fire/DEXER/videos/test_mzh_20260420_150612.mp4
+2026-04-20 15:13:28,581 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/DEXER/videos/test_mzh_20260420_150612.mp4
+2026-04-20 15:13:29,164 | INFO | 视频发送输出:
+HTTPError: 400
+{"message":"富媒体文件格式不支持","code":850019,"err_code":40034002,"trace_id":"cf09582ed156310c411b894bfb8214cc"}
+2026-04-20 15:13:29,164 | ERROR | [DEXER-videos] 视频发送失败，退出码=10
+2026-04-20 15:13:30,975 | INFO | [DEXER-videos] 检测到变化，已安排发送检查: test_mzh_20260420_150612.mp4
+2026-04-20 15:13:38,976 | INFO | [DEXER-videos] 开始发送视频: /home/zhihao/Code/save_fire/DEXER/videos/test_mzh_20260420_150612.mp4
+2026-04-20 15:13:38,977 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/DEXER/videos/test_mzh_20260420_150612.mp4
+2026-04-20 15:13:40,228 | INFO | 视频发送输出:
+HTTPError: 400
+{"message":"富媒体文件格式不支持","code":850019,"err_code":40034002,"trace_id":"79652360a2c8922c09eb4f151fa6e577"}
+2026-04-20 15:13:40,228 | ERROR | [DEXER-videos] 视频发送失败，退出码=10
+2026-04-20 15:13:40,802 | INFO | [DEXER-videos] 检测到变化，已安排发送检查: test_mzh_20260420_150612.mp4
+2026-04-20 15:13:40,805 | INFO | [DEXER-videos] 检测到变化，已安排发送检查: test_mzh_20260420_150612.mp4
+2026-04-20 15:13:48,807 | INFO | [DEXER-videos] 开始发送视频: /home/zhihao/Code/save_fire/DEXER/videos/test_mzh_20260420_150612.mp4
+2026-04-20 15:13:48,807 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/DEXER/videos/test_mzh_20260420_150612.mp4
+2026-04-20 15:13:51,590 | INFO | 视频发送输出:
+视频发送成功
+{
+  "upload_result": {
+    "file_uuid": "EhTVH_gLVzcMWd7XPsO2B_ZkPko68BjEyxwghQso9O_90vD7kwMyBHByb2RQgPUkWhBbNf9eCxFXf2xD9k6v8fLbegLjK4IBAmd6",
+    "file_info": "4iGkkEr2nJKcIP4dJLI4KdSbKiWw4u76vyYQ+ywFmZa6dZ3PrvydqoWRPGo3jZO/RyEDUt9fOjsmTbNRASiK60WzwfNtmoOAVsEyBrcpMheMG9G1/6YykLyfUY+kLdjOym8i7kYvPJsjA6avDRy/9QHS8L7AID7w24uar14peNm9rkxNZEwircUx29+mZkF47MSd3ibrrJf24z6W4KaTNX/mEBVCZIYsyWj3W40UdvteecFj+TMHQpMk2TY4DcJnqpYQvjolpjjYgMxiqwshA3GYX8t/QiZE5gPfsXfZKF3K2aHsierBYWOr9LFTDiQTjSz+O/p+igBMTPj/SLPuq8x+qVNFXyeDAuFK4ZjVs7JEbClIaBDa0VnsuOCpGeiz3wU5n9QipEQn4kuf7nUmOKOMbc0yklKgayCDSaiiZcm0tIO1xoy7PZgsikbkC42t6a6imehFByeTJaDdky6s7EuI2mVqDH6ovigkM8YgMP1+/OiS8cD8gonN9BQ2/AYckUBGsdMVumhuhbbZ70EbjmKYl//Bz9AixrgK7YFRhsSsLWBlk2rThcyDl2dLDSUb5dmVOLvL2RFdVA3RvGawaXM/qLwNYCWLL4MV1Zq2dhrr0EqeZQSz84rt1wW4Nb4FSIstZwHFx5U4k8MUip+48HoJ0zJtrzQslfdUWs3UTqGy8OQzRJHVLHItiWzHumvIaBhnWUoznP8xuVUJ/WW6IWAKWUCCit6EpicV/N1u3b7C1gXIDO3BCbCdmh1v1d3WbjzoeXYKXXOkAz5fAJH5gkUIte93CnIRN+tcUkcgM5nz7t/f6CQysFATEYL8ZNjqPcH9qmrOK85tMwBijsxP4MX/oq6CJIVvHdYGSet8zIXPsvzbOgDWH0UJKJm6u6AUASzeOp3QYUBjKSLYCXo+K/6ICrPuVy4bCRpEKj9KwUg35hnsKB2HRUpnWMVMi2p7a+QQkstgRXJcFpntJwdUNzxIl5hLIUILX0TiPUXEEksPoxKDVR7ps1qujylynR0NY1Hom+Cjk8zSNL97TzfzQB/X+/NxPX133sqDYryrQgfsW+haj3IhhhierGl5RqEovoe47D8bhKXTjs07CnjkJmJqHnBRYYVjjDyp3/dSb22dPz5/FiNxCO4+HwvwyNeMoJrv/sfFEjanFLWLmLORWcoJR21pgEhETffy/NTAIJlKVgppf/g6yasXkQEzz6O/aJEnT33HTRuBRYNzLxX2s95lrs+ja5gzRBwCLY+/8mQBfn67DuLfHjCsPQbr7bN9nBMNqwSjXU9EesQVHM13CJ9tJ4SmXlX8wBLkxS7g2pUaZZTjN6e1SQJl7oZQg2SG",
+    "ttl": 86400,
+    "id": ""
+  },
+  "send_result": {
+    "id": "ROBOT1.0_39Ebk17YzYnB6-Jp0EPggE2nQTFOx1cwQ1QTuCuCn4KVtjqtljCpXOQG1LOX8vK9O.yEngtg7nVAzt-SOCEzWQ!!",
+    "timestamp": "2026-04-20T15:13:51+08:00",
+    "ext_info": {
+      "ref_idx": "REFIDX_gwg+zvuz2nOrAT+gIed9Y8tG81ovPjw88HwjHppK6Gc="
+    }
+  }
+}
+2026-04-20 15:13:51,591 | INFO | [DEXER-videos] 视频发送成功: test_mzh_20260420_150612.mp4
+2026-04-20 15:36:50,655 | INFO | [DEXER-videos] 检测到变化，已安排发送检查: test_mzh_20260420_151954.mp4
+2026-04-20 15:36:50,677 | INFO | [DEXER-videos] 检测到变化，已安排发送检查: test_mzh_20260420_151954.mp4
+2026-04-20 15:36:58,677 | INFO | [DEXER-videos] 开始发送视频: /home/zhihao/Code/save_fire/DEXER/videos/test_mzh_20260420_151954.mp4
+2026-04-20 15:36:58,678 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/DEXER/videos/test_mzh_20260420_151954.mp4
+2026-04-20 15:36:59,533 | INFO | 视频发送输出:
+HTTPError: 400
+{"message":"富媒体文件格式不支持","code":850019,"err_code":40034002,"trace_id":"c11136925d2a5207b7d562847dc1cca8"}
+2026-04-20 15:36:59,533 | ERROR | [DEXER-videos] 视频发送失败，退出码=10
+2026-04-20 15:37:05,844 | INFO | [DEXER-videos] 检测到变化，已安排发送检查: test_mzh_20260420_151954.mp4
+2026-04-20 15:37:13,845 | INFO | [DEXER-videos] 开始发送视频: /home/zhihao/Code/save_fire/DEXER/videos/test_mzh_20260420_151954.mp4
+2026-04-20 15:37:13,845 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/DEXER/videos/test_mzh_20260420_151954.mp4
+2026-04-20 15:37:15,180 | INFO | 视频发送输出:
+HTTPError: 400
+{"message":"富媒体文件格式不支持","code":850019,"err_code":40034002,"trace_id":"f6f9779b9c68281250d09cd612205d74"}
+2026-04-20 15:37:15,181 | ERROR | [DEXER-videos] 视频发送失败，退出码=10
+2026-04-20 15:37:17,616 | INFO | [DEXER-videos] 检测到变化，已安排发送检查: test_mzh_20260420_151954.mp4
+2026-04-20 15:37:25,617 | INFO | [DEXER-videos] 开始发送视频: /home/zhihao/Code/save_fire/DEXER/videos/test_mzh_20260420_151954.mp4
+2026-04-20 15:37:25,618 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/DEXER/videos/test_mzh_20260420_151954.mp4
+2026-04-20 15:37:26,808 | INFO | 视频发送输出:
+HTTPError: 400
+{"message":"富媒体文件格式不支持","code":850019,"err_code":40034002,"trace_id":"3f6b6a4720d00d80228b042b7fbc8504"}
+2026-04-20 15:37:26,808 | ERROR | [DEXER-videos] 视频发送失败，退出码=10
+2026-04-20 15:37:28,269 | INFO | [DEXER-videos] 检测到变化，已安排发送检查: test_mzh_20260420_151954.mp4
+2026-04-20 15:37:36,271 | INFO | [DEXER-videos] 开始发送视频: /home/zhihao/Code/save_fire/DEXER/videos/test_mzh_20260420_151954.mp4
+2026-04-20 15:37:36,272 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/DEXER/videos/test_mzh_20260420_151954.mp4
+2026-04-20 15:37:37,674 | INFO | 视频发送输出:
+HTTPError: 400
+{"message":"富媒体文件格式不支持","code":850019,"err_code":40034002,"trace_id":"b2e98266abe8d97a42f83b0c01bf94af"}
+2026-04-20 15:37:37,674 | ERROR | [DEXER-videos] 视频发送失败，退出码=10
+2026-04-20 15:37:40,654 | INFO | [DEXER-videos] 检测到变化，已安排发送检查: test_mzh_20260420_151954.mp4
+2026-04-20 15:37:48,657 | INFO | [DEXER-videos] 开始发送视频: /home/zhihao/Code/save_fire/DEXER/videos/test_mzh_20260420_151954.mp4
+2026-04-20 15:37:48,658 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/DEXER/videos/test_mzh_20260420_151954.mp4
+2026-04-20 15:37:49,912 | INFO | 视频发送输出:
+HTTPError: 400
+{"message":"富媒体文件格式不支持","code":850019,"err_code":40034002,"trace_id":"18ffd730ae45dfcf7ed1ebadeb82e895"}
+2026-04-20 15:37:49,913 | ERROR | [DEXER-videos] 视频发送失败，退出码=10
+2026-04-20 15:37:57,573 | INFO | [DEXER-videos] 检测到变化，已安排发送检查: test_mzh_20260420_151954.mp4
+2026-04-20 15:38:05,577 | INFO | [DEXER-videos] 开始发送视频: /home/zhihao/Code/save_fire/DEXER/videos/test_mzh_20260420_151954.mp4
+2026-04-20 15:38:05,578 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/DEXER/videos/test_mzh_20260420_151954.mp4
+2026-04-20 15:38:07,012 | INFO | 视频发送输出:
+HTTPError: 400
+{"message":"富媒体文件格式不支持","code":850019,"err_code":40034002,"trace_id":"14cca4605ea38a6b48f67f1720799f76"}
+2026-04-20 15:38:07,012 | ERROR | [DEXER-videos] 视频发送失败，退出码=10
+2026-04-20 15:38:19,373 | INFO | [DEXER-videos] 检测到变化，已安排发送检查: test_mzh_20260420_151954.mp4
+2026-04-20 15:38:20,620 | INFO | [DEXER-videos] 检测到变化，已安排发送检查: test_mzh_20260420_151954.mp4
+2026-04-20 15:38:20,624 | INFO | [DEXER-videos] 检测到变化，已安排发送检查: test_mzh_20260420_151954.mp4
+2026-04-20 15:38:20,628 | INFO | [DEXER-videos] 检测到变化，已安排发送检查: test_mzh_20260420_151954.mp4
+2026-04-20 15:38:28,633 | INFO | [DEXER-videos] 开始发送视频: /home/zhihao/Code/save_fire/DEXER/videos/test_mzh_20260420_151954.mp4
+2026-04-20 15:38:28,633 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/DEXER/videos/test_mzh_20260420_151954.mp4
+2026-04-20 15:38:31,150 | INFO | 视频发送输出:
+视频发送成功
+{
+  "upload_result": {
+    "file_uuid": "EhR5blmgqpiwL3E_cfajlvW0GMU3QxiP_GEghQso56O0lPb7kwMyBHByb2RQgPUkWhD1TFzrQa7a8CKgifMT8y7QegLIl4IBAmd6",
+    "file_info": "ql1A2LmWGgELjGOlCnMK/iTeUaCG6fXTdO0PPrSKCTlBG8olr3b3kv/ovU50nMFqLjKsqoHtU6bv2dhZQRhRw4GSW4IlSaBOEXIeztijpRRSu9U+SpcMOzJXMZKvBRmjym8i7kYvPJsjA6avDRy/9V7hOm3R3o/SXKO5wUewc96Y4y9JSE33mgoN6vt4wwwOy2tQ3JXG9ULdXfXoAtzPrDBYXmEYUMeOnvOOSRA5UVPqcl2jS6suSBErygjb2TIAQRDul8cXWOyNwhc9YGWIyZmkU7jjYHAGtVN+ghMxV3snEfi1DXatiZAJ6wOY/GaWGyTmAnobDrMaMVSjrMzGgv7u9cbK/iI9rEUX+wIDVN0sIcuUKR4qpF06Mv8d+hcMKamzhwP7QtA3RJ8N57lPGSFgOOALfoPIX6tAczUadVpv4ZTBh2y8xNoITgmBUD5mypV4sluONMxQPzRsqKciGuSV0ojzJwCG9/3MDYxcGxu9vqPrO3uaILXl/Lc3RYJPxog8tA18aX2L9oMiOeL53VRz3lw2N1ejfijzLJ/iwDpqztYpEI7wXaXEqBryaJReI12tk4JXp/EOWCOUkPEJeMWvDdatxdgt43tlrev9FQQ1I6pg4SOW6NxDkA/AmF9Wu+77ykPCbYqzqMUgXvCLmHoJ0zJtrzQslfdUWs3UTqGy8OQzRJHVLHItiWzHumvIXiuRDirJf9MizvqLQfqCqoQgcGVpUxNYWVCB0jKejpEViFCPWuI3i1vVr504aK2COK447QZzWERnLk4BbWT4yL2JbwiLot/nZbWEqJs7MLD2AXRnzFF3jH6doYjYLIckkxjqC4XXexVFDo8h6Kw+t/tLEG/k6mUfB45CC6kcNR/PsvzbOgDWH0UJKJm6u6AUIcUP8T0HJty3ZitPuNNVvdlQ+WKk5gDFnjIlfqOK/d5ZWcgWPon9EPRFsBMwWqrivh8dBHlPwsoyulRN+ne7sOQqvNoaw2MwjAb7wrpeFp01klFZuXYT1+hroErtonVD6m9E/w4P9Jjtd/BudWtTa9N/gJdyHEr0mZszR6OMKrcpiMMsEROnK4xtq2ANue6PZQo0oyNq5z6qq5NW+H3J4eaijQjahJxIBrfqiMBWvao2+6xz14I4xyQ+9EAeZDye540PAMqRtqTSc/GsEJAwT8oJR21pgEhETffy/NTAIJkT0+a+F4bFUO01iQQnXeq0wwwf+7/i6/oDIr256dtrVCmBGHNl+tI28DIP8/d6NdGdsDQfSogDw1q0EqqToeBikHLi1ZjlxCV2lqEgyvGLiXrv+QUAcwWy90laDlbm6yh0J6y9GV1DMsWEQEc4jk/H",
+    "ttl": 86400,
+    "id": ""
+  },
+  "send_result": {
+    "id": "ROBOT1.0_39Ebk17YzYnB6-Jp0EPggCcKagtv3SyLb1KBakxfoGaKZQa7z.g6PdKYPUyBTShxO.yEngtg7nVAzt-SOCEzWQ!!",
+    "timestamp": "2026-04-20T15:38:31+08:00",
+    "ext_info": {
+      "ref_idx": "REFIDX_1ap6VUbWhtDZKQ4OMzTKFstG81ovPjw88HwjHppK6Gc="
+    }
+  }
+}
+2026-04-20 15:38:31,150 | INFO | [DEXER-videos] 视频发送成功: test_mzh_20260420_151954.mp4
+2026-04-20 15:54:08,041 | INFO | [DEXER-videos] 检测到变化，已安排发送检查: test_mzh_20260420_155243.mp4
+2026-04-20 15:54:08,060 | INFO | [DEXER-videos] 检测到变化，已安排发送检查: test_mzh_20260420_155243.mp4
+2026-04-20 15:54:10,118 | INFO | [DEXER-videos] 检测到变化，已安排发送检查: test_mzh_20260420_155243.mp4
+2026-04-20 15:54:10,119 | INFO | [DEXER-videos] 检测到变化，已安排发送检查: test_mzh_20260420_155243.mp4
+2026-04-20 15:54:10,121 | INFO | [DEXER-videos] 检测到变化，已安排发送检查: test_mzh_20260420_155243.mp4
+2026-04-20 15:54:18,122 | INFO | [DEXER-videos] 开始发送视频: /home/zhihao/Code/save_fire/DEXER/videos/test_mzh_20260420_155243.mp4
+2026-04-20 15:54:18,122 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/DEXER/videos/test_mzh_20260420_155243.mp4
+2026-04-20 15:54:19,973 | INFO | 视频发送输出:
+视频发送成功
+{
+  "upload_result": {
+    "file_uuid": "EhTfM3hqNaPXMlTdgZYoi20GKPcNTBi4jQQghQso9dz62Pn7kwMyBHByb2RQgPUkWhBTObKwbY2FjksoICQ5n_hfegLoboIBAmd6",
+    "file_info": "RdzXx7Kz/MntXDJlYLIK5FJq40AEn4aS9jYklplSUqH1jcMpSSSVcAyJYGg3hP5OUtVXuE52N4TEYId5SsM+VGdWSJA8j2JkFv916AOo3F13wjoJ24Z6dTSTPj+fO604ym8i7kYvPJsjA6avDRy/9d3pC5J13QljZ2Pq8rwuQhF3r2s4L4nnUL++0WmxouTgfuWgnS0veUlmastWr6BhGvniDgk1GMZEwCVl8bKrw79o4MMpiioFxQ1w44KitvhjGT0pvkMvjUBh/8+fb8hYni4yMCW7OTCkAHDuksYhulTJ80044uUIIB27q9iXflmy0Oq7iskEAoAFN/ON75AMY5XUzOvCWkepotkuU7dcGAkugoNNW8j5Hb3gNA/zpuvWxYdpO3sHhWxf1Zg//7GC1dlULAo7+Jmi/z0llQkB2oj9+k/53XNE2kzeTEhUoEUCs0H5yINJncPQUeyIwGHaJtpxSXqpBNIzsBeFKlZDa2sX8joUExmBjGOxkUrc9MTD9O6JVhktUHdr8u67AAam1WiVKY439yAk0pkb/rYioOICJiRfJoJ74dDpFdG85QHEiPoNBO6ci9S3pud/iXvj4X4C+DEmJtNtZGsOB4Pmt66dVJgOC4eqmG/2QAuTbH+vF8cj+1GSFGxMZBWd0Ead+XoJ0zJtrzQslfdUWs3UTqGy8OQzRJHVLHItiWzHumvIxw24OWuMheRPdGU64zG6ekAO9fM0vfCo8E5s5yaZy/l5L6W/ww/oUNudbyL2YQLwfZxuKtSsvhBPnA+LankbLjVvnfLrktiIm8YhHQX0Q/ZcY576fqOV/73Zaj1kWl6m5dUQfPXMcDkXcXJsR1m54qvAdE2+CFpoj4ZKSAmEEBHPsvzbOgDWH0UJKJm6u6AUeQ7DCekuoa38Q7iMXyDCCGM0h0vhFucyiWnKvwIAasHNiehBBoHYSR/JfKmjNhEA/WWLH/tT+uflNULsxZqtHqLqbgxcHFQJvv8seh65les+xG3TpHwJhrcfpFNqwQWb0RLIfkP3W2sgNZZaOIkf7dZ6WZN6j0802yqvatPKsczryqXSAvIKwM31qwsGxSAEDHryaQFkkFmGxyJ0rR/gvINrd//bD5qk+lewb4HO53r4fda6rbQxVtb6uhkO3/E8UoFoK1542S4tYzNaVs3YIcoJR21pgEhETffy/NTAIJl6m0yEJfRRzT5nRvB735JQdgSIyZS/q9gHuFj/Wx99YPvh3zfeJY19SYdjm8vgRsNP7wvQQJSYOevO/siihiIQStuApB1r3QNuJM7sdRS/OENN3Ns62mJSRlwCpXOFqIdSL74VKv5JS4WRPfW7Ei8e",
+    "ttl": 86400,
+    "id": ""
+  },
+  "send_result": {
+    "id": "ROBOT1.0_39Ebk17YzYnB6-Jp0EPggJN83kR7oALTuqaLlNpVbrHMoMzyg3Diq7u8iPLXTJxOO.yEngtg7nVAzt-SOCEzWQ!!",
+    "timestamp": "2026-04-20T15:54:19+08:00",
+    "ext_info": {
+      "ref_idx": "REFIDX_9r9X6P0esZH3DF9Kvh6R4MtG81ovPjw88HwjHppK6Gc="
+    }
+  }
+}
+2026-04-20 15:54:19,974 | INFO | [DEXER-videos] 视频发送成功: test_mzh_20260420_155243.mp4
+2026-04-20 16:11:52,421 | INFO | [DEXER-videos] 检测到变化，已安排发送检查: test_mzh_20260420_155511.mp4
+2026-04-20 16:11:52,440 | INFO | [DEXER-videos] 检测到变化，已安排发送检查: test_mzh_20260420_155511.mp4
+2026-04-20 16:12:00,440 | INFO | [DEXER-videos] 开始发送视频: /home/zhihao/Code/save_fire/DEXER/videos/test_mzh_20260420_155511.mp4
+2026-04-20 16:12:00,441 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/DEXER/videos/test_mzh_20260420_155511.mp4
+2026-04-20 16:12:01,733 | INFO | 视频发送输出:
+HTTPError: 400
+{"message":"富媒体文件格式不支持","code":850019,"err_code":40034002,"trace_id":"dd58f789f55c098a0153250780c9ac84"}
+2026-04-20 16:12:01,734 | ERROR | [DEXER-videos] 视频发送失败，退出码=10
+2026-04-20 16:12:02,489 | INFO | [DEXER-videos] 检测到变化，已安排发送检查: test_mzh_20260420_155511.mp4
+2026-04-20 16:12:10,490 | INFO | [DEXER-videos] 开始发送视频: /home/zhihao/Code/save_fire/DEXER/videos/test_mzh_20260420_155511.mp4
+2026-04-20 16:12:10,492 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/DEXER/videos/test_mzh_20260420_155511.mp4
+2026-04-20 16:12:11,429 | INFO | 视频发送输出:
+HTTPError: 400
+{"message":"富媒体文件格式不支持","code":850019,"err_code":40034002,"trace_id":"39b8bf9a6b84536cf41297638ae1e28f"}
+2026-04-20 16:12:11,429 | ERROR | [DEXER-videos] 视频发送失败，退出码=10
+2026-04-20 16:12:17,561 | INFO | [DEXER-videos] 检测到变化，已安排发送检查: test_mzh_20260420_155511.mp4
+2026-04-20 16:12:25,563 | INFO | [DEXER-videos] 开始发送视频: /home/zhihao/Code/save_fire/DEXER/videos/test_mzh_20260420_155511.mp4
+2026-04-20 16:12:25,563 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/DEXER/videos/test_mzh_20260420_155511.mp4
+2026-04-20 16:12:26,537 | INFO | 视频发送输出:
+HTTPError: 400
+{"message":"富媒体文件格式不支持","code":850019,"err_code":40034002,"trace_id":"f7e595c401e8378d446843e22e63cad7"}
+2026-04-20 16:12:26,538 | ERROR | [DEXER-videos] 视频发送失败，退出码=10
+2026-04-20 16:12:34,199 | INFO | [DEXER-videos] 检测到变化，已安排发送检查: test_mzh_20260420_155511.mp4
+2026-04-20 16:12:42,201 | INFO | [DEXER-videos] 开始发送视频: /home/zhihao/Code/save_fire/DEXER/videos/test_mzh_20260420_155511.mp4
+2026-04-20 16:12:42,201 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/DEXER/videos/test_mzh_20260420_155511.mp4
+2026-04-20 16:12:43,484 | INFO | 视频发送输出:
+HTTPError: 400
+{"message":"富媒体文件格式不支持","code":850019,"err_code":40034002,"trace_id":"51d2b5d87b5cdadb656518e2a56de8c7"}
+2026-04-20 16:12:43,484 | ERROR | [DEXER-videos] 视频发送失败，退出码=10
+2026-04-20 16:12:52,619 | INFO | [DEXER-videos] 检测到变化，已安排发送检查: test_mzh_20260420_155511.mp4
+2026-04-20 16:13:00,622 | INFO | [DEXER-videos] 开始发送视频: /home/zhihao/Code/save_fire/DEXER/videos/test_mzh_20260420_155511.mp4
+2026-04-20 16:13:00,622 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/DEXER/videos/test_mzh_20260420_155511.mp4
+2026-04-20 16:13:01,848 | INFO | 视频发送输出:
+HTTPError: 400
+{"message":"富媒体文件格式不支持","code":850019,"err_code":40034002,"trace_id":"c23139bfe16d4ac088ac8364a355f511"}
+2026-04-20 16:13:01,849 | ERROR | [DEXER-videos] 视频发送失败，退出码=10
+2026-04-20 16:13:15,080 | INFO | [DEXER-videos] 检测到变化，已安排发送检查: test_mzh_20260420_155511.mp4
+2026-04-20 16:13:20,696 | INFO | [DEXER-videos] 检测到变化，已安排发送检查: test_mzh_20260420_155511.mp4
+2026-04-20 16:13:20,703 | INFO | [DEXER-videos] 检测到变化，已安排发送检查: test_mzh_20260420_155511.mp4
+2026-04-20 16:13:28,706 | INFO | [DEXER-videos] 开始发送视频: /home/zhihao/Code/save_fire/DEXER/videos/test_mzh_20260420_155511.mp4
+2026-04-20 16:13:28,707 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/DEXER/videos/test_mzh_20260420_155511.mp4
+2026-04-20 16:13:31,649 | INFO | 视频发送输出:
+视频发送成功
+{
+  "upload_result": {
+    "file_uuid": "EhTzwMNCUTVDoqXqmK1u7pCUgu5eYhj351QghQso4OT0_f37kwMyBHByb2RQgPUkWhAjMoClRXggR-vsEjjbnyWmegLRWYIBAmd6",
+    "file_info": "kRVsLw+PDKAi/A0Ct3ZNV0/sjdEzJM74/wdhB9EYAjiOMMbbrM6sKjUizJuvRbEoiZjvTbYa0jH5HP+dnXOW07CK3TeOsmrMhwHmhSF2uKb230QoGwjdXdTEoAt85QB7ym8i7kYvPJsjA6avDRy/9SijYIYk+l6/qwKIPOPaxcX5foBf1qbSCCccA5Ylseuzp19YYPv01R886g5XkInz3I0mISdL3Ke2Xc5YimifqpjaI6NO79bYDoPp80lbP4rX+9WbvMAoVnC+n4ynAEVaFIUGdC6lNgsVn1H10HvGSVQ7gL1fgd5XCSK9p2G7caRYkcpYPPxndF5Lyp41wgU/VnCQblqI/Q5Cxcp4kqvkLmE0CA468yrgUPmQB8l4L+Lb1v/KZWY/R9Mvnv9Pg2u3LV144PYFmpITelPkyxpskfdj51wfslPqi9Kg5CB7CGEjlJAQfyMkhER3wNCAkquN8OC7qyCLr7+7pdANhRxT9SWwDo8P/wdJBFw8KtkmcvFiVpLlrb3qA3Rul/sUSMcNJOkqA/dlpX0nJcuGOyfrHOoUXXj16xzwAHxKE1jA82+CGwix/1cq0g/atgrS9WZWD19ImZNJ3kTtK7lFbaS+GTYKCnCgGr9U/rO4pPqsPYuuewdTyfB5V9/2gNo5LuHZbXoJ0zJtrzQslfdUWs3UTqGy8OQzRJHVLHItiWzHumvIBEVSOY1gL1MsFuLii3dCnv8c+F0vjVR78eYsh34jfTwjTZrblvvrPz2Rdhs8q5xkx081CVE/FsouRjc5k0gBPx3uu036QxXW9bC2aV5SORsEUn0pn2vXeABRtdfa6pUsYZ7EYYdtOI/EraBghE5QaD2OLQy1CekBWUmQdaxd8XzPsvzbOgDWH0UJKJm6u6AU/UnwUCZoZTfUqFBH3ulL6serfB4NgBkKl+ICFIi0sJfCxpSk3xwAuxUE9zzIs/f0EimnPyLNw7csQJV9f8oMEtMdOhpFy5tl/84gDqfFG53xSYVj0hYAnq13iLUcBWAAXBBGrpzUGKiVttEoNCkPWDiyVbufJDTv7N/cMjxIBf4sS01xmWG9aMRc1GPoz/XGMTeGnubC8WAh76V+wxQlgo5I4w6xy1KbeA+11/23F7fgd53DkEEv8c9jkM0E1+itHFhZDijbdwyMn4/PT6zUuMoJR21pgEhETffy/NTAIJkENh7Ik8SElG3Z2IcvVFuds+EHomOOGLknZIdxpRkid4T2Rfv/mHAVS9IBr8Ruli/0Euv6Mv89JGkCXtWvLO2648h6Dw+PzXH8G2yyurMrO4prObsa4g5+xzpKtAnsOIYdfRQQ6il1RNpvltn4XP0g",
+    "ttl": 86400,
+    "id": ""
+  },
+  "send_result": {
+    "id": "ROBOT1.0_39Ebk17YzYnB6-Jp0EPggGwrOBCWGH3yc0WU87w8SatkB0ozvUS6lKxpCX6yNpkpi6tDpTOoRm4aq5zST7h8Aw!!",
+    "timestamp": "2026-04-20T16:13:31+08:00",
+    "ext_info": {
+      "ref_idx": "REFIDX_2MJRjsEGYemCtTN0PMDLWg=="
+    }
+  }
+}
+2026-04-20 16:13:31,650 | INFO | [DEXER-videos] 视频发送成功: test_mzh_20260420_155511.mp4
+2026-04-21 15:47:10,545 | INFO | 收到停止信号: 2
+2026-04-21 15:47:10,943 | INFO | 监听器已退出
+2026-04-21 15:47:11,844 | INFO | 开始监听: /home/zhihao/Code/save_fire/Genesis/videos -> task=genesis-videos, send_text=False
+2026-04-21 15:47:11,844 | INFO | 开始监听: /home/zhihao/Code/save_fire/DEXER/videos -> task=DEXER-videos, send_text=False
+2026-04-21 15:47:11,844 | INFO | 开始监听: /home/zhihao/Code/save_fire/DEXER/src_mzh/runtime/videos -> task=DEXER-mzh-videos, send_text=False
+2026-04-21 15:47:11,849 | INFO | 文件稳定等待秒数: 8
+2026-04-21 15:47:11,849 | INFO | 状态文件: /home/zhihao/Code/auto_notify/qq_bot/state.json
+2026-04-21 15:53:15,151 | INFO | [DEXER-mzh-videos] 检测到变化，已安排发送检查: src_mzh_20260421_154533.mp4
+2026-04-21 15:53:15,168 | INFO | [DEXER-mzh-videos] 检测到变化，已安排发送检查: src_mzh_20260421_154533.mp4
+2026-04-21 15:53:21,626 | INFO | [DEXER-mzh-videos] 检测到变化，已安排发送检查: src_mzh_20260421_154533.mp4
+2026-04-21 15:53:29,627 | INFO | [DEXER-mzh-videos] 开始发送视频: /home/zhihao/Code/save_fire/DEXER/src_mzh/runtime/videos/src_mzh_20260421_154533.mp4
+2026-04-21 15:53:29,627 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/DEXER/src_mzh/runtime/videos/src_mzh_20260421_154533.mp4
+2026-04-21 15:53:30,787 | INFO | 视频发送输出:
+HTTPError: 400
+{"message":"富媒体文件格式不支持","code":850019,"err_code":40034002,"trace_id":"2d24ceca09db08e5a3a8714855b476f1"}
+2026-04-21 15:53:30,788 | ERROR | [DEXER-mzh-videos] 视频发送失败，退出码=10
+2026-04-21 15:53:32,467 | INFO | [DEXER-mzh-videos] 检测到变化，已安排发送检查: src_mzh_20260421_154533.mp4
+2026-04-21 15:53:40,469 | INFO | [DEXER-mzh-videos] 开始发送视频: /home/zhihao/Code/save_fire/DEXER/src_mzh/runtime/videos/src_mzh_20260421_154533.mp4
+2026-04-21 15:53:40,470 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/DEXER/src_mzh/runtime/videos/src_mzh_20260421_154533.mp4
+2026-04-21 15:53:42,133 | INFO | 视频发送输出:
+HTTPError: 400
+{"message":"富媒体文件格式不支持","code":850019,"err_code":40034002,"trace_id":"dabdb9d29febba2f521da692bee6b938"}
+2026-04-21 15:53:42,134 | ERROR | [DEXER-mzh-videos] 视频发送失败，退出码=10
+2026-04-21 15:53:47,042 | INFO | [DEXER-mzh-videos] 检测到变化，已安排发送检查: src_mzh_20260421_154533.mp4
+2026-04-21 15:53:55,044 | INFO | [DEXER-mzh-videos] 开始发送视频: /home/zhihao/Code/save_fire/DEXER/src_mzh/runtime/videos/src_mzh_20260421_154533.mp4
+2026-04-21 15:53:55,045 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/DEXER/src_mzh/runtime/videos/src_mzh_20260421_154533.mp4
+2026-04-21 15:53:56,225 | INFO | 视频发送输出:
+HTTPError: 400
+{"message":"富媒体文件格式不支持","code":850019,"err_code":40034002,"trace_id":"d06b3813fa9912d531aacc0def10ab13"}
+2026-04-21 15:53:56,225 | ERROR | [DEXER-mzh-videos] 视频发送失败，退出码=10
+2026-04-21 15:54:02,781 | INFO | [DEXER-mzh-videos] 检测到变化，已安排发送检查: src_mzh_20260421_154533.mp4
+2026-04-21 15:54:10,783 | INFO | [DEXER-mzh-videos] 开始发送视频: /home/zhihao/Code/save_fire/DEXER/src_mzh/runtime/videos/src_mzh_20260421_154533.mp4
+2026-04-21 15:54:10,783 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/DEXER/src_mzh/runtime/videos/src_mzh_20260421_154533.mp4
+2026-04-21 15:54:11,970 | INFO | 视频发送输出:
+HTTPError: 400
+{"message":"富媒体文件格式不支持","code":850019,"err_code":40034002,"trace_id":"5442b6513ed28e8db1d58f510c0eba4f"}
+2026-04-21 15:54:11,971 | ERROR | [DEXER-mzh-videos] 视频发送失败，退出码=10
+2026-04-21 15:54:21,308 | INFO | [DEXER-mzh-videos] 检测到变化，已安排发送检查: src_mzh_20260421_154533.mp4
+2026-04-21 15:54:29,311 | INFO | [DEXER-mzh-videos] 开始发送视频: /home/zhihao/Code/save_fire/DEXER/src_mzh/runtime/videos/src_mzh_20260421_154533.mp4
+2026-04-21 15:54:29,312 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/DEXER/src_mzh/runtime/videos/src_mzh_20260421_154533.mp4
+2026-04-21 15:54:30,474 | INFO | 视频发送输出:
+HTTPError: 400
+{"message":"富媒体文件格式不支持","code":850019,"err_code":40034002,"trace_id":"f01138b25518a67a14b60501eb832271"}
+2026-04-21 15:54:30,475 | ERROR | [DEXER-mzh-videos] 视频发送失败，退出码=10
+2026-04-21 15:54:31,042 | INFO | [DEXER-mzh-videos] 检测到变化，已安排发送检查: src_mzh_20260421_154533.mp4
+2026-04-21 15:54:31,049 | INFO | [DEXER-mzh-videos] 检测到变化，已安排发送检查: src_mzh_20260421_154533.mp4
+2026-04-21 15:54:39,053 | INFO | [DEXER-mzh-videos] 开始发送视频: /home/zhihao/Code/save_fire/DEXER/src_mzh/runtime/videos/src_mzh_20260421_154533.mp4
+2026-04-21 15:54:39,054 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/DEXER/src_mzh/runtime/videos/src_mzh_20260421_154533.mp4
+2026-04-21 15:54:41,581 | INFO | 视频发送输出:
+视频发送成功
+{
+  "upload_result": {
+    "file_uuid": "EhRmkMKfsurdjFL2s8gqMISsYUb3iRjDqFgghQso2prq0bv-kwMyBHByb2RQgPUkWhAnisR8DnjVPdn3D_OHb5kyegJRmoIBAmd6",
+    "file_info": "9DK3WEo8ZVej6tMsZvt6ewpupswFdLESixDREtQsv+bYRGCk0kA/RmFSNtBaI4BJGi3Ardq00mQbZQpagOhVCjWbEOZEgoGiFkFJA0kpuN2Na+6O1dFKOBKbKPcN6Oowym8i7kYvPJsjA6avDRy/9QhEXBvYtRtMIoJLEjluv9sLF8TIAY3QiAVsFhR+eusxyShNYFdElV7RTVXpJ/WAKgfdGXhfHKLvy7xmnKgMPZPWhBA3DRk87kTYLu6sxxrENDHMzfgptUdsv2bmt0T+cCf8r7JDwewGJvMHMvxEzO8Wv8xRlR0Fm55eYF+jVg3E00bWayS+tP4FOoHVaaGeaFPDVp3Ywmwubd8aEswjxqduUZodRa3aAdm7Z0ELuNuXtG5z5yDnQZBrSYRABj/OkjyWTFOZ4Qald2ro4nKOlqzfiKSEoK+zybG5Q4JmMi4PzkUzmWyykNcBR6kWFACBWbd7CQFkRSWnq9rjhNv1QhZoWfcKGPhXBeZDI9DFCT6GzANJGgtMEdzvKyh7nik65kQCDu7yQx9CrFN5MiCwp4FX0qCyiTry+2XXr/19GKb7cwbo0pSfmuCJWJEwK/24Evt4iVZwg3+FCpPpieSUVdG8pD+k4DK2/gga+A5O8pcQTy+snFbhyYe+AMkbwMZDf3oJ0zJtrzQslfdUWs3UTqGy8OQzRJHVLHItiWzHumvIU8Lyr1+uPsXeJhMRWViAGSTkSRMIyOlew0HjJcky89YaD3HhOgun5OgvY8ndlODrlR8ekJDtZM73z4+m9OsGlAUJO7e4anxG/HlEAlLJuO4OQY45f9X++bbAP6OFb11aBhYEGPfc1Xvp486EcxzG1aoP4IYQBvN6iKIMfk/jC4nPsvzbOgDWH0UJKJm6u6AUmI+q88Ai64yG3fmVey3FhSNF5Q//buMA+B5cWs8qnLAeA8VWDrMYAfQvoiez/chv7VLqUJUpA5Ut2QhjDBX/TmwMHVVtFRzemLkQpUIZDQuTNsb7QsxkI6Vjk5aVHx/fnE4h0VDgzsIsWtcYQOZOOUsQJTLPOgMnLiQjmHi76hZ4KodmX28TA4qUCLaac7aXBTadA8ljaLI4HX4nYuzw11vFYFZf1u9JNv0YhUDn2+iZ5wWypjtRPv9RKXRfafh8R+A6n0VW83WVgOeyQ4/KisoJR21pgEhETffy/NTAIJmXLUZOS3TFGhgL+LrGpktdI6rXAALZ/uj7562r+WZ9Xc/kIQj7g7tmKmMvCSyQDGxBy2rA/4xyroM/xZ7VYtFCB1HlhQjgYY9zSlpKawfk/hg8ptpN68kXZStTAd4J2Ig6XBVghyc2zYHdFnANfLkP",
+    "ttl": 86400,
+    "id": ""
+  },
+  "send_result": {
+    "id": "ROBOT1.0_39Ebk17YzYnB6-Jp0EPggAS5Vy47KwTVEWnwWiRRIJSWDeqZUkDghuNuJIxQM4pDO.yEngtg7nVAzt-SOCEzWQ!!",
+    "timestamp": "2026-04-21T15:54:41+08:00",
+    "ext_info": {
+      "ref_idx": "REFIDX_dfafiYxop1OLg6BFg15L9MtG81ovPjw88HwjHppK6Gc="
+    }
+  }
+}
+2026-04-21 15:54:41,581 | INFO | [DEXER-mzh-videos] 视频发送成功: src_mzh_20260421_154533.mp4
+2026-04-21 16:11:20,547 | INFO | [DEXER-mzh-videos] 检测到变化，已安排发送检查: src_mzh_20260421_155741.mp4
+2026-04-21 16:11:20,564 | INFO | [DEXER-mzh-videos] 检测到变化，已安排发送检查: src_mzh_20260421_155741.mp4
+2026-04-21 16:11:28,565 | INFO | [DEXER-mzh-videos] 开始发送视频: /home/zhihao/Code/save_fire/DEXER/src_mzh/runtime/videos/src_mzh_20260421_155741.mp4
+2026-04-21 16:11:28,565 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/DEXER/src_mzh/runtime/videos/src_mzh_20260421_155741.mp4
+2026-04-21 16:11:29,147 | INFO | 视频发送输出:
+HTTPError: 400
+{"message":"富媒体文件格式不支持","code":850019,"err_code":40034002,"trace_id":"c67f44d84e8b35db21d4c9c853958b1e"}
+2026-04-21 16:11:29,148 | ERROR | [DEXER-mzh-videos] 视频发送失败，退出码=10
+2026-04-21 16:11:29,191 | INFO | [DEXER-mzh-videos] 检测到变化，已安排发送检查: src_mzh_20260421_155741.mp4
+2026-04-21 16:11:37,192 | INFO | [DEXER-mzh-videos] 开始发送视频: /home/zhihao/Code/save_fire/DEXER/src_mzh/runtime/videos/src_mzh_20260421_155741.mp4
+2026-04-21 16:11:37,193 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/DEXER/src_mzh/runtime/videos/src_mzh_20260421_155741.mp4
+2026-04-21 16:11:38,042 | INFO | 视频发送输出:
+HTTPError: 400
+{"message":"富媒体文件格式不支持","code":850019,"err_code":40034002,"trace_id":"ddbe6bee0e1275c9db6d2bbf305e1458"}
+2026-04-21 16:11:38,042 | ERROR | [DEXER-mzh-videos] 视频发送失败，退出码=10
+2026-04-21 16:11:40,408 | INFO | [DEXER-mzh-videos] 检测到变化，已安排发送检查: src_mzh_20260421_155741.mp4
+2026-04-21 16:11:48,409 | INFO | [DEXER-mzh-videos] 开始发送视频: /home/zhihao/Code/save_fire/DEXER/src_mzh/runtime/videos/src_mzh_20260421_155741.mp4
+2026-04-21 16:11:48,409 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/DEXER/src_mzh/runtime/videos/src_mzh_20260421_155741.mp4
+2026-04-21 16:11:49,340 | INFO | 视频发送输出:
+HTTPError: 400
+{"message":"富媒体文件格式不支持","code":850019,"err_code":40034002,"trace_id":"e6bd0da844162ead98ffbc4fc7a7f4ad"}
+2026-04-21 16:11:49,340 | ERROR | [DEXER-mzh-videos] 视频发送失败，退出码=10
+2026-04-21 16:11:54,553 | INFO | [DEXER-mzh-videos] 检测到变化，已安排发送检查: src_mzh_20260421_155741.mp4
+2026-04-21 16:12:02,556 | INFO | [DEXER-mzh-videos] 开始发送视频: /home/zhihao/Code/save_fire/DEXER/src_mzh/runtime/videos/src_mzh_20260421_155741.mp4
+2026-04-21 16:12:02,556 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/DEXER/src_mzh/runtime/videos/src_mzh_20260421_155741.mp4
+2026-04-21 16:12:03,821 | INFO | 视频发送输出:
+HTTPError: 400
+{"message":"富媒体文件格式不支持","code":850019,"err_code":40034002,"trace_id":"b64d59faf646ffdb11a5ed4f9cc5d0ad"}
+2026-04-21 16:12:03,822 | ERROR | [DEXER-mzh-videos] 视频发送失败，退出码=10
+2026-04-21 16:12:11,949 | INFO | [DEXER-mzh-videos] 检测到变化，已安排发送检查: src_mzh_20260421_155741.mp4
+2026-04-21 16:12:19,952 | INFO | [DEXER-mzh-videos] 开始发送视频: /home/zhihao/Code/save_fire/DEXER/src_mzh/runtime/videos/src_mzh_20260421_155741.mp4
+2026-04-21 16:12:19,952 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/DEXER/src_mzh/runtime/videos/src_mzh_20260421_155741.mp4
+2026-04-21 16:12:21,129 | INFO | 视频发送输出:
+HTTPError: 400
+{"message":"富媒体文件格式不支持","code":850019,"err_code":40034002,"trace_id":"8724d75248c70ad9dc3a356eb733c083"}
+2026-04-21 16:12:21,129 | ERROR | [DEXER-mzh-videos] 视频发送失败，退出码=10
+2026-04-21 16:12:31,415 | INFO | [DEXER-mzh-videos] 检测到变化，已安排发送检查: src_mzh_20260421_155741.mp4
+2026-04-21 16:12:36,288 | INFO | [DEXER-mzh-videos] 检测到变化，已安排发送检查: src_mzh_20260421_155741.mp4
+2026-04-21 16:12:36,294 | INFO | [DEXER-mzh-videos] 检测到变化，已安排发送检查: src_mzh_20260421_155741.mp4
+2026-04-21 16:12:36,302 | INFO | [DEXER-mzh-videos] 检测到变化，已安排发送检查: src_mzh_20260421_155741.mp4
+2026-04-21 16:12:44,304 | INFO | [DEXER-mzh-videos] 开始发送视频: /home/zhihao/Code/save_fire/DEXER/src_mzh/runtime/videos/src_mzh_20260421_155741.mp4
+2026-04-21 16:12:44,305 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/DEXER/src_mzh/runtime/videos/src_mzh_20260421_155741.mp4
+2026-04-21 16:12:47,396 | INFO | 视频发送输出:
+视频发送成功
+{
+  "upload_result": {
+    "file_uuid": "EhRowbl6YHOl3lotUqrElPkjS9KxrRjv81QghQsoyoG717_-kwMyBHByb2RQgPUkWhBO8qCCfNJCAScpi_JhiuA2egI2qIIBAmd6",
+    "file_info": "HiaFJp2j21khnpPQEQyOia36uuO8/6YMPxHhOYW4ghPwhE5++j43hvdQFkxFeEgIU51WuLxnkTNNeXprIAY+W8cAAYUhCDL8Eq+EXF7K8bCdRW34CETWZpQKSRFZ37qGym8i7kYvPJsjA6avDRy/9Yu5MIrB/C7gOweEKtTHu3Kmo8akQZrVb3iAKtB2OBgxk8jUPGB+lSRBISCRaIlqKpJJXwsTpoMxgk0hqH+bdbGAcsMb6oE1d3LosNEjtwVce/aHMRIYLNpaOiqoJ/Q8+nAnLed3dYM5tgcuJ4UbxrtEtfoFCxZh5bBdFbd2i+2PMNBj7ixrKK/jBaZCym1a+Gn5nw3b8ihKR+l+S6Pz5Ezj4uh9/hD0CsXNEkeDw2y8M1+aLalONzOWLc0R/LiSfNZv1Phe+6iWDMlGEgj9GNC4jtGyCQfLQJw3F1we+SmXRODXVPxj2EvFLup+/JBmdH6LrWuuTwa0Wt4ATAo9lwUGLNNPtoDPWwSYw8QVqZ3O7k7HJ/sd5SPRaV5s8zzj1FkVET6KImbwFo1BW9KjF+vvNQJMHFFbSCeFCJk4Er2kRpKgVNGXRrXahO3Q9nEic6zNLpPCMaCZWmNOWMriqIZH+G0NvYEqO6fCfWvL80w6TTkubAj2BY4BaKlITE/5w3oJ0zJtrzQslfdUWs3UTqGy8OQzRJHVLHItiWzHumvI/oqrtSSvi4KKxboklmspeM2eXjd8idPi9WfdMjs4Dsbv+5ldQpXOBQImUG2f7SdE6Xx3pkCZzWG7z55EEZqYopdz3r8OI5vwm4Ku4T+4lp0nM+fNuvsX5SndwlowoNiRQNUI/pcg+UadWLINSwOmDHryu+GXH9ocGuzway9YfPXPsvzbOgDWH0UJKJm6u6AUiXGXYeV1gH6QtWG2S+Hwy3oQw0tYpGS3JGcMpLVk1tE9dxKvt/9Aamkq4S1odgYAyy09z2+sstOIKh5UJjkRTPSciC4aTFyxgSOvyJsCpGGucZCMILjWazUX+xHA+41M+XeTiLXb+Ew7xPT/i4uI4XlN6gWR9B88XhQpqHkt4G8ncLd5zqCOxDlM+6sO5Vvrgp/tmA/1LRYCkV7/F1IAz8Vs0lbks596bsiRTLUrFrjPVqzOp871v24Q5IRAE4rH2Ti/6C6ZdPqQTLH8OSq5gMoJR21pgEhETffy/NTAIJlENu2NCztWhsOdhSnS5KNIWLSkmObGXjZEmm5Boyp9/rb/Bqwj1T2T78/vh3tiyXmqSaN2qOtiTtv1UnP65KFWHLmRiuWLKr76NeMZ0kYerlTMCsSg2di7qAbZCCHi0pQLguJMdC37Z9zuFeJpFnB4",
+    "ttl": 86400,
+    "id": ""
+  },
+  "send_result": {
+    "id": "ROBOT1.0_39Ebk17YzYnB6-Jp0EPggMxkUtbcSYpqdzBWRvl6B.tqZzIiQ.SVYDgL3C8DjEY7i6tDpTOoRm4aq5zST7h8Aw!!",
+    "timestamp": "2026-04-21T16:12:47+08:00",
+    "ext_info": {
+      "ref_idx": "REFIDX_SlZ/hSbZO434/Jq5LWwTfg=="
+    }
+  }
+}
+2026-04-21 16:12:47,397 | INFO | [DEXER-mzh-videos] 视频发送成功: src_mzh_20260421_155741.mp4
+2026-04-21 16:47:55,086 | INFO | [DEXER-mzh-videos] 检测到变化，已安排发送检查: src_mzh_20260421_163203.mp4
+2026-04-21 16:47:55,103 | INFO | [DEXER-mzh-videos] 检测到变化，已安排发送检查: src_mzh_20260421_163203.mp4
+2026-04-21 16:48:03,103 | INFO | [DEXER-mzh-videos] 开始发送视频: /home/zhihao/Code/save_fire/DEXER/src_mzh/runtime/videos/src_mzh_20260421_163203.mp4
+2026-04-21 16:48:03,104 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/DEXER/src_mzh/runtime/videos/src_mzh_20260421_163203.mp4
+2026-04-21 16:48:03,647 | INFO | 视频发送输出:
+HTTPError: 400
+{"message":"富媒体文件格式不支持","code":850019,"err_code":40034002,"trace_id":"40b43c586643c685c1a6730940a0b4cf"}
+2026-04-21 16:48:03,648 | ERROR | [DEXER-mzh-videos] 视频发送失败，退出码=10
+2026-04-21 16:48:05,583 | INFO | [DEXER-mzh-videos] 检测到变化，已安排发送检查: src_mzh_20260421_163203.mp4
+2026-04-21 16:48:13,585 | INFO | [DEXER-mzh-videos] 开始发送视频: /home/zhihao/Code/save_fire/DEXER/src_mzh/runtime/videos/src_mzh_20260421_163203.mp4
+2026-04-21 16:48:13,585 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/DEXER/src_mzh/runtime/videos/src_mzh_20260421_163203.mp4
+2026-04-21 16:48:14,573 | INFO | 视频发送输出:
+HTTPError: 400
+{"message":"富媒体文件格式不支持","code":850019,"err_code":40034002,"trace_id":"7691c00a7c1762159815c2817976cd75"}
+2026-04-21 16:48:14,573 | ERROR | [DEXER-mzh-videos] 视频发送失败，退出码=10
+2026-04-21 16:48:17,092 | INFO | [DEXER-mzh-videos] 检测到变化，已安排发送检查: src_mzh_20260421_163203.mp4
+2026-04-21 16:48:25,094 | INFO | [DEXER-mzh-videos] 开始发送视频: /home/zhihao/Code/save_fire/DEXER/src_mzh/runtime/videos/src_mzh_20260421_163203.mp4
+2026-04-21 16:48:25,095 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/DEXER/src_mzh/runtime/videos/src_mzh_20260421_163203.mp4
+2026-04-21 16:48:26,295 | INFO | 视频发送输出:
+HTTPError: 400
+{"message":"富媒体文件格式不支持","code":850019,"err_code":40034002,"trace_id":"b8eee7b2a67004e43cad93f323120029"}
+2026-04-21 16:48:26,295 | ERROR | [DEXER-mzh-videos] 视频发送失败，退出码=10
+2026-04-21 16:48:29,104 | INFO | [DEXER-mzh-videos] 检测到变化，已安排发送检查: src_mzh_20260421_163203.mp4
+2026-04-21 16:48:37,107 | INFO | [DEXER-mzh-videos] 开始发送视频: /home/zhihao/Code/save_fire/DEXER/src_mzh/runtime/videos/src_mzh_20260421_163203.mp4
+2026-04-21 16:48:37,108 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/DEXER/src_mzh/runtime/videos/src_mzh_20260421_163203.mp4
+2026-04-21 16:48:38,228 | INFO | 视频发送输出:
+HTTPError: 400
+{"message":"富媒体文件格式不支持","code":850019,"err_code":40034002,"trace_id":"c9d17dd1a8571268cfc2e6fd9afb3778"}
+2026-04-21 16:48:38,228 | ERROR | [DEXER-mzh-videos] 视频发送失败，退出码=10
+2026-04-21 16:48:44,548 | INFO | [DEXER-mzh-videos] 检测到变化，已安排发送检查: src_mzh_20260421_163203.mp4
+2026-04-21 16:48:52,551 | INFO | [DEXER-mzh-videos] 开始发送视频: /home/zhihao/Code/save_fire/DEXER/src_mzh/runtime/videos/src_mzh_20260421_163203.mp4
+2026-04-21 16:48:52,551 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/DEXER/src_mzh/runtime/videos/src_mzh_20260421_163203.mp4
+2026-04-21 16:48:53,742 | INFO | 视频发送输出:
+HTTPError: 400
+{"message":"富媒体文件格式不支持","code":850019,"err_code":40034002,"trace_id":"d2f950b20bcc42376e7595388ecd6dd2"}
+2026-04-21 16:48:53,742 | ERROR | [DEXER-mzh-videos] 视频发送失败，退出码=10
+2026-04-21 16:49:02,740 | INFO | [DEXER-mzh-videos] 检测到变化，已安排发送检查: src_mzh_20260421_163203.mp4
+2026-04-21 16:49:10,744 | INFO | [DEXER-mzh-videos] 开始发送视频: /home/zhihao/Code/save_fire/DEXER/src_mzh/runtime/videos/src_mzh_20260421_163203.mp4
+2026-04-21 16:49:10,744 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/DEXER/src_mzh/runtime/videos/src_mzh_20260421_163203.mp4
+2026-04-21 16:49:12,670 | INFO | 视频发送输出:
+HTTPError: 400
+{"message":"富媒体文件格式不支持","code":850019,"err_code":40034002,"trace_id":"9421d1fdca4c28df85f3df1d964e5350"}
+2026-04-21 16:49:12,670 | ERROR | [DEXER-mzh-videos] 视频发送失败，退出码=10
+2026-04-21 16:49:13,626 | INFO | [DEXER-mzh-videos] 检测到变化，已安排发送检查: src_mzh_20260421_163203.mp4
+2026-04-21 16:49:13,634 | INFO | [DEXER-mzh-videos] 检测到变化，已安排发送检查: src_mzh_20260421_163203.mp4
+2026-04-21 16:49:13,641 | INFO | [DEXER-mzh-videos] 检测到变化，已安排发送检查: src_mzh_20260421_163203.mp4
+2026-04-21 16:49:21,644 | INFO | [DEXER-mzh-videos] 开始发送视频: /home/zhihao/Code/save_fire/DEXER/src_mzh/runtime/videos/src_mzh_20260421_163203.mp4
+2026-04-21 16:49:21,645 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/DEXER/src_mzh/runtime/videos/src_mzh_20260421_163203.mp4
+2026-04-21 16:49:24,034 | INFO | 视频发送输出:
+视频发送成功
+{
+  "upload_result": {
+    "file_uuid": "EhTKPxso5a3qr9kNIHGjh9ECbIOyxBjQllkghQsozIGS78f-kwMyBHByb2RQgPUkWhA5Ixw4Nek4kxuWm0-Y7-KHegI3CYIBAmd6",
+    "file_info": "az57KoPQfFeGIMcgl/IdEEcsQnUN8E0b0eGcKPIH4rcCfhgW41avY68TYUk5aYUkJLvwhGa4gvnB4g2a+q5TiWIjS9UNwSh234QqCRjnxQUT3JoagIRVMCoTdT+HpI8qym8i7kYvPJsjA6avDRy/9SQe0wWUjfNIFgsd+dEJnDL4JGOlXx6HXnvwmuoB4FmUoeAQ/NbqhbcpqmmVhWYYnFZ+vyAwOWE8do9c9nDsD//ckC7t6Vt+LnVM9FEmTBaxJURmd5Vpsi4Vw+ZHWbrOEm6Y0M7PzNR9PpucbP7Gh6qdAsKiGrqv93UZtI+9/fNH2RdJvg9CA/oHXwvn0jb5jnY20Dr74wlbQoM9diB9ZGnv1meo2oRFgZxn7QCwMjVtb5oDvgnccHcVYoAtpagiVrOun7qtaguxlTRD1YEopXOvQSnNLvcnii57fu6v/GzxcrE2kQB4Z8uQwxoN9JcF5jzRaShqCNVfGysRBAt/lGhOlCTSR52lGCOAHmHYZE5toOCTcz/5uuW98zHcVzlPQyFeYnkmYH56czf6BInnomqzXT5uFkOfTxSWA1q2k2x56dZPsVPDrl+LQ5xiOjNTE8aU52gBroMZbOuwi8ZVirag38m3WzSmxDOcU6fE9phZsPWOOeWHwe+UhkCPkf9trJRiE4adYnzus64IIXfL0k/iTuJilgXj4vaZfUKLIVqALN0ZK5WIaPaj8iKzf83p9rBvcmvYTqYPmS1VtnSjDJdEL5y+ERDMWsMupOyLQnfdzBAJ2a0ChJZJaNlYJPRRc4p70D1xk6Dv9FSKqxcxoc72iWCHtm0bqkWAcq8QDOXY90itVdgbwTv7ZSiRKeMXgPYY7tJjWPIQL6h197ZI2FnEvXATYUjnaxSdJ73NMWMeH3p7ckQ5+A/kT+3lWJ69PMWmdNdpRtAvHAPKpZZLSlBoilxhbEZoIZ+/wOD0fMi5ssZ3BvygWXPj6G6pigmzuLtwSOMTcyzBqCRvdasvfXBSBrHSHb2w3KlFGqVxHXvwKEG3Qa4gKB16B99Kw0e49HdO13kyFznOXQ5i8Fwwt5Asxyxh/zvEKjbcSvbtBat4PDMIT97cxdamzUyWZWNGLAT9iSAXk2ro98MfVpshVFMCjGu91qsS6i/erT900/cykYdipqs2bN4njT5Gmv0x3VF0gMCKF4MTeoTFcb7Ujy+NZJ1KX1vZJSdeFDMe0SIfrBnPIY/sWtErNCEGwpfElu6YxyThC8WKxvmoGZGaohcYprLRWJH5SOBk+bDVMkC8RyiSDdi1b1Ox9Zhl5+sTPer8qvf0LQfq+v4lCFUNM07QqykhpYXoTQO1Y/dhjixI",
+    "ttl": 86400,
+    "id": ""
+  },
+  "send_result": {
+    "id": "ROBOT1.0_39Ebk17YzYnB6-Jp0EPggAptoOJ-4bDhmlFrXqYleP4n41dkv1IejsWBP.8JgMzKO.yEngtg7nVAzt-SOCEzWQ!!",
+    "timestamp": "2026-04-21T16:49:23+08:00",
+    "ext_info": {
+      "ref_idx": "REFIDX_xATy39eP0h1+2XWvk4PBhstG81ovPjw88HwjHppK6Gc="
+    }
+  }
+}
+2026-04-21 16:49:24,034 | INFO | [DEXER-mzh-videos] 视频发送成功: src_mzh_20260421_163203.mp4
+2026-04-21 17:46:38,346 | INFO | [DEXER-mzh-videos] 检测到变化，已安排发送检查: src_mzh_20260421_164954.mp4
+2026-04-21 17:46:38,449 | INFO | [DEXER-mzh-videos] 检测到变化，已安排发送检查: src_mzh_20260421_164954.mp4
+2026-04-21 17:46:46,451 | INFO | [DEXER-mzh-videos] 开始发送视频: /home/zhihao/Code/save_fire/DEXER/src_mzh/runtime/videos/src_mzh_20260421_164954.mp4
+2026-04-21 17:46:46,452 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/DEXER/src_mzh/runtime/videos/src_mzh_20260421_164954.mp4
+2026-04-21 17:46:47,940 | INFO | 视频发送输出:
+HTTPError: 400
+{"message":"富媒体文件格式不支持","code":850019,"err_code":40034002,"trace_id":"95ebf5db6a1380b98d83bf77c29dbba3"}
+2026-04-21 17:46:47,943 | ERROR | [DEXER-mzh-videos] 视频发送失败，退出码=10
+2026-04-21 17:46:52,515 | INFO | [DEXER-mzh-videos] 检测到变化，已安排发送检查: src_mzh_20260421_164954.mp4
+2026-04-21 17:47:00,512 | INFO | [DEXER-mzh-videos] 开始发送视频: /home/zhihao/Code/save_fire/DEXER/src_mzh/runtime/videos/src_mzh_20260421_164954.mp4
+2026-04-21 17:47:00,512 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/DEXER/src_mzh/runtime/videos/src_mzh_20260421_164954.mp4
+2026-04-21 17:47:01,603 | INFO | 视频发送输出:
+HTTPError: 400
+{"message":"富媒体文件格式不支持","code":850019,"err_code":40034002,"trace_id":"0a19567155bc00569261de6e573da155"}
+2026-04-21 17:47:01,604 | ERROR | [DEXER-mzh-videos] 视频发送失败，退出码=10
+2026-04-21 17:47:01,890 | INFO | [DEXER-mzh-videos] 检测到变化，已安排发送检查: src_mzh_20260421_164954.mp4
+2026-04-21 17:47:05,318 | INFO | [DEXER-mzh-videos] 检测到变化，已安排发送检查: src_mzh_20260421_164954.mp4
+2026-04-21 17:47:08,080 | INFO | [DEXER-mzh-videos] 检测到变化，已安排发送检查: src_mzh_20260421_164954.mp4
+2026-04-21 17:47:09,593 | INFO | [DEXER-mzh-videos] 检测到变化，已安排发送检查: src_mzh_20260421_164954.mp4
+2026-04-21 17:47:09,602 | INFO | [DEXER-mzh-videos] 检测到变化，已安排发送检查: src_mzh_20260421_164954.mp4
+2026-04-21 17:47:17,604 | INFO | [DEXER-mzh-videos] 开始发送视频: /home/zhihao/Code/save_fire/DEXER/src_mzh/runtime/videos/src_mzh_20260421_164954.mp4
+2026-04-21 17:47:17,605 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/DEXER/src_mzh/runtime/videos/src_mzh_20260421_164954.mp4
+2026-04-21 17:47:20,166 | INFO | 视频发送输出:
+视频发送成功
+{
+  "upload_result": {
+    "file_uuid": "EhQfpA6dtPLl0_NSkHQrwhsBnvmyehiW0EwghQsowd7M6NT-kwMyBHByb2RQgPUkWhA_nukRtWHc-46nOsW9r2a7egIVkYIBAmd6",
+    "file_info": "mhOwCj0gMoZB1eXT+Y3r3vhMCfq9jCPzS2As+/iET54bPMpjQHrPCkFt5rSBsvZQjWNCDkbGtomW2aLzTHW6r9JeFgJkJ4/iu4LvGIgu9b0sOTd7NTLqU33JdO0d79eMym8i7kYvPJsjA6avDRy/9QAwrmzUABvA/Z2YPwZNblpKypNx8WX8AbwepQzgIpvHU8tGfkAmjbwEfqBoSCWoGDLyR/FQVzy+Vg0YwNhj+ZAm+bffCuHNRREwpkf+AHaSpC5RkAjd3RB0Iyu2cPe5FSTDxRv0AAUfYUIhjmRCY3V5ICF738FA+PkKpuCvisZO9lTNMTAlDMD33+8waTE03a6QgSWk7kx9iZMkHJEHL3dzj4A+PSd22UUIUAkH5IA4RQI0WWk/JQhI7upcvWMwmH63u0X7br9Q8IbQMw+Q0/wuMTNSP/JkHdr4mpBDnCBsLFc4UpdQMAdpGhieScOjMw3m8DuQsGDYpn/KbrVzJ6j2so/t1+F+lY1nzilieg3LTnYk1vszzBJutjj1EJGXd/UPLjWhkIsqvkYXSHn6BCWaYt3HdKlmlSAxYUHjTMHaJebij9BD1noS6GLGdS1SwI4Bm/gc0sx5zyMciXICGVWFdPkSYJPbFdjQs2Zi+iMfDJI8R/Jwdc82rFd2S3BMenoJ0zJtrzQslfdUWs3UTqGy8OQzRJHVLHItiWzHumvIfVLjnAzsgg/MoICsUP9sblAL8m/JQuFjUSGsBo2cGPeax7hrF9vxaVLhgMbFQZBNETufx/a0Pe3YgkT4ZzO+3bG+qm67Dx3m8QHV8nRWSMWiMAMq1X2GwF+XVZigarL2NsgTQA+r/JeUmEipSDDPoj79xJINPlQU2OfNLR7v933PsvzbOgDWH0UJKJm6u6AUHEOzyDNzsnnuQs/uA3AAjKMKpAeTLEiTPVvSwxnbrPPU4tVu9SUEw28QQKnx0bkyVllJJ9lonHcvt9ExDyoyLmnwx0mYX2SRhdGBy3/Pi3WRj0bE2amtbSb6m7QKOw9kFRWeFbM4NHWFcHWN82ocakdF2YRuaOv1ESDOlU12TXB6OadTTe43zIHaOXKYCfvAAe00f9gE3wS1fQ07gp/5sHNtKrKzJS8hEbKESV+rEJCUHqkyZx2K+6j3Dr7SuBPDeM+novHbkH4DC5QJepWuL8oJR21pgEhETffy/NTAIJnI1jpQ8KBgSqVhfY2T6apvCyXSED+mnJ+V4/zUUZS8cvkFzoE8K4fDDF8kKX6uzn+2r+T2m5J9EAPk0W+1v5t9v1vFMb+11qk9XvpaXiOGs8LLYjmBNy9m6KpbhbdJJmIMeY8XJ3+a2pQ9TfWPvoBM",
+    "ttl": 86400,
+    "id": ""
+  },
+  "send_result": {
+    "id": "ROBOT1.0_39Ebk17YzYnB6-Jp0EPggAcR7SD417gqcAbbN-w7.5aBpmrMmDLj1.MUtS5JmomEO.yEngtg7nVAzt-SOCEzWQ!!",
+    "timestamp": "2026-04-21T17:47:20+08:00",
+    "ext_info": {
+      "ref_idx": "REFIDX_PjF5pwLjQQRYDYdKpzO+mMtG81ovPjw88HwjHppK6Gc="
+    }
+  }
+}
+2026-04-21 17:47:20,166 | INFO | [DEXER-mzh-videos] 视频发送成功: src_mzh_20260421_164954.mp4
+2026-04-21 18:07:36,552 | INFO | [DEXER-mzh-videos] 检测到变化，已安排发送检查: src_mzh_20260421_175206.mp4
+2026-04-21 18:07:36,572 | INFO | [DEXER-mzh-videos] 检测到变化，已安排发送检查: src_mzh_20260421_175206.mp4
+2026-04-21 18:07:37,158 | INFO | [DEXER-mzh-videos] 检测到变化，已安排发送检查: src_mzh_20260421_175206.mp4
+2026-04-21 18:07:37,159 | INFO | [DEXER-mzh-videos] 检测到变化，已安排发送检查: src_mzh_20260421_175206.mp4
+2026-04-21 18:07:45,160 | INFO | [DEXER-mzh-videos] 开始发送视频: /home/zhihao/Code/save_fire/DEXER/src_mzh/runtime/videos/src_mzh_20260421_175206.mp4
+2026-04-21 18:07:45,161 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/DEXER/src_mzh/runtime/videos/src_mzh_20260421_175206.mp4
+2026-04-21 18:07:46,776 | INFO | 视频发送输出:
+视频发送成功
+{
+  "upload_result": {
+    "file_uuid": "EhSBKCgegD7GsP15pzETbtdwzKeK3hi42gEghQsov-fOsdn-kwMyBHByb2RQgPUkWhCXzpvkSXkrdS61L8Jrr9jYegLO5oIBAmd6",
+    "file_info": "DFuxgKZnUjfyyEr2Awd/LIYKIOjvErf94QBjz7LcstDiG1Jx9qgmEsoQCW+yIqyOETx6tua7B8a2LSOUVBtBlzF3+uuwZwF7EkY7aBevJpCsLGOLLgp/R58ief74EDwRym8i7kYvPJsjA6avDRy/9cKcC6X9duUgx6KSD594t0bGFZDgFBBl1oW8bKK3Coq+F69GqsUo/Z3E+J9817Pb9keM+IiSj1eT8Ara5l/pLVJoUMqJ/+LSOeNSXlvY61x1Q/AjVy34tjw5cAJ8L+eMeZ5dHHFU18XAMjPfC+UNXNCzM2n8ihKvFe4eyhGZV4d0kNPcTTtAdMYpGXNrpkzO+6Bh4Xk13OuUvnKaA3X1dE1pHiaF/K0bhrxQoTA3KrzyG+EaGjgN8t08jJxsMPuWVPM/m6x/exz4H4YtU0yitc+EmjaiOsn3KrdvpZl2HbyDBxHRqTKSKUcWrMYom9KRCGnM/BAzSAjLGV2uC8IYr5iTrT5yReABRUc3mVVXHLgaxHzV8k8xhxk8DvNSGJuX6Rhg9UVwnZW4Qx68qygz3hUaJpAawaPitFvydQV8d092X3TuSsuJ0wA1IhpSwyhwlKdOXIMtYM5K9e5gWMQCgRrb8wtdhQ475WKS2clvfw7/BVhFRGYidtXazxF5bk6uG8z73stUDbugC6462pFbQ5wPZ8VjtwEhJC4iRKNZrADgQan0V5SVa8G9NUvVQKyJFZXbh1umP/OhxFZ8IZKQhNRdMJf48w9aMf85pG5P9ulHOO9kjtFJB0g9sayp20BuSGVt4sj85+Rl0GFVuaHpAQMuHPZV8XQVF5bGXHrnEtwavreJq+hor9PmkUsPXFGeu8AsaBxRbEyHCz6uR6t0MRGm4sxC4KWVJXn9hljCObotBAYFUEdLIc78T5RIDWc+MwKCumerSc0yGcK8ekMdkak1Lqzmzvl58eRnpXoXTvAS5y2zytTQmnunvvrC/HKSGEWU6ZzxlvpGT2AAmI1GufS4dHbseR8S47Olgq3y1adc3BxjNPg9Ijcu0eRT5WNC1oE0KPHdpltr+l9XNcjfIcFu3QpMgX/NtqprwXFJAUvYQWTKxo2+GDjfL5RUkdm1D3jaKbCwMWF9HjwKWZcbu+IlouD3x+tumsLaMQ1PpWK1OE5fp2AJlrfhbc9lXitA1WNDJcdi4UFrZhye4wHcc0jmwq1Lac/rXCTGV3W00hp7ytY8cXjf8//xrFwgq4GrhP0MkmtnnyZRr3UlaTJ5tEu7YII4P43f1nEFRoFWXvsm8wL3Ya9KsyJlaZEqjkAOt014ppCF8qMwfIEBlxNFG5pPX/2D+32MYBWh2VDTgh3U",
+    "ttl": 86400,
+    "id": ""
+  },
+  "send_result": {
+    "id": "ROBOT1.0_39Ebk17YzYnB6-Jp0EPggJBj9THU63KfQchLAFvz1WcQYI-oZKqipeme4F1pYkVHO.yEngtg7nVAzt-SOCEzWQ!!",
+    "timestamp": "2026-04-21T18:07:46+08:00",
+    "ext_info": {
+      "ref_idx": "REFIDX_fmMfyHvW8BphPXK3HlVK0MtG81ovPjw88HwjHppK6Gc="
+    }
+  }
+}
+2026-04-21 18:07:46,777 | INFO | [DEXER-mzh-videos] 视频发送成功: src_mzh_20260421_175206.mp4
+2026-04-21 18:41:16,354 | INFO | [DEXER-mzh-videos] 检测到变化，已安排发送检查: src_mzh_20260421_181329.mp4
+2026-04-21 18:41:16,370 | INFO | [DEXER-mzh-videos] 检测到变化，已安排发送检查: src_mzh_20260421_181329.mp4
+2026-04-21 18:41:17,726 | INFO | [DEXER-mzh-videos] 检测到变化，已安排发送检查: src_mzh_20260421_181329.mp4
+2026-04-21 18:41:17,728 | INFO | [DEXER-mzh-videos] 检测到变化，已安排发送检查: src_mzh_20260421_181329.mp4
+2026-04-21 18:41:25,728 | INFO | [DEXER-mzh-videos] 开始发送视频: /home/zhihao/Code/save_fire/DEXER/src_mzh/runtime/videos/src_mzh_20260421_181329.mp4
+2026-04-21 18:41:25,728 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/DEXER/src_mzh/runtime/videos/src_mzh_20260421_181329.mp4
+2026-04-21 18:41:28,238 | INFO | 视频发送输出:
+视频发送成功
+{
+  "upload_result": {
+    "file_uuid": "EhSi6ZfrZfkPi296LPfmWT7gRYItIhiq7gMghQsopOSr9eD-kwMyBHByb2RQgPUkWhAFiz-4O5Wdpp6jSx7BrxZ1egIubYIBAm5q",
+    "file_info": "m+vo2RrODb0Yhfeb6D4KiLJcRrU0EZwvcK0no3RfzeAUlcpOhYMc+A5La/fN0Ir76vh3fdusXXarPvmkt1tBtkjSRllrCwvItfZOP++SZa8cWQW1oCUpJ9ezAroneIz6ym8i7kYvPJsjA6avDRy/9ZF9gLzc3VzoftPzP5d5VNi+kFPy0jjGcDU2WeAckrJLNegGRlkKrcCNkcLJNFA1bhtz9CXZaZiD87bl6qVm2W5I1eEmPSlIEKDC89wqEUbxxr9TibS+8TvPc0YHtUwyfAQ10g8BSA3iTc2syGBZb7KYgemzmHLIZWpf5Q77JZMd36u1+fKvoIIC5PvhH5x96/yG6aocTgJwkWEmIhRiepteozk4QWmDWSbGpR7Rj7oD9OlHlOb7WtHHGVWX0r4Ahp1TLa9DaaTowt3hHYqluz1FP8GtSVvGOKD9Uw4tAiz9emgty5S/MMlrWvtPHR2iL1i/vAEM7qfKKdDdk0eSPdK+0n4o8otpYhmw/C5K3ZHpdTM/2NvtF4Aiwi70ws5ofXJm0Ve57XHx3+CFt2K4uEA6RYplQvrfXL5XEQUtY8o6BXxw1Nah+kVfgQ/NhAQ7qT42Hs+aGT3nkMWzVwVRdqBhsm3BWouFkqrVhWstfRIkYekhWSHwEaOd0eFuPXc1rHoJ0zJtrzQslfdUWs3UTqGy8OQzRJHVLHItiWzHumvIcIXY6aODZ8ZWn0HE34s185zrTmhmYQT5Gd33Dzsbmy3GATn1JBlBj+7hF7FzMsRA+tZlmNXHG8SmIrs8UYfKKrG+qm67Dx3m8QHV8nRWSMXXu9TjBAm4fY/t3Ef8RYfCOsZl++pQFSzR8E8ifjaUNUOsObjqmIqp9kzK+cldxeWfcaifiEBDvaihS9J0SK9gBojM+ZzaoxFDNq3zafhS/IfQ4LCauac3P3u/zopPj+BFQ/ZdQREg4UgHA/rFgyOpDn4s6sqCCPeBpsipDK1G++vEyUQCzwMIE023WgY3aezrBsjxTwi/NQdl2f8K+VfaE7yS/FsDDAxrFPXYYCZuhU4Ymx8THAZAxBIv9slcUKJglgMALQnzuy7SXCEspO7AS+HGZgsGPxXOU/32yRaPjSzcqI8yd9jQnNjpsx9enDmYR5HSBR1PuGN8KBlTGFfyf9Rl46vPItY7iAOz1BeGpsoJR21pgEhETffy/NTAIJm6WRbJ/DBfLq7xSx+mkwSt+psYTMokemLK7J3q3D7G0TMKlNdGjbQvsHyLfIC1mzhVhQI8vkwKLVYe1YFLV8caqGZx0W1TzaB+Uo6q87npF11Rqd239QuFa3xVkEqoJpmy/L9Muoy8bSEdbfbq0KIl",
+    "ttl": 86400,
+    "id": ""
+  },
+  "send_result": {
+    "id": "ROBOT1.0_39Ebk17YzYnB6-Jp0EPggP7SkRJfJAFzpfdFi7pY2ljSkklbjxp-Yc4JqKpGzdt0O.yEngtg7nVAzt-SOCEzWQ!!",
+    "timestamp": "2026-04-21T18:41:28+08:00",
+    "ext_info": {
+      "ref_idx": "REFIDX_26qcHDESASbwCPmPLrYk1MtG81ovPjw88HwjHppK6Gc="
+    }
+  }
+}
+2026-04-21 18:41:28,238 | INFO | [DEXER-mzh-videos] 视频发送成功: src_mzh_20260421_181329.mp4
+2026-04-21 19:32:53,319 | INFO | [DEXER-mzh-videos] 检测到变化，已安排发送检查: src_mzh_20260421_184219.mp4
+2026-04-21 19:32:53,336 | INFO | [DEXER-mzh-videos] 检测到变化，已安排发送检查: src_mzh_20260421_184219.mp4
+2026-04-21 19:32:58,462 | INFO | [DEXER-mzh-videos] 检测到变化，已安排发送检查: src_mzh_20260421_184219.mp4
+2026-04-21 19:33:02,632 | INFO | [DEXER-mzh-videos] 检测到变化，已安排发送检查: src_mzh_20260421_184219.mp4
+2026-04-21 19:33:06,181 | INFO | [DEXER-mzh-videos] 检测到变化，已安排发送检查: src_mzh_20260421_184219.mp4
+2026-04-21 19:33:10,287 | INFO | [DEXER-mzh-videos] 检测到变化，已安排发送检查: src_mzh_20260421_184219.mp4
+2026-04-21 19:33:13,623 | INFO | [DEXER-mzh-videos] 检测到变化，已安排发送检查: src_mzh_20260421_184219.mp4
+2026-04-21 19:33:17,149 | INFO | [DEXER-mzh-videos] 检测到变化，已安排发送检查: src_mzh_20260421_184219.mp4
+2026-04-21 19:33:20,458 | INFO | [DEXER-mzh-videos] 检测到变化，已安排发送检查: src_mzh_20260421_184219.mp4
+2026-04-21 19:33:23,861 | INFO | [DEXER-mzh-videos] 检测到变化，已安排发送检查: src_mzh_20260421_184219.mp4
+2026-04-21 19:33:27,017 | INFO | [DEXER-mzh-videos] 检测到变化，已安排发送检查: src_mzh_20260421_184219.mp4
+2026-04-21 19:33:30,137 | INFO | [DEXER-mzh-videos] 检测到变化，已安排发送检查: src_mzh_20260421_184219.mp4
+2026-04-21 19:33:33,755 | INFO | [DEXER-mzh-videos] 检测到变化，已安排发送检查: src_mzh_20260421_184219.mp4
+2026-04-21 19:33:37,170 | INFO | [DEXER-mzh-videos] 检测到变化，已安排发送检查: src_mzh_20260421_184219.mp4
+2026-04-21 19:33:40,510 | INFO | [DEXER-mzh-videos] 检测到变化，已安排发送检查: src_mzh_20260421_184219.mp4
+2026-04-21 19:33:43,297 | INFO | [DEXER-mzh-videos] 检测到变化，已安排发送检查: src_mzh_20260421_184219.mp4
+2026-04-21 19:33:46,691 | INFO | [DEXER-mzh-videos] 检测到变化，已安排发送检查: src_mzh_20260421_184219.mp4
+2026-04-21 19:33:49,745 | INFO | [DEXER-mzh-videos] 检测到变化，已安排发送检查: src_mzh_20260421_184219.mp4
+2026-04-21 19:33:54,034 | INFO | [DEXER-mzh-videos] 检测到变化，已安排发送检查: src_mzh_20260421_184219.mp4
+2026-04-21 19:33:58,360 | INFO | [DEXER-mzh-videos] 检测到变化，已安排发送检查: src_mzh_20260421_184219.mp4
+2026-04-21 19:34:03,213 | INFO | [DEXER-mzh-videos] 检测到变化，已安排发送检查: src_mzh_20260421_184219.mp4
+2026-04-21 19:34:03,606 | INFO | [DEXER-mzh-videos] 检测到变化，已安排发送检查: src_mzh_20260421_184219.mp4
+2026-04-21 19:34:03,629 | INFO | [DEXER-mzh-videos] 检测到变化，已安排发送检查: src_mzh_20260421_184219.mp4
+2026-04-21 19:34:03,651 | INFO | [DEXER-mzh-videos] 检测到变化，已安排发送检查: src_mzh_20260421_184219.mp4
+2026-04-21 19:34:11,660 | INFO | [DEXER-mzh-videos] 开始发送视频: /home/zhihao/Code/save_fire/DEXER/src_mzh/runtime/videos/src_mzh_20260421_184219.mp4
+2026-04-21 19:34:11,661 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/DEXER/src_mzh/runtime/videos/src_mzh_20260421_184219.mp4
+2026-04-21 19:34:15,976 | INFO | 视频发送输出:
+视频发送成功
+{
+  "upload_result": {
+    "file_uuid": "EhTpV5q-26lguhT4TD1PbP3sqzlE2Ri8wLMCIIULKJKC19vs_pMDMgRwcm9kUID1JFoQi-iYzFzZr1tJcBQWFRjv93oCb72CAQJuag",
+    "file_info": "XUvNzNJkl9a3fe/pVHF7Df038YLj2bIDtxM/zNi2wW5LZd440YzvLacB+qszf7RrbuRHlObJ7aEmkoZrcoDDU6T8I74SeLWXLcot/2CEwFk3aHv8NWV2oKTf2SW1/AnLLfsSi0Lz/POox2mDZnMqdNTA6W+GQ68zOAgZ0EqlK0xL4Dd/kPlRu7P9Cl4i3k4+3i7qvZiCgT7bkAoaKpH2e1BnOpvnl+TRALeXnQB65K6HYCT77Cs51fqGsebg74ujvqStBKNAyc39SVwdyfpdZdg4TIRmosXU5x3BTpJqExWFrQIzDxt6gnNQZZUJofOEFkj/araw+gTb8Z65PCMPKm6GWnFd33bcerhS5380+xzNITVx96C0RuD55016KzImQAzoGSXtEucu53W2t0vD64YUl68Ag32Jpf2l4EgxwtYYa8FRcwMm0IeGoZrkA+b8MWJbrVa4a4PdDZGGGks4IemXFhyOywOpWK5dFX63pM120e+7vnL8byMy835GnqutMj/qKrqh8iP6n8Hu8LT93OjhYJZuGJeyTPiyqtwnI14nT2xVMWO+17LC63uHvvPP4y4pmVVZ2K9Ej3KfvADS/yRcsfkdfCk6+VYE++8Ga6hq2zFcPJX7Z7QzGWF+pnvb2CxKNR1FXjQ6F680DsYUqRiJF+NgHhRLQyW1MKVVv93HxThDst2pp5NMUuDQ9L8cxHo0Gm+90K5k7EnF5hrlGCzeU5Dw8Z0ern8rxxfJL/cUCB/tiLG5kPXlvL0nV6Dj6K7t0rZKVJCUcBxrAcBzoo17BFYIdyuuXHy79tMOhmXWCmuvRUaP1yWIZRFVxmMfmCHMGXFCyfo/46zjOh7WSLY4v1xZgQe2aCshOxJALaAo19fGLl0uSmNYsFNij5CncAapgJFco7QfE699ycy3UHQ3qxNofR6hA9B8GKOCIgLPSaakwMTxLmSXPx5V15b1+Fnp3FGZis4xhsSaJWu2aENolfNvaKuYIfTO3rP4qQ75y4JNKWJ8EtXi+jEFTtlguao/bnzxu1zd/shbJ41Lpdq5/j0SR4MhkLhv81reCFW0EVNOapYIa8TG/t2YDdIkBKDmQyiNviHa+QkwM54dRowyxKMe1T3TBIe94dM59IZ9zQ3KX1anHYxXTCtQBQcam+eFHZaGdMd3QGI/T+Hqu8RNeYjXfA1/UKdwKXzmDN26SLaxGWgNK/WRGIXTDQc0DkLHq3la1OG1zvyR7KQh7wLo8/XdmQL57EpMvHQ8v5NaVLdzPDFUZwpKNXjdOGjym/uszkRp5dYBwjNMu/xQW8Vti2Uqgho18VFuCC9pc45Pyh71ZWIFpCnPpMzAoN9makHzNeKACDefLUZma/lRkg==",
+    "ttl": 86400,
+    "id": ""
+  },
+  "send_result": {
+    "id": "ROBOT1.0_39Ebk17YzYnB6-Jp0EPggLI2TSqVGZMcDQfvuz121DnPn3UXhjSoRARGjDCoOobqO.yEngtg7nVAzt-SOCEzWQ!!",
+    "timestamp": "2026-04-21T19:34:15+08:00",
+    "ext_info": {
+      "ref_idx": "REFIDX_R/nC26CvDsCvI6cqeSuxjstG81ovPjw88HwjHppK6Gc="
+    }
+  }
+}
+2026-04-21 19:34:15,976 | INFO | [DEXER-mzh-videos] 视频发送成功: src_mzh_20260421_184219.mp4
+2026-04-21 20:30:27,749 | INFO | [DEXER-mzh-videos] 检测到变化，已安排发送检查: src_mzh_20260421_195837.mp4
+2026-04-21 20:30:27,766 | INFO | [DEXER-mzh-videos] 检测到变化，已安排发送检查: src_mzh_20260421_195837.mp4
+2026-04-21 20:30:33,673 | INFO | [DEXER-mzh-videos] 检测到变化，已安排发送检查: src_mzh_20260421_195837.mp4
+2026-04-21 20:30:39,917 | INFO | [DEXER-mzh-videos] 检测到变化，已安排发送检查: src_mzh_20260421_195837.mp4
+2026-04-21 20:30:45,679 | INFO | [DEXER-mzh-videos] 检测到变化，已安排发送检查: src_mzh_20260421_195837.mp4
+2026-04-21 20:30:51,378 | INFO | [DEXER-mzh-videos] 检测到变化，已安排发送检查: src_mzh_20260421_195837.mp4
+2026-04-21 20:30:56,400 | INFO | [DEXER-mzh-videos] 检测到变化，已安排发送检查: src_mzh_20260421_195837.mp4
+2026-04-21 20:31:01,185 | INFO | [DEXER-mzh-videos] 检测到变化，已安排发送检查: src_mzh_20260421_195837.mp4
+2026-04-21 20:31:05,803 | INFO | [DEXER-mzh-videos] 检测到变化，已安排发送检查: src_mzh_20260421_195837.mp4
+2026-04-21 20:31:11,629 | INFO | [DEXER-mzh-videos] 检测到变化，已安排发送检查: src_mzh_20260421_195837.mp4
+2026-04-21 20:31:18,074 | INFO | [DEXER-mzh-videos] 检测到变化，已安排发送检查: src_mzh_20260421_195837.mp4
+2026-04-21 20:31:24,916 | INFO | [DEXER-mzh-videos] 检测到变化，已安排发送检查: src_mzh_20260421_195837.mp4
+2026-04-21 20:31:32,098 | INFO | [DEXER-mzh-videos] 检测到变化，已安排发送检查: src_mzh_20260421_195837.mp4
+2026-04-21 20:31:40,104 | INFO | [DEXER-mzh-videos] 开始发送视频: /home/zhihao/Code/save_fire/DEXER/src_mzh/runtime/videos/src_mzh_20260421_195837.mp4
+2026-04-21 20:31:40,105 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/DEXER/src_mzh/runtime/videos/src_mzh_20260421_195837.mp4
+2026-04-21 20:31:40,923 | INFO | [DEXER-mzh-videos] 检测到变化，已安排发送检查: src_mzh_20260421_195837.mp4
+2026-04-21 20:31:41,843 | INFO | 视频发送输出:
+HTTPError: 400
+{"message":"富媒体文件格式不支持","code":850019,"err_code":40034002,"trace_id":"7560cd24a507be4e14a8eb1ad79d019a"}
+2026-04-21 20:31:41,843 | ERROR | [DEXER-mzh-videos] 视频发送失败，退出码=10
+2026-04-21 20:31:51,598 | INFO | [DEXER-mzh-videos] 检测到变化，已安排发送检查: src_mzh_20260421_195837.mp4
+2026-04-21 20:31:53,614 | INFO | [DEXER-mzh-videos] 检测到变化，已安排发送检查: src_mzh_20260421_195837.mp4
+2026-04-21 20:31:53,621 | INFO | [DEXER-mzh-videos] 检测到变化，已安排发送检查: src_mzh_20260421_195837.mp4
+2026-04-21 20:32:01,627 | INFO | [DEXER-mzh-videos] 开始发送视频: /home/zhihao/Code/save_fire/DEXER/src_mzh/runtime/videos/src_mzh_20260421_195837.mp4
+2026-04-21 20:32:01,628 | INFO | 执行命令: /home/zhihao/miniconda3/bin/python3.13 /home/zhihao/Code/auto_notify/qq_bot/send_qq_video.py /home/zhihao/Code/save_fire/DEXER/src_mzh/runtime/videos/src_mzh_20260421_195837.mp4
+2026-04-21 20:32:05,100 | INFO | 视频发送输出:
+视频发送成功
+{
+  "upload_result": {
+    "file_uuid": "EhRpEEeuFyamb0zuVLWC5pmk_7Ywlxjau9QBIIULKLXu7tH5_pMDMgRwcm9kUID1JFoQTUOszrWw0badFCs6q9ktc3oChnKCAQJneg",
+    "file_info": "rxEvD7cqWXDRnr/TfTrBJUf1UPtsjQ1dpknJCMZpQvJtpHfmwDrGK3X9WwfKWeyuNjm6kaG8kHmv/7q/eAZVS49My3aQfPYvL4yYOHl6+Lk8Op2aiOVCHDngks5YH0oxLfsSi0Lz/POox2mDZnMqdDTO/BtsDPo9khgmajO34nF03P+03DCYpLkjtHFzpgIwrSpO50qmDOZ/j8QAZzHlfuuUy+ONdB5L80z/hRHdmUtbgnvtM1hPzM7ePh4f5o+Ul9ClJV9URWx6Z+GJ3s3VWOJZ9Xf2t/nj5JQmuWq/DHhLo81psZYASTluEpAlqLkyJJF//+OXo1p3RsH+p4k1nCoQXDxySswhji7QtdAxV4gJeKTpvCygcVIJq/5laPHhU0FOAnUR8aRZuxjFXkyEtZDaWZqeTDGhHxqaUSQysp4dIYIxaTFlY7g2w6BHO3axQhPVQ35/hUJdBq+t2gapucW2TjbUhMqmi4wGUYAKYHh20e+7vnL8byMy835GnqutDHSWaodVZWGbLGaaenGTrGQv1ZvWwLxn0OkdizNeJWEIGpPCtDo46GEjswj1gOKgRDGwL5Ui4wAUgq6s9yieg2dId/UgqlO/OqWQ7oaDKzwNJHXsCt9RUPPKD5Z0y1l659AL+YM3kXjmjldA7EKipBiJF+NgHhRLQyW1MKVVv93HxThDst2pp5NMUuDQ9L8cwnAGvveRyaNVqNefN5Lqj5dPB+EIl84iRNkVxwCeH59GJN1MSsAGGJS4s0HJDtJvvuApR5/LWYblM0h2adxy/jgVIMtvbHncwx6fR3zCHO3WCmuvRUaP1yWIZRFVxmMfP6Aoy2MxqD2ilNZXDqmXTezxcv0yO77NDWTE3eAN2W9v9tvIOxvZc2zDoK+H8EemY9c4247+kaemJiDC4rewNwriK0EAIixKunFbHoTkLliN9AVVD0typjqei3dxD4px+GDox8SGaN/OZHAppkEG680306sWLW9S5K4WzTC+D/z5y4JNKWJ8EtXi+jEFTtlgHyhOwFNrPh/EIUUyxKHI7os1FRzl0Sm2Btzo3r0nRQtLp4HN/pw/rve10BalXchFPH53BnyPQ1Fe/WKuvxWBiHHqRKwJLFbuosWSCwCWYwAQoekwR03d8SElZ4MXp9enRuBsk/DMThpBa8BlKNxMycRNeYjXfA1/UKdwKXzmDN02oQ0teSk59sx0alheE+AKo7EtlmZeFBE0bLF4OgSpQrgNwzscguFffbNX0+uz0F1hf3phrE1brGU8caoJVV8/m/uszkRp5dYBwjNMu/xQW58QZkX5fO6g68vOGMU0G5RpnSXIdSPKcL1Kx/pd7a4f4YsuwyzuUUzzX+BVIOysLQ==",
+    "ttl": 86400,
+    "id": ""
+  },
+  "send_result": {
+    "id": "ROBOT1.0_39Ebk17YzYnB6-Jp0EPggI8UAl2XeS3HX73yYT27ie6Z519g9ylp9pGHHSMexydIi6tDpTOoRm4aq5zST7h8Aw!!",
+    "timestamp": "2026-04-21T20:32:04+08:00",
+    "ext_info": {
+      "ref_idx": "REFIDX_zrYnXL0fLBxnADOBRVQIJQ=="
+    }
+  }
+}
+2026-04-21 20:32:05,101 | INFO | [DEXER-mzh-videos] 视频发送成功: src_mzh_20260421_195837.mp4
