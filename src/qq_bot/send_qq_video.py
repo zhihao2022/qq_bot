@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 import base64
 import json
-import mimetypes
 import os
 import sys
 import urllib.request
 import urllib.error
 from pathlib import Path
+from typing import Dict
 
 APP_ID = os.environ.get("QQ_APP_ID", "").strip()
 APP_SECRET = os.environ.get("QQ_APP_SECRET", "").strip()
@@ -17,6 +17,15 @@ TARGET_OPENID = os.environ.get(
 
 TOKEN_URL = "https://bots.qq.com/app/getAppAccessToken"
 API_BASE = "https://api.sgroup.qq.com"
+
+MEDIA_FILE_TYPES: Dict[str, int] = {
+    ".jpg": 1,
+    ".jpeg": 1,
+    ".png": 1,
+    ".mp4": 2,
+    ".silk": 3,
+}
+DEFAULT_FILE_TYPE = 4
 
 
 def get_access_token(app_id: str, app_secret: str) -> str:
@@ -38,21 +47,29 @@ def get_access_token(app_id: str, app_secret: str) -> str:
     return data["access_token"]
 
 
-def upload_video_with_file_data(openid: str, file_path: Path, access_token: str) -> dict:
+def qq_file_type(file_path: Path) -> int:
+    return MEDIA_FILE_TYPES.get(file_path.suffix.lower(), DEFAULT_FILE_TYPE)
+
+
+def upload_file_with_file_data(
+    openid: str,
+    file_path: Path,
+    access_token: str,
+    display_file_name: str = "",
+) -> dict:
     raw = file_path.read_bytes()
     b64 = base64.b64encode(raw).decode("ascii")
+    file_type = qq_file_type(file_path)
 
-    # 文档写了 file_type=2 表示视频，格式要求 mp4
-    # 这里优先尝试 file_data 直传
+    # QQ Bot v2 文件上传接口使用 file_type 区分媒体：1 图片，2 视频，
+    # 3 语音，4 普通文件。普通文件能力由平台侧开放状态决定。
     body = {
-        "file_type": 2,
+        "file_type": file_type,
         "srv_send_msg": False,
-        "file_data": b64
+        "file_data": b64,
     }
-
-    # 保守起见，若服务端要求 url 字段存在，可尝试把它置空；
-    # 如果你的环境因此报参数错误，就需要改成可公网访问的 url 方案。
-    body["url"] = ""
+    if file_type == DEFAULT_FILE_TYPE:
+        body["file_name"] = display_file_name or file_path.name
 
     url = f"{API_BASE}/v2/users/{openid}/files"
     req = urllib.request.Request(
@@ -101,25 +118,42 @@ def main():
         print("错误：请先设置环境变量 QQ_APP_ID 和 QQ_APP_SECRET", file=sys.stderr)
         sys.exit(1)
 
-    if len(sys.argv) < 2:
-        print("用法: python src/qq_bot/send_qq_video.py /path/to/video.mp4 [可选说明文字]", file=sys.stderr)
+    args = sys.argv[1:]
+    display_file_name = ""
+    cleaned_args = []
+    index = 0
+    while index < len(args):
+        arg = args[index]
+        if arg == "--file-name":
+            if index + 1 >= len(args):
+                print("错误：--file-name 需要一个文件名", file=sys.stderr)
+                sys.exit(1)
+            display_file_name = args[index + 1]
+            index += 2
+            continue
+        cleaned_args.append(arg)
+        index += 1
+
+    if len(cleaned_args) < 1:
+        print("用法: python src/qq_bot/send_qq_video.py [--file-name 显示文件名] /path/to/file [可选说明文字]", file=sys.stderr)
         sys.exit(1)
 
-    file_path = Path(sys.argv[1]).expanduser().resolve()
+    file_path = Path(cleaned_args[0]).expanduser().resolve()
     if not file_path.exists():
         print(f"错误：文件不存在: {file_path}", file=sys.stderr)
         sys.exit(2)
 
-    if file_path.suffix.lower() != ".mp4":
-        print("错误：当前脚本只发送 .mp4 视频", file=sys.stderr)
-        sys.exit(3)
-
-    content = " ".join(sys.argv[2:]).strip()
+    content = " ".join(cleaned_args[1:]).strip()
 
     try:
         token = get_access_token(APP_ID, APP_SECRET)
 
-        upload_result = upload_video_with_file_data(TARGET_OPENID, file_path, token)
+        upload_result = upload_file_with_file_data(
+            TARGET_OPENID,
+            file_path,
+            token,
+            display_file_name=display_file_name,
+        )
         file_info = upload_result.get("file_info")
         if not file_info:
             print("上传结果里没有 file_info，无法继续发送", file=sys.stderr)
@@ -128,7 +162,7 @@ def main():
 
         send_result = send_media_message(TARGET_OPENID, file_info, token, content=content)
 
-        print("视频发送成功")
+        print("文件发送成功")
         print(json.dumps({
             "upload_result": upload_result,
             "send_result": send_result

@@ -57,7 +57,7 @@ python src/qq_bot/watch_and_send_qq.py
 - 运行状态：`var/state.json`
 - 日志文件：`logs/watch_and_send_qq.log`
 
-启动后会先对当前任务做一次初始检查，扫描已有的匹配文件；如果该文件版本还没有记录在 `var/state.json` 中，就会按 `settle_seconds` 等待稳定后自动发送。
+启动后会先对当前任务做一次初始检查，扫描已有的匹配文件；如果该文件版本还没有记录在 `var/state.json` 中，就会按 `settle_seconds` 等待稳定后自动发送。任务可以设置 `max_send_file_mb`，超过限制的文件会跳过发送并写入日志；`0` 或不设置表示不限制。
 
 也可以显式指定：
 
@@ -80,6 +80,9 @@ python src/qq_bot/watch_and_send_qq.py \
   "recursive": true,
   "send_text": false,
   "include_suffixes": [".mp4"],
+  "max_send_file_mb": 0,
+  "send_file_retries": 3,
+  "send_file_retry_delay_seconds": 5,
   "exclude_globs": ["*.tmp", "*.part"],
   "hash_small_files_only_mb": 16
 }

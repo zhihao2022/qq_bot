@@ -107,6 +107,9 @@ def normalize_task(raw_task: Dict[str, Any], default_send_text: bool, default_te
     task["send_text"] = bool(task.get("send_text", default_send_text))
     task["text_template"] = str(task.get("text_template", default_text_template))
     task["include_suffixes"] = [str(x).lower() for x in task.get("include_suffixes", [".mp4"])]
+    task["max_send_file_mb"] = float(task.get("max_send_file_mb", 0))
+    task["send_file_retries"] = int(task.get("send_file_retries", 3))
+    task["send_file_retry_delay_seconds"] = float(task.get("send_file_retry_delay_seconds", 5))
     exclude_globs = list(DEFAULT_EXCLUDE_GLOBS)
     exclude_globs.extend(task.get("exclude_globs", []))
     task["exclude_globs"] = exclude_globs
@@ -170,7 +173,7 @@ class QQVideoWatcher:
             else self.config_path
         )
 
-        self.send_video_script = self.script_dir / "send_qq_video.py"
+        self.send_file_script = self.script_dir / "send_qq_video.py"
         self.send_text_script = self.script_dir / "send_qq_text.py"
 
         self.state = load_json(self.state_path, {"tasks": {}})
@@ -535,7 +538,7 @@ class QQVideoWatcher:
             self.clear_pending(key)
             return
 
-        ok = self.send_video(task, path)
+        ok = self.send_file(task, path)
         if ok and task.get("send_text", False):
             self.send_text_notice(task, path, rel_path)
 
@@ -544,30 +547,72 @@ class QQVideoWatcher:
         self.mark_checked(task_name)
         self.clear_pending(key)
 
-    def send_video(self, task: Dict[str, Any], path: Path) -> bool:
-        cmd = [self.config["python_bin"], str(self.send_video_script), str(path)]
-        logging.info("[%s] 开始发送视频: %s", task["name"], path)
+    def send_file(self, task: Dict[str, Any], path: Path) -> bool:
+        if self.exceeds_send_size_limit(task, path):
+            return False
+        return self.send_file_direct(task, path)
+
+    def exceeds_send_size_limit(self, task: Dict[str, Any], path: Path) -> bool:
+        max_mb = float(task.get("max_send_file_mb", 0))
+        if max_mb <= 0:
+            return False
+        try:
+            size_bytes = path.stat().st_size
+        except FileNotFoundError:
+            return True
+        limit_bytes = max_mb * 1024 * 1024
+        if size_bytes <= limit_bytes:
+            return False
+        logging.warning(
+            "[%s] 文件超过大小限制，跳过发送: %s size=%.2fMB limit=%.2fMB",
+            task["name"],
+            path,
+            size_bytes / 1024 / 1024,
+            max_mb,
+        )
+        return True
+
+    def send_file_direct(self, task: Dict[str, Any], path: Path, display_name: str = "") -> bool:
+        cmd = [self.config["python_bin"], str(self.send_file_script), str(path)]
+        if display_name:
+            cmd[2:2] = ["--file-name", display_name]
+        logging.info("[%s] 开始发送文件: %s", task["name"], path)
         logging.info("执行命令: %s", " ".join(cmd))
 
-        proc = subprocess.run(
-            cmd,
-            cwd=str(self.script_dir),
-            stdout=subprocess.PIPE,
-            stderr=subprocess.STDOUT,
-            text=True,
-            check=False,
-        )
+        attempts = max(int(task.get("send_file_retries", 3)), 1)
+        retry_delay = max(float(task.get("send_file_retry_delay_seconds", 5)), 0)
+        for attempt in range(1, attempts + 1):
+            proc = subprocess.run(
+                cmd,
+                cwd=str(self.script_dir),
+                stdout=subprocess.PIPE,
+                stderr=subprocess.STDOUT,
+                text=True,
+                check=False,
+            )
 
-        output = proc.stdout or ""
-        if output.strip():
-            logging.info("视频发送输出:\n%s", output.rstrip())
+            output = proc.stdout or ""
+            if output.strip():
+                logging.info("文件发送输出:\n%s", output.rstrip())
 
-        if proc.returncode != 0:
-            logging.error("[%s] 视频发送失败，退出码=%s", task["name"], proc.returncode)
-            return False
+            if proc.returncode == 0:
+                logging.info("[%s] 文件发送成功: %s", task["name"], path.name)
+                return True
 
-        logging.info("[%s] 视频发送成功: %s", task["name"], path.name)
-        return True
+            if attempt < attempts:
+                logging.warning(
+                    "[%s] 文件发送失败，退出码=%s，%s 秒后重试 %s/%s: %s",
+                    task["name"],
+                    proc.returncode,
+                    retry_delay,
+                    attempt + 1,
+                    attempts,
+                    path.name,
+                )
+                time.sleep(retry_delay)
+
+        logging.error("[%s] 文件发送失败，已重试 %s 次: %s", task["name"], attempts, path.name)
+        return False
 
     def send_text_notice(self, task: Dict[str, Any], path: Path, rel_path: str) -> bool:
         content = task["text_template"].format(
