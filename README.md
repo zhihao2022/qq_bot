@@ -34,6 +34,8 @@
 pip install -r requirements.txt
 ```
 
+如果需要自动发送超过大小限制的 `.mp4`，还需要系统里能直接调用 `ffmpeg` 和 `ffprobe`。
+
 运行前需要配置 QQ Bot 凭据：
 
 ```bash
@@ -57,7 +59,7 @@ python src/qq_bot/watch_and_send_qq.py
 - 运行状态：`var/state.json`
 - 日志文件：`logs/watch_and_send_qq.log`
 
-启动后会先对当前任务做一次初始检查，扫描已有的匹配文件；如果该文件版本还没有记录在 `var/state.json` 中，就会按 `settle_seconds` 等待稳定后自动发送。任务可以设置 `max_send_file_mb`，超过限制的文件会跳过发送并写入日志；`0` 或不设置表示不限制。
+启动后会先对当前任务做一次初始检查，扫描已有的匹配文件；如果该文件版本还没有记录在 `var/state.json` 中，就会按 `settle_seconds` 等待稳定后自动发送。默认 `max_send_file_mb` 为 `10`。文件不超过限制时直接发送；`.mp4` 超过限制时会使用 `ffmpeg` 按 `split_large_mp4_segment_seconds` 切分，默认每 20 秒一段，确认每段仍不超过限制后逐段发送；如果分段后仍有片段过大，或拆分/发送失败，会发送 `large_file_failure_template` 配置的失败文字，例如“由于xxx原因，xxx文件发送失败”。`max_send_file_mb` 设为 `0` 表示不限制。
 
 也可以显式指定：
 
@@ -80,7 +82,10 @@ python src/qq_bot/watch_and_send_qq.py \
   "recursive": true,
   "send_text": false,
   "include_suffixes": [".mp4"],
-  "max_send_file_mb": 0,
+  "max_send_file_mb": 10,
+  "split_large_mp4": true,
+  "split_large_mp4_segment_seconds": 20,
+  "large_file_failure_template": "由于{reason}，{filename}文件发送失败",
   "send_file_retries": 3,
   "send_file_retry_delay_seconds": 5,
   "exclude_globs": ["*.tmp", "*.part"],
@@ -120,8 +125,17 @@ python src/qq_bot/receive_qq_files.py \
 
 ```bash
 python src/qq_bot/send_qq_video.py /path/to/video.mp4 "可选说明文字"
+python src/qq_bot/send_qq_large_mp4.py /path/to/video.mp4 "可选说明文字"
 python src/qq_bot/send_qq_text.py "消息内容"
 ```
+
+如果想直接改脚本运行，可以编辑根目录的 `send_mp4.sh`，只改里面的 `VIDEO_PATH` 和 `MESSAGE`，然后执行：
+
+```bash
+./send_mp4.sh
+```
+
+`send_qq_large_mp4.py` 会读取 `config/config.json`：默认 10MB 以内直发，超过 10MB 的 MP4 按 20 秒一段切分；拆完仍有片段超过限制时，会发送失败文字通知。
 
 ## 注意事项
 

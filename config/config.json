@@ -3,7 +3,14 @@
   "tasks_reload_seconds": 2,
   "send_text": false,
   "text_template": "视频已发送：{filename}",
+  "max_send_file_mb": 10,
+  "split_large_mp4": true,
+  "split_large_mp4_segment_seconds": 20,
+  "large_file_failure_template": "由于{reason}，{filename}文件发送失败",
   "python_bin": "/home/zhihao/miniconda3/envs/auto_notify/bin/python",
+  "ffmpeg_bin": "ffmpeg",
+  "ffprobe_bin": "ffprobe",
+  "split_work_dir": "../var/split_files",
   "log_file": "../logs/watch_and_send_qq.log",
   "tasks_file": "tasks.json"
 }

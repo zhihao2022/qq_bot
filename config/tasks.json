@@ -1,66 +1,6 @@
 {
   "tasks": [
     {
-      "name": "genesis-videos",
-      "local_dir": "~/Code/save_fire/Genesis/videos",
-      "recursive": true,
-      "send_text": false,
-      "text_template": "视频已发送：{filename}",
-      "include_suffixes": [
-        ".mp4"
-      ],
-      "exclude_globs": [
-        "*.tmp",
-        "*.part",
-        "*.swp",
-        "*.swx",
-        "*.crdownload",
-        "__pycache__",
-        ".ipynb_checkpoints"
-      ],
-      "hash_small_files_only_mb": 16
-    },
-    {
-      "name": "DEXER-videos",
-      "local_dir": "~/Code/save_fire/DEXER/videos",
-      "recursive": true,
-      "send_text": false,
-      "text_template": "视频已发送：{filename}",
-      "include_suffixes": [
-        ".mp4"
-      ],
-      "exclude_globs": [
-        "*.tmp",
-        "*.part",
-        "*.swp",
-        "*.swx",
-        "*.crdownload",
-        "__pycache__",
-        ".ipynb_checkpoints"
-      ],
-      "hash_small_files_only_mb": 16
-    },
-    {
-      "name": "DEXER-mzh-videos",
-      "local_dir": "~/Code/save_fire/DEXER/src_mzh/runtime/videos",
-      "recursive": true,
-      "send_text": false,
-      "text_template": "视频已发送：{filename}",
-      "include_suffixes": [
-        ".mp4"
-      ],
-      "exclude_globs": [
-        "*.tmp",
-        "*.part",
-        "*.swp",
-        "*.swx",
-        "*.crdownload",
-        "__pycache__",
-        ".ipynb_checkpoints"
-      ],
-      "hash_small_files_only_mb": 16
-    },
-    {
       "name": "DEXER0423-mzh-videos",
       "local_dir": "~/Code/save_fire/DEXER0423/src_mzh/runtime/videos",
       "recursive": true,
@@ -78,7 +18,7 @@
         "__pycache__",
         ".ipynb_checkpoints"
       ],
-      "hash_small_files_only_mb": 16
+      "hash_small_files_only_mb": 40
     },
     {
       "name": "qq-send-zip",
@@ -86,7 +26,7 @@
       "recursive": true,
       "send_text": false,
       "text_template": "文件已发送：{filename}",
-      "max_send_file_mb": 1,
+      "max_send_file_mb": 10,
       "include_suffixes": [
         ".zip",
         ".mp4",

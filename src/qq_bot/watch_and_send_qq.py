@@ -4,9 +4,12 @@ import fnmatch
 import hashlib
 import json
 import logging
+import math
 import os
 import signal
+import shutil
 import subprocess
+import tempfile
 import sys
 import threading
 import time
@@ -99,7 +102,15 @@ def sha256_file(path: Path, chunk_size: int = 1024 * 1024) -> str:
     return h.hexdigest()
 
 
-def normalize_task(raw_task: Dict[str, Any], default_send_text: bool, default_text_template: str) -> Dict[str, Any]:
+def normalize_task(
+    raw_task: Dict[str, Any],
+    default_send_text: bool,
+    default_text_template: str,
+    default_max_send_file_mb: float,
+    default_split_large_mp4: bool,
+    default_split_large_mp4_segment_seconds: float,
+    default_large_file_failure_template: str,
+) -> Dict[str, Any]:
     task = dict(raw_task)
     task["name"] = str(task["name"])
     task["local_dir"] = expand_path(task["local_dir"])
@@ -107,7 +118,15 @@ def normalize_task(raw_task: Dict[str, Any], default_send_text: bool, default_te
     task["send_text"] = bool(task.get("send_text", default_send_text))
     task["text_template"] = str(task.get("text_template", default_text_template))
     task["include_suffixes"] = [str(x).lower() for x in task.get("include_suffixes", [".mp4"])]
-    task["max_send_file_mb"] = float(task.get("max_send_file_mb", 0))
+    task["max_send_file_mb"] = float(task.get("max_send_file_mb", default_max_send_file_mb))
+    task["split_large_mp4"] = bool(task.get("split_large_mp4", default_split_large_mp4))
+    task["split_large_mp4_segment_seconds"] = max(
+        1.0,
+        float(task.get("split_large_mp4_segment_seconds", default_split_large_mp4_segment_seconds)),
+    )
+    task["large_file_failure_template"] = str(
+        task.get("large_file_failure_template", default_large_file_failure_template)
+    )
     task["send_file_retries"] = int(task.get("send_file_retries", 3))
     task["send_file_retry_delay_seconds"] = float(task.get("send_file_retry_delay_seconds", 5))
     exclude_globs = list(DEFAULT_EXCLUDE_GLOBS)
@@ -117,7 +136,15 @@ def normalize_task(raw_task: Dict[str, Any], default_send_text: bool, default_te
     return task
 
 
-def normalize_tasks(raw_tasks: Any, default_send_text: bool, default_text_template: str) -> List[Dict[str, Any]]:
+def normalize_tasks(
+    raw_tasks: Any,
+    default_send_text: bool,
+    default_text_template: str,
+    default_max_send_file_mb: float,
+    default_split_large_mp4: bool,
+    default_split_large_mp4_segment_seconds: float,
+    default_large_file_failure_template: str,
+) -> List[Dict[str, Any]]:
     if not isinstance(raw_tasks, list) or not raw_tasks:
         raise ValueError("tasks 必须是非空列表")
 
@@ -129,7 +156,15 @@ def normalize_tasks(raw_tasks: Any, default_send_text: bool, default_text_templa
         if not raw_task.get("name") or not raw_task.get("local_dir"):
             raise ValueError("每个 task 都必须包含 name 和 local_dir")
 
-        task = normalize_task(raw_task, default_send_text, default_text_template)
+        task = normalize_task(
+            raw_task,
+            default_send_text,
+            default_text_template,
+            default_max_send_file_mb,
+            default_split_large_mp4,
+            default_split_large_mp4_segment_seconds,
+            default_large_file_failure_template,
+        )
         if task["name"] in seen_names:
             raise ValueError(f"task name 重复: {task['name']}")
         seen_names.add(task["name"])
@@ -158,6 +193,31 @@ class QQVideoWatcher:
         self.config["python_bin"] = normalize_command_path(
             str(self.config.get("python_bin", sys.executable)),
             sys.executable,
+        )
+        self.config["ffmpeg_bin"] = normalize_command_path(
+            str(self.config.get("ffmpeg_bin", "ffmpeg")),
+            "ffmpeg",
+        )
+        self.config["ffprobe_bin"] = normalize_command_path(
+            str(self.config.get("ffprobe_bin", "ffprobe")),
+            "ffprobe",
+        )
+        self.config["max_send_file_mb"] = float(self.config.get("max_send_file_mb", 10))
+        self.config["split_large_mp4"] = bool(self.config.get("split_large_mp4", True))
+        self.config["split_large_mp4_segment_seconds"] = max(
+            1.0,
+            float(self.config.get("split_large_mp4_segment_seconds", 20)),
+        )
+        self.config["large_file_failure_template"] = str(
+            self.config.get(
+                "large_file_failure_template",
+                "由于{reason}，{filename}文件发送失败",
+            )
+        )
+        self.config["split_work_dir"] = expand_path_from(
+            self.config_path.parent,
+            str(self.config.get("split_work_dir", PROJECT_DIR / "var" / "split_files")),
+            str(PROJECT_DIR / "var" / "split_files"),
         )
         self.config["log_file"] = expand_path_from(
             self.config_path.parent,
@@ -220,6 +280,10 @@ class QQVideoWatcher:
             raw_tasks,
             self.config["send_text"],
             self.config["text_template"],
+            self.config["max_send_file_mb"],
+            self.config["split_large_mp4"],
+            self.config["split_large_mp4_segment_seconds"],
+            self.config["large_file_failure_template"],
         )
 
     def set_tasks(self, tasks: List[Dict[str, Any]], reason: str) -> List[str]:
@@ -548,29 +612,170 @@ class QQVideoWatcher:
         self.clear_pending(key)
 
     def send_file(self, task: Dict[str, Any], path: Path) -> bool:
-        if self.exceeds_send_size_limit(task, path):
-            return False
-        return self.send_file_direct(task, path)
-
-    def exceeds_send_size_limit(self, task: Dict[str, Any], path: Path) -> bool:
         max_mb = float(task.get("max_send_file_mb", 0))
         if max_mb <= 0:
-            return False
+            return self.send_file_direct(task, path)
+
         try:
             size_bytes = path.stat().st_size
         except FileNotFoundError:
-            return True
-        limit_bytes = max_mb * 1024 * 1024
-        if size_bytes <= limit_bytes:
             return False
-        logging.warning(
-            "[%s] 文件超过大小限制，跳过发送: %s size=%.2fMB limit=%.2fMB",
+
+        limit_bytes = int(max_mb * 1024 * 1024)
+        if size_bytes <= limit_bytes:
+            return self.send_file_direct(task, path)
+
+        size_mb = size_bytes / 1024 / 1024
+        if path.suffix.lower() == ".mp4" and task.get("split_large_mp4", True):
+            return self.send_large_mp4(task, path, size_bytes, limit_bytes, max_mb)
+
+        reason = f"文件大小{size_mb:.2f}MB超过{max_mb:.2f}MB限制"
+        logging.warning("[%s] %s，跳过发送: %s", task["name"], reason, path)
+        self.send_large_file_failure_notice(task, path, reason, size_bytes=size_bytes, limit_mb=max_mb)
+        return False
+
+    def send_large_mp4(
+        self,
+        task: Dict[str, Any],
+        path: Path,
+        size_bytes: int,
+        limit_bytes: int,
+        limit_mb: float,
+    ) -> bool:
+        segment_seconds = max(1.0, float(task.get("split_large_mp4_segment_seconds", 20)))
+        size_mb = size_bytes / 1024 / 1024
+        logging.info(
+            "[%s] MP4超过大小限制，准备按时长拆分发送: %s size=%.2fMB limit=%.2fMB segment_seconds=%.1f",
             task["name"],
             path,
-            size_bytes / 1024 / 1024,
-            max_mb,
+            size_mb,
+            limit_mb,
+            segment_seconds,
         )
-        return True
+
+        split_paths: List[Path] = []
+        try:
+            try:
+                split_paths = self.split_mp4(path, segment_seconds)
+            except Exception as exc:
+                reason = f"文件大小{size_mb:.2f}MB超过{limit_mb:.2f}MB限制，且ffmpeg拆分失败: {exc}"
+                logging.error("[%s] %s", task["name"], reason)
+                self.send_large_file_failure_notice(task, path, reason, size_bytes=size_bytes, limit_mb=limit_mb)
+                return False
+
+            oversized = [p for p in split_paths if p.stat().st_size > limit_bytes]
+            if oversized:
+                largest_mb = max(p.stat().st_size for p in oversized) / 1024 / 1024
+                reason = (
+                    f"文件大小{size_mb:.2f}MB超过{limit_mb:.2f}MB限制，"
+                    f"按{segment_seconds:.0f}秒一段拆分后仍有片段超过限制，最大片段{largest_mb:.2f}MB"
+                )
+                logging.warning("[%s] %s", task["name"], reason)
+                self.send_large_file_failure_notice(task, path, reason, size_bytes=size_bytes, limit_mb=limit_mb)
+                return False
+
+            for index, split_path in enumerate(split_paths, start=1):
+                display_name = f"{path.stem}_part{index:02d}of{len(split_paths):02d}{path.suffix.lower()}"
+                if not self.send_file_direct(task, split_path, display_name=display_name):
+                    reason = f"文件拆分为{len(split_paths)}段后，第{index}段发送失败"
+                    self.send_large_file_failure_notice(task, path, reason, size_bytes=size_bytes, limit_mb=limit_mb)
+                    return False
+
+            logging.info("[%s] 大MP4已拆分并全部发送成功: %s", task["name"], path.name)
+            return True
+        finally:
+            self.cleanup_split_files(split_paths)
+
+    def split_mp4(self, path: Path, segment_seconds: float) -> List[Path]:
+        duration = self.probe_video_duration(path)
+        if duration <= 0:
+            raise RuntimeError("无法读取有效视频时长")
+
+        work_root = Path(self.config["split_work_dir"])
+        work_root.mkdir(parents=True, exist_ok=True)
+        temp_dir = Path(tempfile.mkdtemp(prefix=f"{path.stem}_", dir=str(work_root)))
+        segment_seconds = max(1.0, segment_seconds)
+        parts = max(1, math.ceil(duration / segment_seconds))
+        split_paths: List[Path] = []
+
+        try:
+            for index in range(parts):
+                start = segment_seconds * index
+                length = min(segment_seconds, duration - start)
+                out_path = temp_dir / f"{path.stem}_part{index + 1:02d}of{parts:02d}.mp4"
+                cmd = [
+                    self.config["ffmpeg_bin"],
+                    "-y",
+                    "-hide_banner",
+                    "-loglevel",
+                    "error",
+                    "-ss",
+                    f"{start:.3f}",
+                    "-i",
+                    str(path),
+                    "-t",
+                    f"{max(length, 0.001):.3f}",
+                    "-map",
+                    "0",
+                    "-c",
+                    "copy",
+                    "-avoid_negative_ts",
+                    "make_zero",
+                    str(out_path),
+                ]
+                proc = subprocess.run(
+                    cmd,
+                    stdout=subprocess.PIPE,
+                    stderr=subprocess.STDOUT,
+                    text=True,
+                    check=False,
+                )
+                if proc.returncode != 0:
+                    output = (proc.stdout or "").strip()
+                    raise RuntimeError(f"ffmpeg退出码={proc.returncode}: {output}")
+                if not out_path.exists() or out_path.stat().st_size <= 0:
+                    raise RuntimeError(f"ffmpeg未生成有效分段: {out_path.name}")
+                split_paths.append(out_path)
+        except Exception:
+            shutil.rmtree(temp_dir, ignore_errors=True)
+            raise
+
+        return split_paths
+
+    def cleanup_split_files(self, split_paths: List[Path]) -> None:
+        if not split_paths:
+            return
+        split_dir = split_paths[0].parent
+        try:
+            shutil.rmtree(split_dir, ignore_errors=True)
+        except OSError as exc:
+            logging.warning("清理视频分段临时目录失败: %s (%s)", split_dir, exc)
+
+    def probe_video_duration(self, path: Path) -> float:
+        cmd = [
+            self.config["ffprobe_bin"],
+            "-v",
+            "error",
+            "-show_entries",
+            "format=duration",
+            "-of",
+            "default=noprint_wrappers=1:nokey=1",
+            str(path),
+        ]
+        proc = subprocess.run(
+            cmd,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.STDOUT,
+            text=True,
+            check=False,
+        )
+        output = (proc.stdout or "").strip()
+        if proc.returncode != 0:
+            raise RuntimeError(f"ffprobe退出码={proc.returncode}: {output}")
+        try:
+            return float(output)
+        except ValueError as exc:
+            raise RuntimeError(f"ffprobe返回了无效时长: {output}") from exc
 
     def send_file_direct(self, task: Dict[str, Any], path: Path, display_name: str = "") -> bool:
         cmd = [self.config["python_bin"], str(self.send_file_script), str(path)]
@@ -614,6 +819,25 @@ class QQVideoWatcher:
         logging.error("[%s] 文件发送失败，已重试 %s 次: %s", task["name"], attempts, path.name)
         return False
 
+    def send_large_file_failure_notice(
+        self,
+        task: Dict[str, Any],
+        path: Path,
+        reason: str,
+        size_bytes: int,
+        limit_mb: float,
+    ) -> bool:
+        template = task.get("large_file_failure_template") or "由于{reason}，{filename}文件发送失败"
+        content = template.format(
+            task_name=task["name"],
+            filename=path.name,
+            abs_path=str(path.resolve()),
+            reason=reason,
+            size_mb=size_bytes / 1024 / 1024,
+            limit_mb=limit_mb,
+        )
+        return self.send_text_content(task, content, "大文件失败通知")
+
     def send_text_notice(self, task: Dict[str, Any], path: Path, rel_path: str) -> bool:
         content = task["text_template"].format(
             task_name=task["name"],
@@ -621,8 +845,11 @@ class QQVideoWatcher:
             rel_path=rel_path,
             abs_path=str(path.resolve()),
         )
+        return self.send_text_content(task, content, "文字通知")
+
+    def send_text_content(self, task: Dict[str, Any], content: str, label: str) -> bool:
         cmd = [self.config["python_bin"], str(self.send_text_script), content]
-        logging.info("[%s] 开始发送文字通知: %s", task["name"], content)
+        logging.info("[%s] 开始发送%s: %s", task["name"], label, content)
 
         proc = subprocess.run(
             cmd,
@@ -635,13 +862,13 @@ class QQVideoWatcher:
 
         output = proc.stdout or ""
         if output.strip():
-            logging.info("文字通知输出:\n%s", output.rstrip())
+            logging.info("%s输出:\n%s", label, output.rstrip())
 
         if proc.returncode != 0:
-            logging.error("[%s] 文字通知发送失败，退出码=%s", task["name"], proc.returncode)
+            logging.error("[%s] %s发送失败，退出码=%s", task["name"], label, proc.returncode)
             return False
 
-        logging.info("[%s] 文字通知发送成功", task["name"])
+        logging.info("[%s] %s发送成功", task["name"], label)
         return True
 
     def run_daemon(self) -> None:
