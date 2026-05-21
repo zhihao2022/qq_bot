@@ -59,7 +59,7 @@ python src/qq_bot/watch_and_send_qq.py
 - 运行状态：`var/state.json`
 - 日志文件：`logs/watch_and_send_qq.log`
 
-启动后会先对当前任务做一次初始检查，扫描已有的匹配文件；如果该文件版本还没有记录在 `var/state.json` 中，就会按 `settle_seconds` 等待稳定后自动发送。默认 `max_send_file_mb` 为 `10`。文件不超过限制时直接发送；`.mp4` 超过限制时会使用 `ffmpeg` 按 `split_large_mp4_segment_seconds` 切分，默认每 20 秒一段，确认每段仍不超过限制后逐段发送；如果分段后仍有片段过大，或拆分/发送失败，会发送 `large_file_failure_template` 配置的失败文字，例如“由于xxx原因，xxx文件发送失败”。`max_send_file_mb` 设为 `0` 表示不限制。
+启动后会先对当前任务做一次初始检查，扫描已有的匹配文件；如果该文件版本还没有记录在 `var/state.json` 中，就会按 `settle_seconds` 等待稳定后自动发送。默认 `max_send_file_mb` 为 `10`。文件不超过限制时直接发送；`.mp4` 超过限制时会使用 `ffmpeg` 按 `split_large_mp4_target_mb` 自动估算分段时长，默认目标 9.5MB，`split_large_mp4_segment_seconds` 作为单段时长上限；切完会确认每段仍不超过限制，若超过则自动缩短时长重试。若无损拆分受关键帧影响仍然超限，会自动改为重新编码并按目标大小控制码率。若拆分/发送失败，会发送 `large_file_failure_template` 配置的失败文字，例如“由于xxx原因，xxx文件发送失败”。`max_send_file_mb` 设为 `0` 表示不限制。
 
 也可以显式指定：
 
@@ -84,6 +84,7 @@ python src/qq_bot/watch_and_send_qq.py \
   "include_suffixes": [".mp4"],
   "max_send_file_mb": 10,
   "split_large_mp4": true,
+  "split_large_mp4_target_mb": 9.5,
   "split_large_mp4_segment_seconds": 20,
   "large_file_failure_template": "由于{reason}，{filename}文件发送失败",
   "send_file_retries": 3,
@@ -135,7 +136,7 @@ python src/qq_bot/send_qq_text.py "消息内容"
 ./send_mp4.sh
 ```
 
-`send_qq_large_mp4.py` 会读取 `config/config.json`：默认 10MB 以内直发，超过 10MB 的 MP4 按 20 秒一段切分；拆完仍有片段超过限制时，会发送失败文字通知。
+`send_qq_large_mp4.py` 会读取 `config/config.json`：默认 10MB 以内直发，超过 10MB 的 MP4 会按 9.5MB 目标自动估算分段时长，且不超过 `split_large_mp4_segment_seconds` 配置的单段时长上限；无损拆分后仍有片段超过限制时，会自动缩短时长重试，再不行就重新编码控制码率，最终仍失败则发送失败文字通知。
 
 ## 注意事项
 

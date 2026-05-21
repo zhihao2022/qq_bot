@@ -1,11 +1,8 @@
 #!/usr/bin/env python3
 import argparse
 import json
-import math
 import shutil
-import subprocess
 import sys
-import tempfile
 import urllib.error
 from pathlib import Path
 from typing import Any, Dict, List
@@ -18,6 +15,12 @@ from send_qq_video import (
     get_access_token,
     send_media_message,
     upload_file_with_file_data,
+)
+from video_split import (
+    SplitResult,
+    bytes_to_mb,
+    resolve_split_target_bytes,
+    split_mp4_by_size,
 )
 
 SCRIPT_DIR = Path(__file__).resolve().parent
@@ -79,93 +82,24 @@ def send_failure_notice(token: str, template: str, file_path: Path, reason: str,
     send_text(TARGET_OPENID, content, token)
 
 
-def probe_video_duration(ffprobe_bin: str, file_path: Path) -> float:
-    cmd = [
-        ffprobe_bin,
-        "-v",
-        "error",
-        "-show_entries",
-        "format=duration",
-        "-of",
-        "default=noprint_wrappers=1:nokey=1",
-        str(file_path),
-    ]
-    proc = subprocess.run(
-        cmd,
-        stdout=subprocess.PIPE,
-        stderr=subprocess.STDOUT,
-        text=True,
-        check=False,
-    )
-    output = (proc.stdout or "").strip()
-    if proc.returncode != 0:
-        raise RuntimeError(f"ffprobe退出码={proc.returncode}: {output}")
-    try:
-        return float(output)
-    except ValueError as exc:
-        raise RuntimeError(f"ffprobe返回了无效时长: {output}") from exc
-
-
 def split_mp4(
     ffmpeg_bin: str,
     ffprobe_bin: str,
     split_work_dir: Path,
     file_path: Path,
-    segment_seconds: float,
-) -> List[Path]:
-    duration = probe_video_duration(ffprobe_bin, file_path)
-    if duration <= 0:
-        raise RuntimeError("无法读取有效视频时长")
-
-    split_work_dir.mkdir(parents=True, exist_ok=True)
-    temp_dir = Path(tempfile.mkdtemp(prefix=f"{file_path.stem}_", dir=str(split_work_dir)))
-    segment_seconds = max(1.0, segment_seconds)
-    parts = max(1, math.ceil(duration / segment_seconds))
-    split_paths: List[Path] = []
-
-    try:
-        for index in range(parts):
-            start = segment_seconds * index
-            length = min(segment_seconds, duration - start)
-            out_path = temp_dir / f"{file_path.stem}_part{index + 1:02d}of{parts:02d}.mp4"
-            cmd = [
-                ffmpeg_bin,
-                "-y",
-                "-hide_banner",
-                "-loglevel",
-                "error",
-                "-ss",
-                f"{start:.3f}",
-                "-i",
-                str(file_path),
-                "-t",
-                f"{max(length, 0.001):.3f}",
-                "-map",
-                "0",
-                "-c",
-                "copy",
-                "-avoid_negative_ts",
-                "make_zero",
-                str(out_path),
-            ]
-            proc = subprocess.run(
-                cmd,
-                stdout=subprocess.PIPE,
-                stderr=subprocess.STDOUT,
-                text=True,
-                check=False,
-            )
-            if proc.returncode != 0:
-                output = (proc.stdout or "").strip()
-                raise RuntimeError(f"ffmpeg退出码={proc.returncode}: {output}")
-            if not out_path.exists() or out_path.stat().st_size <= 0:
-                raise RuntimeError(f"ffmpeg未生成有效分段: {out_path.name}")
-            split_paths.append(out_path)
-    except Exception:
-        shutil.rmtree(temp_dir, ignore_errors=True)
-        raise
-
-    return split_paths
+    max_segment_seconds: float,
+    limit_bytes: int,
+    target_bytes: int,
+) -> SplitResult:
+    return split_mp4_by_size(
+        ffmpeg_bin,
+        ffprobe_bin,
+        split_work_dir,
+        file_path,
+        limit_bytes,
+        target_bytes,
+        max_segment_seconds=max_segment_seconds,
+    )
 
 
 def cleanup_split_files(split_paths: List[Path]) -> None:
@@ -183,7 +117,13 @@ def parse_args() -> argparse.Namespace:
         "--segment-seconds",
         type=float,
         default=None,
-        help="覆盖每段视频秒数，默认读 config/config.json",
+        help="覆盖每段视频秒数上限，实际会按目标大小自动缩短",
+    )
+    parser.add_argument(
+        "--target-mb",
+        type=float,
+        default=None,
+        help="覆盖拆分目标大小，默认读 config/config.json，例如 9.5",
     )
     parser.add_argument("--no-split", action="store_true", help="超过大小限制时不拆分，直接发送失败文字")
     return parser.parse_args()
@@ -206,12 +146,13 @@ def main() -> int:
     config_path = Path(args.config).expanduser().resolve()
     config = load_json(config_path, {})
     max_mb = args.max_mb if args.max_mb is not None else float(config.get("max_send_file_mb", 10))
-    segment_seconds = max(
-        1.0,
+    max_segment_seconds = max(
+        0.25,
         args.segment_seconds
         if args.segment_seconds is not None
         else float(config.get("split_large_mp4_segment_seconds", 20)),
     )
+    target_mb = args.target_mb if args.target_mb is not None else float(config.get("split_large_mp4_target_mb", max_mb * 0.95))
     split_enabled = not args.no_split and bool(config.get("split_large_mp4", True))
     failure_template = str(config.get("large_file_failure_template", "由于{reason}，{filename}文件发送失败"))
     ffmpeg_bin = str(config.get("ffmpeg_bin", "ffmpeg"))
@@ -226,6 +167,7 @@ def main() -> int:
     size_bytes = file_path.stat().st_size
     size_mb = size_bytes / 1024 / 1024
     limit_bytes = int(max_mb * 1024 * 1024)
+    target_bytes = resolve_split_target_bytes(limit_bytes, target_mb) if limit_bytes > 0 else 0
 
     split_paths: List[Path] = []
     try:
@@ -243,9 +185,25 @@ def main() -> int:
             print(reason, file=sys.stderr)
             return 4
 
-        print(f"文件大小{size_mb:.2f}MB超过{max_mb:.2f}MB，开始按{segment_seconds:.0f}秒一段拆分")
+        print(
+            f"文件大小{size_mb:.2f}MB超过{max_mb:.2f}MB，"
+            f"开始按目标{bytes_to_mb(target_bytes):.2f}MB自动计算分段时长"
+        )
         try:
-            split_paths = split_mp4(ffmpeg_bin, ffprobe_bin, split_work_dir, file_path, segment_seconds)
+            split_result = split_mp4(
+                ffmpeg_bin,
+                ffprobe_bin,
+                split_work_dir,
+                file_path,
+                max_segment_seconds,
+                limit_bytes,
+                target_bytes,
+            )
+            split_paths = split_result.paths
+            print(
+                f"已按{split_result.segment_seconds:.2f}秒/段切为{len(split_paths)}段"
+                f"（模式{split_result.mode}，尝试{split_result.attempts}次）"
+            )
         except Exception as exc:
             reason = f"文件大小{size_mb:.2f}MB超过{max_mb:.2f}MB限制，且ffmpeg拆分失败: {exc}"
             send_failure_notice(token, failure_template, file_path, reason, size_mb, max_mb)
@@ -257,7 +215,7 @@ def main() -> int:
             largest_mb = max(p.stat().st_size for p in oversized) / 1024 / 1024
             reason = (
                 f"文件大小{size_mb:.2f}MB超过{max_mb:.2f}MB限制，"
-                f"按{segment_seconds:.0f}秒一段拆分后仍有片段超过限制，最大片段{largest_mb:.2f}MB"
+                f"按目标{bytes_to_mb(target_bytes):.2f}MB拆分后仍有片段超过限制，最大片段{largest_mb:.2f}MB"
             )
             send_failure_notice(token, failure_template, file_path, reason, size_mb, max_mb)
             print(reason, file=sys.stderr)

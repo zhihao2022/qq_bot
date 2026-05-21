@@ -4,17 +4,22 @@ import fnmatch
 import hashlib
 import json
 import logging
-import math
 import os
 import signal
 import shutil
 import subprocess
-import tempfile
 import sys
 import threading
 import time
 from pathlib import Path
 from typing import Any, Dict, Iterator, List, Optional, Tuple
+
+from video_split import (
+    SplitResult,
+    bytes_to_mb,
+    resolve_split_target_bytes,
+    split_mp4_by_size,
+)
 
 try:
     from watchdog.events import FileSystemEventHandler
@@ -109,6 +114,7 @@ def normalize_task(
     default_max_send_file_mb: float,
     default_split_large_mp4: bool,
     default_split_large_mp4_segment_seconds: float,
+    default_split_large_mp4_target_mb: float,
     default_large_file_failure_template: str,
 ) -> Dict[str, Any]:
     task = dict(raw_task)
@@ -121,8 +127,11 @@ def normalize_task(
     task["max_send_file_mb"] = float(task.get("max_send_file_mb", default_max_send_file_mb))
     task["split_large_mp4"] = bool(task.get("split_large_mp4", default_split_large_mp4))
     task["split_large_mp4_segment_seconds"] = max(
-        1.0,
+        0.25,
         float(task.get("split_large_mp4_segment_seconds", default_split_large_mp4_segment_seconds)),
+    )
+    task["split_large_mp4_target_mb"] = float(
+        task.get("split_large_mp4_target_mb", default_split_large_mp4_target_mb)
     )
     task["large_file_failure_template"] = str(
         task.get("large_file_failure_template", default_large_file_failure_template)
@@ -143,6 +152,7 @@ def normalize_tasks(
     default_max_send_file_mb: float,
     default_split_large_mp4: bool,
     default_split_large_mp4_segment_seconds: float,
+    default_split_large_mp4_target_mb: float,
     default_large_file_failure_template: str,
 ) -> List[Dict[str, Any]]:
     if not isinstance(raw_tasks, list) or not raw_tasks:
@@ -163,6 +173,7 @@ def normalize_tasks(
             default_max_send_file_mb,
             default_split_large_mp4,
             default_split_large_mp4_segment_seconds,
+            default_split_large_mp4_target_mb,
             default_large_file_failure_template,
         )
         if task["name"] in seen_names:
@@ -205,8 +216,14 @@ class QQVideoWatcher:
         self.config["max_send_file_mb"] = float(self.config.get("max_send_file_mb", 10))
         self.config["split_large_mp4"] = bool(self.config.get("split_large_mp4", True))
         self.config["split_large_mp4_segment_seconds"] = max(
-            1.0,
+            0.25,
             float(self.config.get("split_large_mp4_segment_seconds", 20)),
+        )
+        self.config["split_large_mp4_target_mb"] = float(
+            self.config.get(
+                "split_large_mp4_target_mb",
+                self.config["max_send_file_mb"] * 0.95,
+            )
         )
         self.config["large_file_failure_template"] = str(
             self.config.get(
@@ -283,6 +300,7 @@ class QQVideoWatcher:
             self.config["max_send_file_mb"],
             self.config["split_large_mp4"],
             self.config["split_large_mp4_segment_seconds"],
+            self.config["split_large_mp4_target_mb"],
             self.config["large_file_failure_template"],
         )
 
@@ -642,21 +660,33 @@ class QQVideoWatcher:
         limit_bytes: int,
         limit_mb: float,
     ) -> bool:
-        segment_seconds = max(1.0, float(task.get("split_large_mp4_segment_seconds", 20)))
+        max_segment_seconds = max(0.25, float(task.get("split_large_mp4_segment_seconds", 20)))
+        target_mb = float(task.get("split_large_mp4_target_mb", limit_mb * 0.95))
+        target_bytes = resolve_split_target_bytes(limit_bytes, target_mb)
         size_mb = size_bytes / 1024 / 1024
         logging.info(
-            "[%s] MP4超过大小限制，准备按时长拆分发送: %s size=%.2fMB limit=%.2fMB segment_seconds=%.1f",
+            "[%s] MP4超过大小限制，准备按目标大小拆分发送: %s size=%.2fMB limit=%.2fMB target=%.2fMB max_segment_seconds=%.2f",
             task["name"],
             path,
             size_mb,
             limit_mb,
-            segment_seconds,
+            bytes_to_mb(target_bytes),
+            max_segment_seconds,
         )
 
         split_paths: List[Path] = []
         try:
             try:
-                split_paths = self.split_mp4(path, segment_seconds)
+                split_result = self.split_mp4(path, max_segment_seconds, limit_bytes, target_bytes)
+                split_paths = split_result.paths
+                logging.info(
+                    "[%s] MP4自动拆分完成: parts=%s segment_seconds=%.2f mode=%s attempts=%s",
+                    task["name"],
+                    len(split_paths),
+                    split_result.segment_seconds,
+                    split_result.mode,
+                    split_result.attempts,
+                )
             except Exception as exc:
                 reason = f"文件大小{size_mb:.2f}MB超过{limit_mb:.2f}MB限制，且ffmpeg拆分失败: {exc}"
                 logging.error("[%s] %s", task["name"], reason)
@@ -668,7 +698,7 @@ class QQVideoWatcher:
                 largest_mb = max(p.stat().st_size for p in oversized) / 1024 / 1024
                 reason = (
                     f"文件大小{size_mb:.2f}MB超过{limit_mb:.2f}MB限制，"
-                    f"按{segment_seconds:.0f}秒一段拆分后仍有片段超过限制，最大片段{largest_mb:.2f}MB"
+                    f"按目标{bytes_to_mb(target_bytes):.2f}MB拆分后仍有片段超过限制，最大片段{largest_mb:.2f}MB"
                 )
                 logging.warning("[%s] %s", task["name"], reason)
                 self.send_large_file_failure_notice(task, path, reason, size_bytes=size_bytes, limit_mb=limit_mb)
@@ -686,61 +716,22 @@ class QQVideoWatcher:
         finally:
             self.cleanup_split_files(split_paths)
 
-    def split_mp4(self, path: Path, segment_seconds: float) -> List[Path]:
-        duration = self.probe_video_duration(path)
-        if duration <= 0:
-            raise RuntimeError("无法读取有效视频时长")
-
-        work_root = Path(self.config["split_work_dir"])
-        work_root.mkdir(parents=True, exist_ok=True)
-        temp_dir = Path(tempfile.mkdtemp(prefix=f"{path.stem}_", dir=str(work_root)))
-        segment_seconds = max(1.0, segment_seconds)
-        parts = max(1, math.ceil(duration / segment_seconds))
-        split_paths: List[Path] = []
-
-        try:
-            for index in range(parts):
-                start = segment_seconds * index
-                length = min(segment_seconds, duration - start)
-                out_path = temp_dir / f"{path.stem}_part{index + 1:02d}of{parts:02d}.mp4"
-                cmd = [
-                    self.config["ffmpeg_bin"],
-                    "-y",
-                    "-hide_banner",
-                    "-loglevel",
-                    "error",
-                    "-ss",
-                    f"{start:.3f}",
-                    "-i",
-                    str(path),
-                    "-t",
-                    f"{max(length, 0.001):.3f}",
-                    "-map",
-                    "0",
-                    "-c",
-                    "copy",
-                    "-avoid_negative_ts",
-                    "make_zero",
-                    str(out_path),
-                ]
-                proc = subprocess.run(
-                    cmd,
-                    stdout=subprocess.PIPE,
-                    stderr=subprocess.STDOUT,
-                    text=True,
-                    check=False,
-                )
-                if proc.returncode != 0:
-                    output = (proc.stdout or "").strip()
-                    raise RuntimeError(f"ffmpeg退出码={proc.returncode}: {output}")
-                if not out_path.exists() or out_path.stat().st_size <= 0:
-                    raise RuntimeError(f"ffmpeg未生成有效分段: {out_path.name}")
-                split_paths.append(out_path)
-        except Exception:
-            shutil.rmtree(temp_dir, ignore_errors=True)
-            raise
-
-        return split_paths
+    def split_mp4(
+        self,
+        path: Path,
+        max_segment_seconds: float,
+        limit_bytes: int,
+        target_bytes: int,
+    ) -> SplitResult:
+        return split_mp4_by_size(
+            self.config["ffmpeg_bin"],
+            self.config["ffprobe_bin"],
+            Path(self.config["split_work_dir"]),
+            path,
+            limit_bytes,
+            target_bytes,
+            max_segment_seconds=max_segment_seconds,
+        )
 
     def cleanup_split_files(self, split_paths: List[Path]) -> None:
         if not split_paths:
@@ -750,32 +741,6 @@ class QQVideoWatcher:
             shutil.rmtree(split_dir, ignore_errors=True)
         except OSError as exc:
             logging.warning("清理视频分段临时目录失败: %s (%s)", split_dir, exc)
-
-    def probe_video_duration(self, path: Path) -> float:
-        cmd = [
-            self.config["ffprobe_bin"],
-            "-v",
-            "error",
-            "-show_entries",
-            "format=duration",
-            "-of",
-            "default=noprint_wrappers=1:nokey=1",
-            str(path),
-        ]
-        proc = subprocess.run(
-            cmd,
-            stdout=subprocess.PIPE,
-            stderr=subprocess.STDOUT,
-            text=True,
-            check=False,
-        )
-        output = (proc.stdout or "").strip()
-        if proc.returncode != 0:
-            raise RuntimeError(f"ffprobe退出码={proc.returncode}: {output}")
-        try:
-            return float(output)
-        except ValueError as exc:
-            raise RuntimeError(f"ffprobe返回了无效时长: {output}") from exc
 
     def send_file_direct(self, task: Dict[str, Any], path: Path, display_name: str = "") -> bool:
         cmd = [self.config["python_bin"], str(self.send_file_script), str(path)]
