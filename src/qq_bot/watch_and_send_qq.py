@@ -7,6 +7,7 @@ import logging
 import os
 import signal
 import shutil
+import socket
 import subprocess
 import sys
 import threading
@@ -17,8 +18,10 @@ from typing import Any, Dict, Iterator, List, Optional, Tuple
 from video_split import (
     SplitResult,
     bytes_to_mb,
+    make_split_manifest_path,
     resolve_split_target_bytes,
     split_mp4_by_size,
+    write_split_manifest,
 )
 
 try:
@@ -665,16 +668,16 @@ class QQVideoWatcher:
         target_bytes = resolve_split_target_bytes(limit_bytes, target_mb)
         size_mb = size_bytes / 1024 / 1024
         logging.info(
-            "[%s] MP4超过大小限制，准备按目标大小拆分发送: %s size=%.2fMB limit=%.2fMB target=%.2fMB max_segment_seconds=%.2f",
+            "[%s] MP4超过大小限制，准备按目标大小优先用最少段数拆分发送: %s size=%.2fMB limit=%.2fMB target=%.2fMB",
             task["name"],
             path,
             size_mb,
             limit_mb,
             bytes_to_mb(target_bytes),
-            max_segment_seconds,
         )
 
         split_paths: List[Path] = []
+        manifest_path: Optional[Path] = None
         try:
             try:
                 split_result = self.split_mp4(path, max_segment_seconds, limit_bytes, target_bytes)
@@ -704,6 +707,31 @@ class QQVideoWatcher:
                 self.send_large_file_failure_notice(task, path, reason, size_bytes=size_bytes, limit_mb=limit_mb)
                 return False
 
+            try:
+                manifest_path = make_split_manifest_path(path, split_paths)
+                manifest = write_split_manifest(
+                    original_video=path,
+                    part_paths=split_paths,
+                    split_result=split_result,
+                    manifest_path=manifest_path,
+                    source={
+                        "host": socket.gethostname(),
+                        "watch_name": task["name"],
+                    },
+                    output_name=f"{path.stem}_merged.mp4",
+                )
+                logging.info(
+                    "[%s] split manifest 已生成: %s parts=%s",
+                    task["name"],
+                    manifest_path,
+                    len(manifest.get("parts", [])),
+                )
+            except Exception as exc:
+                reason = f"文件已拆分，但生成 split manifest 失败: {exc}"
+                logging.error("[%s] %s", task["name"], reason)
+                self.send_large_file_failure_notice(task, path, reason, size_bytes=size_bytes, limit_mb=limit_mb)
+                return False
+
             for index, split_path in enumerate(split_paths, start=1):
                 display_name = f"{path.stem}_part{index:02d}of{len(split_paths):02d}{path.suffix.lower()}"
                 if not self.send_file_direct(task, split_path, display_name=display_name):
@@ -711,7 +739,13 @@ class QQVideoWatcher:
                     self.send_large_file_failure_notice(task, path, reason, size_bytes=size_bytes, limit_mb=limit_mb)
                     return False
 
-            logging.info("[%s] 大MP4已拆分并全部发送成功: %s", task["name"], path.name)
+            if not manifest_path or not self.send_file_direct(task, manifest_path, display_name=manifest_path.name):
+                reason = "文件分片已发送，但 split manifest 发送失败"
+                logging.error("[%s] %s: %s", task["name"], reason, path.name)
+                self.send_large_file_failure_notice(task, path, reason, size_bytes=size_bytes, limit_mb=limit_mb)
+                return False
+
+            logging.info("[%s] 大MP4已拆分，所有分片和 manifest 均发送成功: %s", task["name"], path.name)
             return True
         finally:
             self.cleanup_split_files(split_paths)

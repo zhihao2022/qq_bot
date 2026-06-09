@@ -18,6 +18,7 @@
 │   ├── send_qq_video.py     # 单发视频
 │   ├── send_qq_text.py      # 单发文字
 │   └── qq_bot_min.py        # 最小 WebSocket Bot 示例
+├── scripts/local_merge/     # 本地合并 QQ 接收视频分片的独立脚本
 ├── data/                    # 接收文件与消息记录，默认不提交
 ├── logs/                    # 运行日志，默认不提交
 ├── var/                     # 状态文件，默认不提交
@@ -59,7 +60,7 @@ python src/qq_bot/watch_and_send_qq.py
 - 运行状态：`var/state.json`
 - 日志文件：`logs/watch_and_send_qq.log`
 
-启动后会先对当前任务做一次初始检查，扫描已有的匹配文件；如果该文件版本还没有记录在 `var/state.json` 中，就会按 `settle_seconds` 等待稳定后自动发送。默认 `max_send_file_mb` 为 `10`。文件不超过限制时直接发送；`.mp4` 超过限制时会使用 `ffmpeg` 按 `split_large_mp4_target_mb` 自动估算分段时长，默认目标 9.5MB，`split_large_mp4_segment_seconds` 作为单段时长上限；切完会确认每段仍不超过限制，若超过则自动缩短时长重试。若无损拆分受关键帧影响仍然超限，会自动改为重新编码并按目标大小控制码率。若拆分/发送失败，会发送 `large_file_failure_template` 配置的失败文字，例如“由于xxx原因，xxx文件发送失败”。`max_send_file_mb` 设为 `0` 表示不限制。
+启动后会先对当前任务做一次初始检查，扫描已有的匹配文件；如果该文件版本还没有记录在 `var/state.json` 中，就会按 `settle_seconds` 等待稳定后自动发送。默认 `max_send_file_mb` 为 `10`。文件不超过限制时直接发送；`.mp4` 超过限制时会使用 `ffmpeg` 按 `split_large_mp4_target_mb` 优先尝试最少分段，默认目标 9.5MB，并按关键帧自然切片；切完会确认每段仍不超过限制，若超过则增加段数重试。若无损拆分受关键帧影响仍然超限，会自动改为重新编码并按目标大小控制码率。拆分发送时会在所有分片之后额外发送 `<原文件名>_split_manifest.json`，其中记录原视频和每个分片的 size、mtime、SHA256，用于本地自动匹配合并。若拆分/发送失败，会发送 `large_file_failure_template` 配置的失败文字，例如“由于xxx原因，xxx文件发送失败”。`max_send_file_mb` 设为 `0` 表示不限制。
 
 也可以显式指定：
 
@@ -136,7 +137,34 @@ python src/qq_bot/send_qq_text.py "消息内容"
 ./send_mp4.sh
 ```
 
-`send_qq_large_mp4.py` 会读取 `config/config.json`：默认 10MB 以内直发，超过 10MB 的 MP4 会按 9.5MB 目标自动估算分段时长，且不超过 `split_large_mp4_segment_seconds` 配置的单段时长上限；无损拆分后仍有片段超过限制时，会自动缩短时长重试，再不行就重新编码控制码率，最终仍失败则发送失败文字通知。
+`send_qq_large_mp4.py` 会读取 `config/config.json`：默认 10MB 以内直发，超过 10MB 的 MP4 会按 9.5MB 目标优先尝试最少分段；无损拆分后仍有片段超过限制时，会增加段数重试，再不行就重新编码控制码率，最终仍失败则发送失败文字通知。`split_large_mp4_segment_seconds` 是旧配置项，目前仅保留兼容。
+
+## 本地合并 QQ 接收的视频分片
+
+当 QQ 把分片文件保存成 hash 文件名时，可以用 manifest 自动识别和合并：
+
+```bash
+python scripts/local_merge/merge_received_split_video.py
+```
+
+脚本会提示输入包含 QQ 接收视频和 manifest 的目录，并递归搜索 `.json` manifest 与 `.mp4` 候选分片。也可以直接传参：
+
+```bash
+python scripts/local_merge/merge_received_split_video.py \
+  --dir data/received_files \
+  --output-dir data/received_files/merged \
+  --time-tolerance 86400 \
+  --size-tolerance 0
+```
+
+常用参数：
+
+- `--dry-run`：只显示匹配结果，不调用 ffmpeg 合并。
+- `--overwrite`：输出文件已存在时覆盖；默认自动追加 `_001`、`_002` 等编号。
+- `--keep-list-file`：保留 ffmpeg concat list 文件，便于排查。
+- `--no-recursive`：只搜索目录第一层；默认递归搜索。
+
+本地脚本只根据 manifest 中的 size、mtime、SHA256 匹配 `.mp4` 分片，不依赖 QQ 保存后的文件名；找齐后使用 `ffmpeg concat demuxer` 合并，不使用二进制拼接。
 
 ## 注意事项
 

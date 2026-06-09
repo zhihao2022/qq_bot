@@ -1,11 +1,14 @@
 #!/usr/bin/env python3
+import hashlib
+import json
 import math
 import shutil
 import subprocess
 import tempfile
 from dataclasses import dataclass
+from datetime import datetime
 from pathlib import Path
-from typing import List, Optional
+from typing import Any, Dict, List, Optional
 
 
 BYTES_PER_MB = 1024 * 1024
@@ -16,6 +19,8 @@ RETRY_SHRINK_FACTOR = 0.85
 REENCODE_BITRATE_HEADROOM = 0.90
 DEFAULT_REENCODE_AUDIO_KBPS = 96
 MIN_REENCODE_VIDEO_KBPS = 150
+SPLIT_MANIFEST_TYPE = "qq_bot_video_split_manifest"
+SPLIT_MANIFEST_VERSION = 1
 
 
 @dataclass
@@ -35,6 +40,91 @@ def mb_to_bytes(value: float) -> int:
 
 def bytes_to_mb(value: int) -> float:
     return value / BYTES_PER_MB
+
+
+def sha256_file(path: Path, chunk_size: int = 1024 * 1024) -> str:
+    h = hashlib.sha256()
+    with path.open("rb") as f:
+        while True:
+            chunk = f.read(chunk_size)
+            if not chunk:
+                break
+            h.update(chunk)
+    return h.hexdigest()
+
+
+def make_split_manifest_path(original_video: Path, part_paths: List[Path]) -> Path:
+    manifest_dir = part_paths[0].parent if part_paths else original_video.parent
+    return manifest_dir / f"{original_video.stem}_split_manifest.json"
+
+
+def build_split_manifest(
+    original_video: Path,
+    part_paths: List[Path],
+    split_result: SplitResult,
+    source: Optional[Dict[str, Any]] = None,
+    output_name: str = "",
+) -> Dict[str, Any]:
+    original_stat = original_video.stat()
+    total = len(part_paths)
+    return {
+        "type": SPLIT_MANIFEST_TYPE,
+        "version": SPLIT_MANIFEST_VERSION,
+        "video_id": original_video.stem,
+        "created_at": datetime.now().astimezone().isoformat(timespec="seconds"),
+        "source": source or {},
+        "original": {
+            "name": original_video.name,
+            "stem": original_video.stem,
+            "size": original_stat.st_size,
+            "sha256": sha256_file(original_video),
+            "mtime": original_stat.st_mtime,
+        },
+        "split": {
+            "total": total,
+            "mode": split_result.mode,
+            "segment_seconds": split_result.segment_seconds,
+            "target_size_bytes": split_result.target_bytes,
+            "size_limit_bytes": split_result.limit_bytes,
+        },
+        "parts": [
+            {
+                "index": index,
+                "total": total,
+                "name": part_path.name,
+                "size": part_path.stat().st_size,
+                "sha256": sha256_file(part_path),
+                "mtime": part_path.stat().st_mtime,
+            }
+            for index, part_path in enumerate(part_paths, start=1)
+        ],
+        "merge": {
+            "method": "ffmpeg_concat_demuxer",
+            "output_name": output_name or f"{original_video.stem}_merged.mp4",
+        },
+    }
+
+
+def write_split_manifest(
+    original_video: Path,
+    part_paths: List[Path],
+    split_result: SplitResult,
+    manifest_path: Path,
+    source: Optional[Dict[str, Any]] = None,
+    output_name: str = "",
+) -> Dict[str, Any]:
+    manifest = build_split_manifest(
+        original_video=original_video,
+        part_paths=part_paths,
+        split_result=split_result,
+        source=source,
+        output_name=output_name,
+    )
+    manifest_path.parent.mkdir(parents=True, exist_ok=True)
+    with manifest_path.open("w", encoding="utf-8") as f:
+        json.dump(manifest, f, ensure_ascii=False, indent=2)
+        f.write("\n")
+    return manifest
 
 
 def resolve_split_target_bytes(limit_bytes: int, target_mb: Optional[float]) -> int:
@@ -98,6 +188,24 @@ def estimate_segment_seconds(
     return max(min_segment_seconds, seconds)
 
 
+def estimate_min_parts(file_size_bytes: int, target_bytes: int) -> int:
+    if file_size_bytes <= 0:
+        raise ValueError("file_size_bytes必须大于0")
+    if target_bytes <= 0:
+        raise ValueError("target_bytes必须大于0")
+    return max(1, math.ceil(file_size_bytes / target_bytes))
+
+
+def segment_seconds_for_parts(
+    duration: float,
+    parts: int,
+    min_segment_seconds: float = DEFAULT_MIN_SEGMENT_SECONDS,
+) -> float:
+    if duration <= 0:
+        raise ValueError("duration必须大于0")
+    return max(min_segment_seconds, duration / max(1, parts))
+
+
 def split_mp4_by_size(
     ffmpeg_bin: str,
     ffprobe_bin: str,
@@ -116,20 +224,29 @@ def split_mp4_by_size(
 
     file_size_bytes = file_path.stat().st_size
     target_bytes = max(1, min(target_bytes, limit_bytes))
-    initial_segment_seconds = estimate_segment_seconds(
+    initial_parts = estimate_min_parts(file_size_bytes, target_bytes)
+    initial_segment_seconds = segment_seconds_for_parts(
         duration,
-        file_size_bytes,
-        target_bytes,
-        max_segment_seconds=max_segment_seconds,
+        initial_parts,
         min_segment_seconds=min_segment_seconds,
     )
-    segment_seconds = initial_segment_seconds
 
     split_work_dir.mkdir(parents=True, exist_ok=True)
     last_largest_bytes = 0
     copy_error = None
+    last_segment_seconds = 0.0
 
     for attempt in range(1, max(max_attempts, 1) + 1):
+        parts = initial_parts + attempt - 1
+        segment_seconds = segment_seconds_for_parts(
+            duration,
+            parts,
+            min_segment_seconds=min_segment_seconds,
+        )
+        if abs(segment_seconds - last_segment_seconds) < 0.001:
+            break
+        last_segment_seconds = segment_seconds
+
         temp_dir = Path(tempfile.mkdtemp(prefix=f"{file_path.stem}_", dir=str(split_work_dir)))
         try:
             split_paths = split_mp4_copy(ffmpeg_bin, file_path, temp_dir, duration, segment_seconds)
@@ -154,15 +271,6 @@ def split_mp4_by_size(
             raise
 
         shutil.rmtree(temp_dir, ignore_errors=True)
-        if segment_seconds <= min_segment_seconds + 0.001:
-            break
-
-        shrink_by_size = (target_bytes / last_largest_bytes) * 0.95 if last_largest_bytes > 0 else RETRY_SHRINK_FACTOR
-        shrink = min(RETRY_SHRINK_FACTOR, max(0.10, shrink_by_size))
-        next_segment_seconds = max(min_segment_seconds, segment_seconds * shrink)
-        if abs(next_segment_seconds - segment_seconds) < 0.001:
-            break
-        segment_seconds = next_segment_seconds
 
     if reencode_on_oversize:
         return split_mp4_reencode_by_size(
@@ -190,49 +298,57 @@ def split_mp4_copy(
     ffmpeg_bin: str,
     file_path: Path,
     temp_dir: Path,
-    duration: float,
+    _duration: float,
     segment_seconds: float,
 ) -> List[Path]:
     segment_seconds = max(DEFAULT_MIN_SEGMENT_SECONDS, segment_seconds)
-    parts = max(1, math.ceil(duration / segment_seconds))
-    split_paths: List[Path] = []
+    chunk_pattern = temp_dir / f"{file_path.stem}_chunk_%05d.mp4"
+    cmd = [
+        ffmpeg_bin,
+        "-y",
+        "-hide_banner",
+        "-loglevel",
+        "error",
+        "-i",
+        str(file_path),
+        "-map",
+        "0",
+        "-c",
+        "copy",
+        "-f",
+        "segment",
+        "-segment_time",
+        f"{segment_seconds:.3f}",
+        "-reset_timestamps",
+        "1",
+        str(chunk_pattern),
+    ]
+    proc = subprocess.run(
+        cmd,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.STDOUT,
+        text=True,
+        check=False,
+    )
+    if proc.returncode != 0:
+        output = (proc.stdout or "").strip()
+        raise RuntimeError(f"ffmpeg退出码={proc.returncode}: {output}")
 
-    for index in range(parts):
-        start = segment_seconds * index
-        length = min(segment_seconds, duration - start)
-        out_path = temp_dir / f"{file_path.stem}_part{index + 1:02d}of{parts:02d}.mp4"
-        cmd = [
-            ffmpeg_bin,
-            "-y",
-            "-hide_banner",
-            "-loglevel",
-            "error",
-            "-ss",
-            f"{start:.3f}",
-            "-i",
-            str(file_path),
-            "-t",
-            f"{max(length, 0.001):.3f}",
-            "-map",
-            "0",
-            "-c",
-            "copy",
-            "-avoid_negative_ts",
-            "make_zero",
-            str(out_path),
-        ]
-        proc = subprocess.run(
-            cmd,
-            stdout=subprocess.PIPE,
-            stderr=subprocess.STDOUT,
-            text=True,
-            check=False,
-        )
-        if proc.returncode != 0:
-            output = (proc.stdout or "").strip()
-            raise RuntimeError(f"ffmpeg退出码={proc.returncode}: {output}")
-        if not out_path.exists() or out_path.stat().st_size <= 0:
-            raise RuntimeError(f"ffmpeg未生成有效分段: {out_path.name}")
+    chunk_prefix = f"{file_path.stem}_chunk_"
+    chunk_paths = sorted(
+        p for p in temp_dir.iterdir()
+        if p.name.startswith(chunk_prefix) and p.suffix.lower() == ".mp4"
+    )
+    if not chunk_paths:
+        raise RuntimeError("ffmpeg未生成有效分段")
+
+    parts = len(chunk_paths)
+    split_paths: List[Path] = []
+    for index, chunk_path in enumerate(chunk_paths, start=1):
+        if chunk_path.stat().st_size <= 0:
+            raise RuntimeError(f"ffmpeg未生成有效分段: {chunk_path.name}")
+        out_path = temp_dir / f"{file_path.stem}_part{index:02d}of{parts:02d}.mp4"
+        chunk_path.rename(out_path)
         split_paths.append(out_path)
 
     return split_paths

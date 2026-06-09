@@ -2,10 +2,11 @@
 import argparse
 import json
 import shutil
+import socket
 import sys
 import urllib.error
 from pathlib import Path
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Optional
 
 from send_qq_text import send_text
 from send_qq_video import (
@@ -19,8 +20,10 @@ from send_qq_video import (
 from video_split import (
     SplitResult,
     bytes_to_mb,
+    make_split_manifest_path,
     resolve_split_target_bytes,
     split_mp4_by_size,
+    write_split_manifest,
 )
 
 SCRIPT_DIR = Path(__file__).resolve().parent
@@ -117,7 +120,7 @@ def parse_args() -> argparse.Namespace:
         "--segment-seconds",
         type=float,
         default=None,
-        help="覆盖每段视频秒数上限，实际会按目标大小自动缩短",
+        help="兼容旧参数；当前主要按目标大小自动选择最少分段",
     )
     parser.add_argument(
         "--target-mb",
@@ -170,6 +173,7 @@ def main() -> int:
     target_bytes = resolve_split_target_bytes(limit_bytes, target_mb) if limit_bytes > 0 else 0
 
     split_paths: List[Path] = []
+    manifest_path: Optional[Path] = None
     try:
         token = get_access_token(APP_ID, APP_SECRET)
 
@@ -187,7 +191,7 @@ def main() -> int:
 
         print(
             f"文件大小{size_mb:.2f}MB超过{max_mb:.2f}MB，"
-            f"开始按目标{bytes_to_mb(target_bytes):.2f}MB自动计算分段时长"
+            f"开始按目标{bytes_to_mb(target_bytes):.2f}MB优先尝试最少分段"
         )
         try:
             split_result = split_mp4(
@@ -201,8 +205,8 @@ def main() -> int:
             )
             split_paths = split_result.paths
             print(
-                f"已按{split_result.segment_seconds:.2f}秒/段切为{len(split_paths)}段"
-                f"（模式{split_result.mode}，尝试{split_result.attempts}次）"
+                f"已切为{len(split_paths)}段"
+                f"（参考间隔{split_result.segment_seconds:.2f}秒，模式{split_result.mode}，尝试{split_result.attempts}次）"
             )
         except Exception as exc:
             reason = f"文件大小{size_mb:.2f}MB超过{max_mb:.2f}MB限制，且ffmpeg拆分失败: {exc}"
@@ -221,6 +225,26 @@ def main() -> int:
             print(reason, file=sys.stderr)
             return 6
 
+        try:
+            manifest_path = make_split_manifest_path(file_path, split_paths)
+            manifest = write_split_manifest(
+                original_video=file_path,
+                part_paths=split_paths,
+                split_result=split_result,
+                manifest_path=manifest_path,
+                source={
+                    "host": socket.gethostname(),
+                    "watch_name": "send_qq_large_mp4",
+                },
+                output_name=f"{file_path.stem}_merged.mp4",
+            )
+            print(f"已生成 split manifest: {manifest_path}（parts={len(manifest.get('parts', []))}）")
+        except Exception as exc:
+            reason = f"文件已拆分，但生成 split manifest 失败: {exc}"
+            send_failure_notice(token, failure_template, file_path, reason, size_mb, max_mb)
+            print(reason, file=sys.stderr)
+            return 7
+
         results = []
         for index, split_path in enumerate(split_paths, start=1):
             part_name = f"{file_path.stem}_part{index:02d}of{len(split_paths):02d}.mp4"
@@ -232,10 +256,34 @@ def main() -> int:
                 reason = f"文件拆分为{len(split_paths)}段后，第{index}段发送失败: {exc}"
                 send_failure_notice(token, failure_template, file_path, reason, size_mb, max_mb)
                 print(reason, file=sys.stderr)
-                return 7
+                return 8
 
-        print("文件已拆分并全部发送成功")
-        print(json.dumps({"parts": len(results), "results": results}, ensure_ascii=False, indent=2))
+        if manifest_path is None:
+            reason = "文件已拆分，但 split manifest 路径为空"
+            send_failure_notice(token, failure_template, file_path, reason, size_mb, max_mb)
+            print(reason, file=sys.stderr)
+            return 9
+
+        try:
+            print(f"发送 split manifest: {manifest_path.name}")
+            manifest_result = send_one_mp4(
+                manifest_path,
+                token,
+                content="",
+                display_name=manifest_path.name,
+            )
+        except Exception as exc:
+            reason = f"文件分片已发送，但 split manifest 发送失败: {exc}"
+            send_failure_notice(token, failure_template, file_path, reason, size_mb, max_mb)
+            print(reason, file=sys.stderr)
+            return 9
+
+        print("文件已拆分，所有分片和 split manifest 均发送成功")
+        print(json.dumps(
+            {"parts": len(results), "results": results, "manifest_result": manifest_result},
+            ensure_ascii=False,
+            indent=2,
+        ))
         return 0
 
     except urllib.error.HTTPError as exc:

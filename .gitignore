@@ -11,6 +11,8 @@ __pycache__/
 .env.*
 .venv/
 venv/
+config/config.json
+config/tasks.json
 
 # Local editor / Codex state
 .vscode/
